@@ -3,10 +3,30 @@
 	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-	<definition name="index" template="/pages/index.jsp" />
-	<definition name="nova-cota" template="/pages/cotas/nova-cota.jsp" />
-	<definition name="novo-fundo" template="/pages/fundos/novo-fundo.jsp" />
-	<definition name="novo-tipo-fundo" template="/pages/tipo-fundos/novo-tipo-fundo.jsp" />
-	<definition name="novo-movimento-fundos" template="/pages/movimento-fundos/novo-movimento-fundos.jsp" />
-	<definition name="novo-tipo-movimento-fundos" template="/pages/tipo-movimento-fundos/novo-tipo-movimento-fundos.jsp" />
+	<definition name="main" template="/pages/templates/conteudo.jsp">
+		<put-attribute name="cabecalho" value="/pages/templates/cabecalho.jsp" />
+		<put-attribute name="rodape" value="/pages/templates/rodape.jsp" />
+	</definition>
+
+	<definition name="acesso" extends="main">
+		<put-attribute name="conteudo" value="/pages/acesso.jsp" />
+	</definition>
+	<definition name="painel" extends="main">
+		<put-attribute name="conteudo" value="/pages/painel.jsp" />
+	</definition>
+
+	<!-- Usuário -->
+	<definition name="usuario" extends="main">
+		<put-attribute name="conteudo" value="/pages/usuario/editar-perfil.jsp" />
+	</definition>
+
+	<!-- Tarefa -->
+	<definition name="tarefa" extends="main">
+		<put-attribute name="conteudo" value="/pages/tarefa/lista-tarefas.jsp" />
+	</definition>
+
+	<!-- Apontamento -->
+	<definition name="apontamento" extends="main">
+		<put-attribute name="conteudo" value="/pages/apontamento/apontamento.jsp" />
+	</definition>
 </tiles-definitions>
