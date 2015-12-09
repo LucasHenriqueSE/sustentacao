@@ -16,32 +16,30 @@ public class Apontamento {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "ID_APONTAMENTO")
+	@Column(name = "CODIGO_APONTAMENTO")
 	private long id;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_USUARIO")
-	@Column(name = "CODIGO_APONTAMENTO")
-	private Usuario codigo;
+	@JoinColumn(name = "CODIGO_USUARIO")
+	private Usuario usuario;
 
-	@Column(name = "DATA_APONTAMENTO")
+	@Column(name = "DATA")
 	private Calendar data;
 
-	@Column(name = "HORA_INICIO_APONTAMENTO")
+	@Column(name = "HORA_INICIO")
 	private Calendar horaInicio;
 
-	@Column(name = "HORA_TERMINO_APONTAMENTO")
+	@Column(name = "HORA_TERMINO")
 	private Calendar horaTermino;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_TAREFA")
-	@Column(name = "TAREFA_APONTAMENTO")
+	@JoinColumn(name = "CODIGO_TAREFA")
 	private Tarefa tarefa;
 
-	@Column(name = "DESCRICAO_APONTAMENTO")
+	@Column(name = "DESCRICAO")
 	private String descricao;
 
-	@Column(name = "DATA_CADASTRO_APONTAMENTO")
+	@Column(name = "DATA_CADASTRO")
 	private Calendar dataCadastro;
 
 	public long getId() {
@@ -52,12 +50,12 @@ public class Apontamento {
 		this.id = id;
 	}
 
-	public Usuario getCodigo() {
-		return codigo;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCodigo(Usuario codigo) {
-		this.codigo = codigo;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public Calendar getData() {

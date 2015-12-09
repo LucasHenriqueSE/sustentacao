@@ -16,19 +16,19 @@ public class TipoTarefa {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "ID_TIPO_TAREFA")
+	@Column(name = "CODIGO_TIPO_TAREFA")
 	private long id;
 
-	@Column(name = "NOME_TIPO_TAREFA")
+	@Column(name = "NOME")
 	private String nome;
 
-	@Column(name = "QTD_HORAS_TIPO_TAREFA")
+	@Column(name = "QTD_HORAS")
 	private long qtdHoras;
 
-	@Column(name = "QTD_HORAS_PARA_AVISO_TIPO_TAREFA")
+	@Column(name = "QTD_HORAS_ALERTA")
 	private long qtdHorasParaAviso;
 
-	@OneToMany(mappedBy = "TIPO_TAREFA", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "tipo", fetch = FetchType.EAGER)
 	private List<Tarefa> tarefas;
 
 	public long getId() {

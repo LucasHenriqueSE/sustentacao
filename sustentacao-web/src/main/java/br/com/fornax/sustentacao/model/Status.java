@@ -16,13 +16,13 @@ public class Status {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "ID_STATUS")
+	@Column(name = "CODIGO_STATUS")
 	private long id;
 
-	@Column(name = "NOME_STATUS")
+	@Column(name = "NOME")
 	private String nome;
 
-	@OneToMany(mappedBy = "STATUS_TAREFA", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "status", fetch = FetchType.EAGER)
 	private List<Tarefa> tarefas;
 
 	public long getId() {

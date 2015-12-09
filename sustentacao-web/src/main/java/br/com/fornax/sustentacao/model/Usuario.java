@@ -18,27 +18,26 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "ID_USUARIO")
+	@Column(name = "CODIGO_USUARIO")
 	private long id;
 
-	@Column(name = "NOME_USUARIO")
+	@Column(name = "NOME")
 	private String nome;
 
-	@Column(name = "LOGIN_USUARIO")
+	@Column(name = "LOGIN")
 	private String login;
 
-	@Column(name = "SENHA_USUARIO")
+	@Column(name = "SENHA")
 	private String senha;
 
-	@Column(name = "EMAIL_USUARIO")
+	@Column(name = "EMAIL")
 	private String email;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_PERFIL")
-	@Column(name = "PERFIL_USUARIO")
+	@JoinColumn(name = "CODIGO_PERFIL")
 	private Perfil perfil;
 
-	@OneToMany(mappedBy = "CODIGO_APONTAMENTO", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<Apontamento> apontamentos;
 
 	public long getId() {

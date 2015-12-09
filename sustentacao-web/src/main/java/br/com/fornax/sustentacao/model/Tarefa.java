@@ -18,29 +18,27 @@ public class Tarefa {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "ID_TAREFA")
+	@Column(name = "CODIGO_TAREFA")
 	private long id;
 
 	@ManyToOne
-	@Column(name = "TIPO_TAREFA")
-	@JoinColumn(name = "ID_TIPO_TAREFA")
+	@JoinColumn(name = "CODIGO_TIPO_TAREFA")
 	private TipoTarefa tipo;
 
-	@Column(name = "NUMERO_CHAMADO_TAREFA")
+	@Column(name = "NUMERO_CHAMADO")
 	private long numeroChamado;
 
-	@Column(name = "DESCRICAO_TAREFA")
+	@Column(name = "DESCRICAO")
 	private String descricao;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_STATUS")
-	@Column(name = "STATUS_TAREFA")
+	@JoinColumn(name = "CODIGO_STATUS")
 	private Status status;
 
-	@Column(name = "QTD_HORAS_DISPONIVEIS_TAREFA")
+	@Column(name = "QTD_HORAS_DISPONIVEIS")
 	private long qtdHorasDisponiveis;
 
-	@OneToMany(mappedBy = "TAREFA_APONTAMENTO", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "tarefa", fetch = FetchType.EAGER)
 	private List<Apontamento> apontamentos;
 
 	public long getId() {

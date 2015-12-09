@@ -14,13 +14,13 @@ import javax.persistence.Table;
 public class Perfil {
 
 	@Id
-	@Column(name = "ID_PERFIL")
+	@Column(name = "CODIGO_PERFIL")
 	private String perfil;
 
-	@Column(name = "DESCRICAO_PERFIL")
+	@Column(name = "DESCRICAO")
 	private String descricao;
 
-	@OneToMany(mappedBy = "PERFIL_USUARIO", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "perfil", fetch = FetchType.EAGER)
 	private List<Usuario> usuarios;
 
 	public String getPerfil() {
