@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" id="frmHoras" action="" method="POST">
+	<form class="" action="" method="get">
 		<table class="" id="tblApontamentos">
 			<tr>
 				<td>Data de Cadastro</td>
@@ -19,10 +19,13 @@
 				<td>Hora Início</td>
 				<td>Hora Término</td>
 			</tr>
+			<tr>
+				
+			</tr>
 		</table>
 		<br>
-	<button class="" id="btnNovo" value="">Cadastrar Novo</button>
-	<button class="" id="btnEditar">Editar</button>
+	<button class="" value="" type="submit">Cadastrar Novo</button>
+	<button class=""  value="" type="submit">Editar</button>
 	</form>
 </body>
 </html>

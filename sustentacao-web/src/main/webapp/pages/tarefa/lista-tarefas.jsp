@@ -9,8 +9,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="">
-		Lista-Tarefas
+	<form class="" action="" method="get">
+		<table>
+			<tr>
+				<td>Tipo de Tarefa</td>
+				<td>Descrição</td>
+				<td>Número do Chamado</td>
+				<td>Status</td>
+				<td>Horas Disponíveis</td>
+			</tr>
+			<tr>
+				
+			</tr>
+		</table>
+		<br>
+		<button class="" value="" type="submit">Cadastrar Novo</button>
+		<button class="" value="" type="submit">Editar</button>
 	</form>
 </body>
 </html>

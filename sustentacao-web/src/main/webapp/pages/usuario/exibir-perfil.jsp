@@ -9,8 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="">
-		editar-perfil
+	<form class="" action="" method="get">
+		<br>
+		<input id="id" value="" type="hidden">
+		Nome<input class="" id="nome" name=""/><br>
+		Email<input class="" id="email" name=""/><br>
+		Login<input class="" id="login" name=""/><br>
+		Senha<input class="" id="senha" name="" type="password" /><br>
+		Perfil<input class="" id="perfil" name="" /><br><br>
+		
+		<button class="" value="" type="submit">Cadastrar Novo</button>
+		<button class="" value="" type="submit">Editar</button>
 	</form>
 </body>
 </html>

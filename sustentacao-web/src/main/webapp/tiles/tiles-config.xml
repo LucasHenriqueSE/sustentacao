@@ -9,6 +9,7 @@
 	</definition>
 
 	<definition name="acesso" extends="main">
+		<put-attribute name="cabecalho" value=""/>
 		<put-attribute name="conteudo" value="/pages/acesso.jsp" />
 	</definition>
 	<definition name="painel" extends="main">
@@ -17,7 +18,7 @@
 
 	<!-- Usuário -->
 	<definition name="usuario" extends="main">
-		<put-attribute name="conteudo" value="/pages/usuario/editar-perfil.jsp" />
+		<put-attribute name="conteudo" value="/pages/usuario/exibir-perfil.jsp" />
 	</definition>
 
 	<!-- Tarefa -->
@@ -27,6 +28,6 @@
 
 	<!-- Apontamento -->
 	<definition name="apontamento" extends="main">
-		<put-attribute name="conteudo" value="/pages/apontamento/apontamento.jsp" />
+		<put-attribute name="conteudo" value="/pages/apontamento/lista-apontamentos.jsp" />
 	</definition>
 </tiles-definitions>

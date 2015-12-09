@@ -9,11 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" id="formLogin" method="GET">
+	<form class="" action="" method="get">
 		<label for="usuario">Usuário</label><input id="usuario" name="login" value="" />
 		<label for="senha">Senha</label><input id="senha" name="senha" value="" />
 		
-		<input type="submit" name="Entrar"/>
+		<button class="" value="" type="submit" >Entrar</button>
 	</form>
 </body>
 </html>

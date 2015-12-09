@@ -9,15 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="">
-		<a class="" id="apt" href="/sustentacao/painel/apontamentos">Apontamento de Horas</a>
-		<a class="" id="trf" href="/sustentacao/painel/tarefas">Tarefas</a>
-		<a class="" id="inf" href="/sustentacao/painel/editar-perfil">Minhas Informações</a>
-		
-		<br>
+	<form class="" action="" method="get">
 		<br>
 		<!-- 		<input class="" id="btnAlterar" value="Alterar" type="submit" /> -->
-		<a class="" id="logout" href="acesso">Logout</a>
+		<a class="" href="acesso">Logout</a>
 	</form>
 </body>
 </html>

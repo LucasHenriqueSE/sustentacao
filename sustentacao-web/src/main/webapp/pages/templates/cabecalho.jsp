@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<a class="" id="apt" href="/sustentacao/painel/apontamentos">Apontamento de Horas</a>
+	<a class="" id="trf" href="/sustentacao/painel/tarefas">Tarefas</a>
+	<a class="" id="inf" href="/sustentacao/painel/exibir-perfil">Minhas Informações</a>
+	<a class="" id="painel" href="/sustentacao/painel">Painel Principal</a>
 </body>
 </html>
