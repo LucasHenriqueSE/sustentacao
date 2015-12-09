@@ -236,7 +236,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>status</finalName>
+		<finalName>sustentacao</finalName>
 
 		<plugins>
 			<plugin>
@@ -264,7 +264,7 @@
 				<configuration>
 					<server>tomcat-dev</server>
 					<port>8080</port>
-					<path>/status</path>
+					<path>/sustentacao</path>
 					<url>${tomcat.url}</url>
 					<useTestClasspath>false</useTestClasspath>
 				</configuration>
