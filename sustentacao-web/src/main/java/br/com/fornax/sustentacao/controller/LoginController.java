@@ -24,7 +24,7 @@ public class LoginController {
 		return mav;
 	}
 
-	@RequestMapping("/painel/editar-perfil")
+	@RequestMapping("/painel/exibir-perfil")
 	public ModelAndView Usuario() {
 		mav.setViewName("usuario");
 
