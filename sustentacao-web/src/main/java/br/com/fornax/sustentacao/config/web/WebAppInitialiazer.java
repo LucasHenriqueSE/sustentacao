@@ -11,6 +11,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class WebAppInitialiazer implements WebApplicationInitializer {
 
 	@Override
+	@SuppressWarnings("resource")
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
 		
