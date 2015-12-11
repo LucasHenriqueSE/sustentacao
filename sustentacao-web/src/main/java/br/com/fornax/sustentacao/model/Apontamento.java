@@ -23,8 +23,8 @@ public class Apontamento {
 	@JoinColumn(name = "CODIGO_USUARIO")
 	private Usuario usuario;
 
-	@Column(name = "DATA")
-	private Calendar data;
+	@Column(name = "DATA_CADASTRO")
+	private Calendar dataCadastro;
 
 	@Column(name = "HORA_INICIO")
 	private Calendar horaInicio;
@@ -39,8 +39,8 @@ public class Apontamento {
 	@Column(name = "DESCRICAO")
 	private String descricao;
 
-	@Column(name = "DATA_CADASTRO")
-	private Calendar dataCadastro;
+	@Column(name = "DATA_APONTAMENTO")
+	private Calendar dataApontamento;
 
 	public long getId() {
 		return id;
@@ -58,12 +58,12 @@ public class Apontamento {
 		this.usuario = usuario;
 	}
 
-	public Calendar getData() {
-		return data;
+	public Calendar getDataCadastro() {
+		return dataCadastro;
 	}
 
-	public void setData(Calendar data) {
-		this.data = data;
+	public void setDataCadastro(Calendar dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 
 	public Calendar getHoraInicio() {
@@ -98,11 +98,11 @@ public class Apontamento {
 		this.descricao = descricao;
 	}
 
-	public Calendar getDataCadastro() {
-		return dataCadastro;
+	public Calendar getDataApontamento() {
+		return dataApontamento;
 	}
 
-	public void setDataCadastro(Calendar dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setDataApontamento(Calendar dataApontamento) {
+		this.dataApontamento = dataApontamento;
 	}
 }

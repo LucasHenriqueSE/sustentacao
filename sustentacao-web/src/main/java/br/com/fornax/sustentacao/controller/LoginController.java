@@ -11,37 +11,51 @@ public class LoginController {
 	private ModelAndView mav = new ModelAndView();
 
 	@RequestMapping("/acesso")
-	public ModelAndView Longin(HttpServletRequest request) {
+	public ModelAndView login(HttpServletRequest request) {
 		mav.setViewName("acesso");
 
 		return mav;
 	}
 
 	@RequestMapping("/painel")
-	public ModelAndView Painel() {
+	public ModelAndView painel() {
 		mav.setViewName("painel");
 
 		return mav;
 	}
 
 	@RequestMapping("/painel/exibir-perfil")
-	public ModelAndView Usuario() {
+	public ModelAndView usuario() {
 		mav.setViewName("usuario");
 
 		return mav;
 	}
 
 	@RequestMapping("/painel/tarefas")
-	public ModelAndView Tarefa() {
-		mav.setViewName("tarefa");
+	public ModelAndView listarTarefas() {
+		mav.setViewName("listar-tarefas");
 
+		return mav;
+	}
+	
+	@RequestMapping("/painel/tarefas/cadastrar-tarefas")
+	public ModelAndView cadastrarTarefa(){
+		mav.setViewName("cadastrar-tarefas");
+		
 		return mav;
 	}
 
 	@RequestMapping("/painel/apontamentos")
-	public ModelAndView Apontamento() {
+	public ModelAndView apontamento() {
 		mav.setViewName("apontamento");
 
+		return mav;
+	}
+	
+	@RequestMapping("/painel/apontamentos/cadastrar-apontamento")
+	public ModelAndView cadastrarApontamento(){
+		mav.setViewName("cadastrar-apontamentos");
+		
 		return mav;
 	}
 }
