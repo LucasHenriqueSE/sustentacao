@@ -22,12 +22,19 @@
 	</definition>
 
 	<!-- Tarefa -->
-	<definition name="tarefa" extends="main">
-		<put-attribute name="conteudo" value="/pages/tarefa/lista-tarefas.jsp" />
+	<definition name="listar-tarefas" extends="main">
+		<put-attribute name="conteudo" value="/pages/tarefa/lista-tarefa.jsp" />
+	</definition>
+	
+	<definition name="cadastrar-tarefas" extends="main">
+		<put-attribute name="conteudo" value="/pages/tarefa/cadastrar-tarefa.jsp" />
 	</definition>
 
 	<!-- Apontamento -->
 	<definition name="apontamento" extends="main">
 		<put-attribute name="conteudo" value="/pages/apontamento/lista-apontamentos.jsp" />
+	</definition>
+	<definition name="cadastrar-apontamentos" extends="main">
+		<put-attribute name="conteudo" value="/pages/apontamento/cadastrar-apontamento.jsp" />
 	</definition>
 </tiles-definitions>

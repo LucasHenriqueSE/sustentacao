@@ -13,7 +13,7 @@
 		<table class="" id="tblApontamentos">
 			<tr>
 				<td>Data de Cadastro</td>
-				<td>Terafa</td>
+				<td>Tarefa</td>
 				<td>Descrição</td>
 				<td>Data Apontamento</td>
 				<td>Hora Início</td>
