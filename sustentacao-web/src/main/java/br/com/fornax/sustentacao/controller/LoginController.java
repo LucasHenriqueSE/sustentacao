@@ -1,14 +1,20 @@
 package br.com.fornax.sustentacao.controller;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.fornax.sustentacao.service.TipoTarefaService;
+
 @Controller
 public class LoginController {
-	private ModelAndView mav = new ModelAndView();
+	private ModelAndView mav;
+
+	@Inject
+	private TipoTarefaService tipoTarefaService;
 
 	@RequestMapping("/acesso")
 	public ModelAndView login(HttpServletRequest request) {
@@ -33,15 +39,20 @@ public class LoginController {
 
 	@RequestMapping("/painel/tarefas")
 	public ModelAndView listarTarefas() {
-		mav.setViewName("listar-tarefas");
+		mav = new ModelAndView();
+		this.mav.setViewName("listar-tarefas");
+		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/painel/tarefas/cadastrar-tarefas")
-	public ModelAndView cadastrarTarefa(){
-		mav.setViewName("cadastrar-tarefas");
-		
+	public ModelAndView cadastrarTarefa() {
+		mav = new ModelAndView();
+
+		this.mav.setViewName("cadastrar-tarefas");
+		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
+
 		return mav;
 	}
 
@@ -51,11 +62,11 @@ public class LoginController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/painel/apontamentos/cadastrar-apontamento")
-	public ModelAndView cadastrarApontamento(){
+	public ModelAndView cadastrarApontamento() {
 		mav.setViewName("cadastrar-apontamentos");
-		
+
 		return mav;
 	}
 }

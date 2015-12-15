@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-@Transactional(propagation = Propagation.MANDATORY)
+@Transactional(propagation = Propagation.REQUIRED)
 public abstract class GenericDAO {
 
 	@PersistenceContext
@@ -35,7 +35,7 @@ public abstract class GenericDAO {
 		return q.getResultList();
 	}
 
-	public Object listarPorId(Object entity, long id) {
+	public Object buscarPorId(Object entity, long id) {
 		return em.find(entity.getClass(), id);
 	}
 }

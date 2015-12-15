@@ -1,18 +1,17 @@
 package br.com.fornax.sustentacao.dao;
 
-import br.com.fornax.sustentacao.model.Tarefa;
-import br.com.fornax.sustentacao.model.TipoTarefa;
+import java.util.List;
 
 public interface TarefaDAO {
-	public void inserir(Tarefa tarefa);
+	void inserir(Object entity);
 
-	public void editar(Tarefa tarefa);
+	void editar(Object entity);
 
-	public void excluir(Tarefa tarefa);
+	void excluir(Object entity);
 
-	public void listarTarefas(Tarefa tarefa);
+	List<Object> listarTudo(String query);
 
-	public void buscarTarefa(Tarefa tarefa, long id);
+	Object buscarPorId(Object entity, long idTarefa);
 
-	public void buscarTarefaPorTipo(TipoTarefa tipo, long id);
+	List<Object> buscarTarefaPorTipo(long idTipoTarefa);
 }

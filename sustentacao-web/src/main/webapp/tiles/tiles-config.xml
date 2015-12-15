@@ -27,7 +27,7 @@
 	</definition>
 	
 	<definition name="cadastrar-tarefas" extends="main">
-		<put-attribute name="conteudo" value="/pages/tarefa/cadastrar-tarefa.jsp" />
+		<put-attribute name="conteudo" value="/pages/tarefa/cadastrar-tarefas.jsp" />
 	</definition>
 
 	<!-- Apontamento -->

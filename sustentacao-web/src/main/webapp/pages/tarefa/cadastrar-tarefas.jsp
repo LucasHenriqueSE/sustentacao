@@ -11,30 +11,38 @@
 <body>
 	<form class="" action="" method="post">
 		<div>
+			<br> <br>
+				<div>
+					Tipo de Tarefa <select required="required">
+						<option label="Selecione" selected="selected" value=""/>
+						<c:forEach var="listaTipo" items="${tipo}">
+							<option value="${listaTipo.id}">${listaTipo.nome}</option>
+						</c:forEach>
+					</select>
+				</div>
 			<div>
-				<br><br> Tipo de Tarefa
-				<select required="required">
-					<option label="" selected="selected" value=""/>
+				Descrição<input class="" name="descricao" placeholder="Descrição"
+					required="required" />
+			</div>
+			<div>
+				Número do Chamado<input class="" name="numeroChamado"
+					placeholder="Número do Chamado" required="required" />
+			</div>
+			<div>
+				Status <select required="required">
+					<option label="Selecione" selected="selected" value="" />
+					<c:forEach var="listaStatus" items="lista">
+						<option value="${listaStatus.id}">${listaStatus.nome}</option>
+					</c:forEach>
 				</select>
 			</div>
 			<div>
-				Descrição<input class="" name="descricao" placeholder="Descrição" required="required" />
-			</div>
-			<div>
-				Número do Chamado<input class="" name="numeroChamado" placeholder="Número do Chamado" required="required" />
-			</div>
-			<div>
-				Status
-				<select required="required">
-					<option label="" selected="selected" value="" />
-				</select>
-			</div>
-			<div>
-				Horas Disponíveis<input class="" name="qtdHorasDisponiveis" placeholder="Horas Disponíveis" required="required" />
+				Horas Disponíveis<input class="" name="qtdHorasDisponiveis"
+					placeholder="Horas Disponíveis" required="required" />
 			</div>
 		</div>
 		<br>
-		<button class="" value="" type="submit">Cadastrar</button>
+		<button class="" value="cadastrarTarefa()" type="submit">Cadastrar</button>
 		<button class="" value="" type="button">Cancelar</button>
 	</form>
 </body>

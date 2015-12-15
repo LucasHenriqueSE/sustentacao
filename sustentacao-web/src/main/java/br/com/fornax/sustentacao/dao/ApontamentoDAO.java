@@ -1,15 +1,13 @@
 package br.com.fornax.sustentacao.dao;
 
-import br.com.fornax.sustentacao.model.Apontamento;
-
 public interface ApontamentoDAO {
-	public void inserir(Apontamento apontamento);
+	void inserir(Object entity);
 
-	public void editar(Apontamento apontamento);
+	void editar(Object entity);
 
-	public void excluir(Apontamento apontamento);
+	void excluir(Object entity);
 
-	public void listarTarefas(Apontamento apontamento);
+	void listarTarefas(Object entity);
 
-	public void buscarTarefa(Apontamento apontamento, long id);
+	void buscarTarefa(Object entity, long id);
 }
