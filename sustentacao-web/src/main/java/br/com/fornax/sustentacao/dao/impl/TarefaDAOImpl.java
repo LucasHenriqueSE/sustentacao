@@ -23,8 +23,8 @@ public class TarefaDAOImpl extends GenericDAO implements TarefaDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Object> buscarTarefaPorTipo(long idTipoTarefa) {
-		Query query = em.createQuery("select tarefa from Tarefa tarefa where tarefa.tipo.id = :idTipoTarefa");
-		return query.getResultList();
+		Query lista = em.createQuery("select tarefa from Tarefa tarefa where tarefa.tipo.id = :idTipoTarefa");
+		return lista.getResultList();
 	}
 
 //	@Override

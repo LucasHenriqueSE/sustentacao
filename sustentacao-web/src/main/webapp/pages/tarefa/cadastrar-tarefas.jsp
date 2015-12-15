@@ -31,7 +31,7 @@
 			<div>
 				Status <select required="required">
 					<option label="Selecione" selected="selected" value="" />
-					<c:forEach var="listaStatus" items="lista">
+					<c:forEach var="listaStatus" items="${status}">
 						<option value="${listaStatus.id}">${listaStatus.nome}</option>
 					</c:forEach>
 				</select>
