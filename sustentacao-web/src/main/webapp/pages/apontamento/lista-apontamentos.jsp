@@ -24,7 +24,7 @@
 			</tr>
 		</table>
 		<br>
-	<button class="" value="" type="submit">Cadastrar Novo</button>
+	<button class="" value="/painel/apontamentos" type="submit">Cadastrar Novo</button>
 	<button class=""  value="" type="submit">Editar</button>
 	</form>
 </body>

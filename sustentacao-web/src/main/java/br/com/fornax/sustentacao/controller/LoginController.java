@@ -15,13 +15,13 @@ import br.com.fornax.sustentacao.service.TipoTarefaService;
 @Controller
 public class LoginController {
 	private ModelAndView mav;
-	
+
 	@Inject
 	private TarefaService tarefaService;
 
 	@Inject
 	private TipoTarefaService tipoTarefaService;
-	
+
 	@Inject
 	private StatusService statusService;
 
@@ -50,30 +50,31 @@ public class LoginController {
 	public ModelAndView listarTarefas() {
 		mav = new ModelAndView();
 		this.mav.setViewName("listar-tarefas");
-//		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
-//		this.mav.addObject("status", statusService.listarStatus());
+		// this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
+		// this.mav.addObject("status", statusService.listarStatus());
 
 		return mav;
 	}
 
-	@RequestMapping("/painel/tarefas/cadastrar-tarefas")
+	@RequestMapping("/painel/tarefas/cadastrar")
 	public ModelAndView ViewCadastroTarefa() {
 		mav = new ModelAndView();
 
-		this.mav.setViewName("cadastrar-tarefas");
+		this.mav.setViewName("cadastrar");
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
 
 		return mav;
 	}
-	
-	public String cadastrarTarefa(Tarefa tarefa){
+
+	@RequestMapping("/painel/tarefas/cadastrar-tarefas")
+	public String cadastrarTarefa(Tarefa tarefa) {
 		tarefaService.cadastrarTarefa(tarefa);
-		return "/painel/tarefas";
+		return "cadastrar";
 	}
 
 	@RequestMapping("/painel/apontamentos")
-	public ModelAndView apontamento() {
+	public ModelAndView listarApontamentos() {
 		mav.setViewName("apontamento");
 
 		return mav;

@@ -9,19 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" action="" method="post">
+	<form class="" action="/sustentacao/painel/tarefas/cadastrar" method="post">
 		<div>
 			<br> <br>
 				<div>
 					Tipo de Tarefa <select required="required">
 						<option label="Selecione" selected="selected" value=""/>
 						<c:forEach var="listaTipo" items="${tipo}">
-							<option value="${listaTipo.id}">${listaTipo.nome}</option>
+							<option label="${listaTipo.nome}" value="${listaTipo.id}" />
 						</c:forEach>
 					</select>
 				</div>
 			<div>
-				Descrição<input class="" name="descricao" placeholder="Descrição"
+				Descrição<input class="" name="descricao" value="" placeholder="Descrição"
 					required="required" />
 			</div>
 			<div>
@@ -32,7 +32,7 @@
 				Status <select required="required">
 					<option label="Selecione" selected="selected" value="" />
 					<c:forEach var="listaStatus" items="${status}">
-						<option value="${listaStatus.id}">${listaStatus.nome}</option>
+						<option label="${listaStatus.nome}" value="${listaStatus.id}" />
 					</c:forEach>
 				</select>
 			</div>
@@ -42,7 +42,7 @@
 			</div>
 		</div>
 		<br>
-		<button class="" value="cadastrarTarefa()" type="submit">Cadastrar</button>
+		<a class="" href="/sustentacao/painel/tarefas/cadastrar-tarefas" type="button">Cadastrar</a>
 		<button class="" value="" type="button">Cancelar</button>
 	</form>
 </body>
