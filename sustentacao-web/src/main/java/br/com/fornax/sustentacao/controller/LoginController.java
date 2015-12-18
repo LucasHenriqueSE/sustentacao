@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.fornax.sustentacao.model.Apontamento;
 import br.com.fornax.sustentacao.model.Tarefa;
+import br.com.fornax.sustentacao.service.ApontamentoService;
 import br.com.fornax.sustentacao.service.StatusService;
 import br.com.fornax.sustentacao.service.TarefaService;
 import br.com.fornax.sustentacao.service.TipoTarefaService;
@@ -25,6 +27,9 @@ public class LoginController {
 	@Inject
 	private StatusService statusService;
 
+	@Inject
+	private ApontamentoService apontamentoService;
+
 	@RequestMapping("/acesso")
 	public ModelAndView login(HttpServletRequest request) {
 		mav.setViewName("acesso");
@@ -34,6 +39,8 @@ public class LoginController {
 
 	@RequestMapping("/painel")
 	public ModelAndView painel() {
+		mav = new ModelAndView();
+
 		mav.setViewName("painel");
 
 		return mav;
@@ -50,8 +57,6 @@ public class LoginController {
 	public ModelAndView listarTarefas() {
 		mav = new ModelAndView();
 		this.mav.setViewName("listar-tarefas");
-		// this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
-		// this.mav.addObject("status", statusService.listarStatus());
 
 		return mav;
 	}
@@ -80,10 +85,18 @@ public class LoginController {
 		return mav;
 	}
 
-	@RequestMapping("/painel/apontamentos/cadastrar-apontamento")
-	public ModelAndView cadastrarApontamento() {
-		mav.setViewName("cadastrar-apontamentos");
+	@RequestMapping("/painel/apontamentos/cadastrar")
+	public ModelAndView ViewCadastroApontamento() {
+		mav = new ModelAndView();
+		this.mav.setViewName("cadastrar-apontamentos");
+		this.mav.addObject("apontamento", apontamentoService.listarApontamentos());
 
 		return mav;
+	}
+
+	@RequestMapping("/painel/apontamentos/cadastrar-apontamento")
+	public String cadastrarApontamento(Apontamento apontamento) {
+		apontamentoService.cadastrarApontamento(apontamento);
+		return "cadastrar-apontamentos";
 	}
 }

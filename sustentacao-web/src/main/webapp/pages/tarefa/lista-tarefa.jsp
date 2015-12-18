@@ -19,7 +19,11 @@
 				<td>Horas Disponíveis</td>
 			</tr>
 			<tr>
-				
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 		</table>
 		<br>

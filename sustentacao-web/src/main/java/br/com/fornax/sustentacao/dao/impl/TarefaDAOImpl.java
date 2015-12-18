@@ -27,9 +27,10 @@ public class TarefaDAOImpl extends GenericDAO implements TarefaDAO {
 		return lista.getResultList();
 	}
 
-//	@Override
-//	public List<Object> listarTudo(String query) {
-//		Query query
-//		return super.listarTudo(query);
-//	}
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Object> listarTudo() {
+		Query lista = em.createQuery("select tarefa from Tarefa tarefa");
+		return lista.getResultList();
+	}
 }

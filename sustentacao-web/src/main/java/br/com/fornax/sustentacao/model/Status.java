@@ -14,12 +14,20 @@ import javax.persistence.Table;
 @Table(name = "STATUS")
 public class Status {
 
+	public Status() {
+		super();
+	}
+	
+	public Status(long codigoStatus){
+		this.id = codigoStatus;
+	}
+	
 	@Id
 	@GeneratedValue
 	@Column(name = "CODIGO_STATUS")
 	private long id;
 
-	@Column(name = "NOME")
+	@Column(name = "NOME", nullable = false, unique = true)
 	private String nome;
 
 	@OneToMany(mappedBy = "status", fetch = FetchType.EAGER)

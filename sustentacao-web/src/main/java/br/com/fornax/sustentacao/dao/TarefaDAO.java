@@ -9,9 +9,9 @@ public interface TarefaDAO {
 
 	void excluir(Object entity);
 
-	List<Object> listarTudo(String query);
+	List<Object> listarTudo();
 
-	Object buscarPorId(Object entity, long idTarefa);
+	Object buscarPorId(Object object, long idTarefa);
 
 	List<Object> buscarTarefaPorTipo(long idTipoTarefa);
 }

@@ -21,20 +21,20 @@ public class Usuario {
 	@Column(name = "CODIGO_USUARIO")
 	private long id;
 
-	@Column(name = "NOME")
+	@Column(name = "NOME", nullable = false)
 	private String nome;
 
-	@Column(name = "LOGIN")
+	@Column(name = "LOGIN", nullable = false, unique = true)
 	private String login;
 
-	@Column(name = "SENHA")
+	@Column(name = "SENHA", nullable = false)
 	private String senha;
 
-	@Column(name = "EMAIL")
+	@Column(name = "EMAIL", nullable = false, unique = true)
 	private String email;
 
 	@ManyToOne
-	@JoinColumn(name = "CODIGO_PERFIL")
+	@JoinColumn(name = "CODIGO_PERFIL", referencedColumnName = "CODIGO_PERFIL")
 	private Perfil perfil;
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)

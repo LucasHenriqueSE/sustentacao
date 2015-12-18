@@ -20,26 +20,26 @@ public class Apontamento {
 	private long id;
 
 	@ManyToOne
-	@JoinColumn(name = "CODIGO_USUARIO")
+	@JoinColumn(name = "CODIGO_USUARIO", referencedColumnName = "CODIGO_USUARIO", unique = true)
 	private Usuario usuario;
 
-	@Column(name = "DATA_CADASTRO")
+	@Column(name = "DATA_CADASTRO", nullable = false)
 	private Calendar dataCadastro;
 
-	@Column(name = "HORA_INICIO")
+	@Column(name = "HORA_INICIO", nullable = false)
 	private Calendar horaInicio;
 
-	@Column(name = "HORA_TERMINO")
+	@Column(name = "HORA_TERMINO", nullable = false)
 	private Calendar horaTermino;
 
 	@ManyToOne
-	@JoinColumn(name = "CODIGO_TAREFA")
+	@JoinColumn(name = "CODIGO_TAREFA", referencedColumnName = "CODIGO_TAREFA")
 	private Tarefa tarefa;
 
-	@Column(name = "DESCRICAO")
+	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 
-	@Column(name = "DATA_APONTAMENTO")
+	@Column(name = "DATA_APONTAMENTO", nullable = false)
 	private Calendar dataApontamento;
 
 	public long getId() {

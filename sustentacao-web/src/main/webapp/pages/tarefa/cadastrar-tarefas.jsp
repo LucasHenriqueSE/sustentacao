@@ -9,40 +9,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" action="/sustentacao/painel/tarefas/cadastrar" method="post">
+	<form class="" action="/sustentacao/painel/tarefas/cadastrar-tarefas"
+		method="post">
 		<div>
 			<br> <br>
-				<div>
-					Tipo de Tarefa <select required="required">
-						<option label="Selecione" selected="selected" value=""/>
-						<c:forEach var="listaTipo" items="${tipo}">
-							<option label="${listaTipo.nome}" value="${listaTipo.id}" />
-						</c:forEach>
-					</select>
-				</div>
 			<div>
-				Descrição<input class="" name="descricao" value="" placeholder="Descrição"
-					required="required" />
+				Tipo de Tarefa <select required="required" name="tipo.id">
+					<option label="Selecione" selected="selected" value="" />
+					<c:forEach var="listaTipo" items="${tipo}">
+						<option value="${listaTipo.id}" >${listaTipo.nome}</option>
+					</c:forEach>
+				</select>
 			</div>
 			<div>
 				Número do Chamado<input class="" name="numeroChamado"
 					placeholder="Número do Chamado" required="required" />
 			</div>
 			<div>
-				Status <select required="required">
-					<option label="Selecione" selected="selected" value="" />
+				Descrição<input class="" name="descricao" value=""
+					placeholder="Descrição" required="required" />
+			</div>
+			<div>
+				<select hidden="hidden">
 					<c:forEach var="listaStatus" items="${status}">
-						<option label="${listaStatus.nome}" value="${listaStatus.id}" />
+						<option label="${listaStatus.nome}" value="" />
 					</c:forEach>
 				</select>
 			</div>
-			<div>
-				Horas Disponíveis<input class="" name="qtdHorasDisponiveis"
-					placeholder="Horas Disponíveis" required="required" />
-			</div>
+
+<!-- 			<div> -->
+<!-- 				<input class="" name="qtdHorasDisponiveis" -->
+<!-- 					placeholder="Horas Disponíveis" hidden="hidden" value=""/> -->
+<!-- 			</div> -->
 		</div>
-		<br>
-		<a class="" href="/sustentacao/painel/tarefas/cadastrar-tarefas" type="button">Cadastrar</a>
+		<br> <button class="" type="submit" >Salvar</button>
 		<button class="" value="" type="button">Cancelar</button>
 	</form>
 </body>

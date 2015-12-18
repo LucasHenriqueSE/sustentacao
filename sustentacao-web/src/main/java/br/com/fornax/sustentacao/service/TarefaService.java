@@ -11,9 +11,9 @@ public interface TarefaService {
 
 	boolean excluirTarefa(Tarefa tarefa);
 
-	List<Object> listarTarefa(String query);
+	List<Object> listarTarefa();
 
-	Tarefa buscarTarefaPorId(Tarefa tarefa, long idTarefa);
+	Object buscarTarefaPorId(Tarefa tarefa, long idTarefa);
 
 	List<Object> buscarTarefaPorTipo(long idTipoTarefa);
 }

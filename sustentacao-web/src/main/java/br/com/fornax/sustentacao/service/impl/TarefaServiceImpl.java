@@ -9,19 +9,30 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fornax.sustentacao.dao.TarefaDAO;
+import br.com.fornax.sustentacao.dao.TipoTarefaDAO;
+import br.com.fornax.sustentacao.model.Status;
 import br.com.fornax.sustentacao.model.Tarefa;
+import br.com.fornax.sustentacao.model.TipoTarefa;
 import br.com.fornax.sustentacao.service.TarefaService;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
 public class TarefaServiceImpl implements TarefaService {
+	
+	@Inject
+	private TipoTarefaDAO tipoTarefaDao;
 
 	@Inject
-	private TarefaDAO dao;
-
+	private TarefaDAO tarefaDao;
+	
+	private static final long CODIGO_STATUS_TAREFA_ABERTO = 1;
+	
 	@Override
 	public boolean cadastrarTarefa(Tarefa tarefa) {
-		dao.inserir(tarefa);
+		tarefa.setStatus(new Status(CODIGO_STATUS_TAREFA_ABERTO));
+		TipoTarefa tipo = (TipoTarefa) tipoTarefaDao.buscarPorId(new TipoTarefa(), tarefa.getTipo().getId());
+		tarefa.setQtdHorasDisponiveis(tipo.getQtdHoras());
+		tarefaDao.inserir(tarefa);
 		return true;
 	}
 
@@ -38,9 +49,8 @@ public class TarefaServiceImpl implements TarefaService {
 	}
 
 	@Override
-	public List<Object> listarTarefa(String query) {
-		dao.listarTudo("select tarefa from Tarefa tarefa where tarefa.tipo.id = :idTipoTarefa");
-		return null;
+	public List<Object> listarTarefa() {
+		return tarefaDao.listarTudo();
 	}
 
 	@Override

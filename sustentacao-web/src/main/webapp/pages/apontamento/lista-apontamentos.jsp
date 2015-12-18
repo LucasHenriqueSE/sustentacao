@@ -20,11 +20,16 @@
 				<td>Hora Término</td>
 			</tr>
 			<tr>
-				
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 		</table>
 		<br>
-	<button class="" value="/painel/apontamentos" type="submit">Cadastrar Novo</button>
+	<button class="" value="" type="submit">Cadastrar Novo</button>
 	<button class=""  value="" type="submit">Editar</button>
 	</form>
 </body>

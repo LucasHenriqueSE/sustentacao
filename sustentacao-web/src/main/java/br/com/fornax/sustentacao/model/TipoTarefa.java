@@ -19,13 +19,13 @@ public class TipoTarefa {
 	@Column(name = "CODIGO_TIPO_TAREFA")
 	private long id;
 
-	@Column(name = "NOME")
+	@Column(name = "NOME", nullable = false, unique = true)
 	private String nome;
 
-	@Column(name = "QTD_HORAS")
+	@Column(name = "QTD_HORAS", nullable = false)
 	private long qtdHoras;
 
-	@Column(name = "QTD_HORAS_ALERTA")
+	@Column(name = "QTD_HORAS_ALERTA", nullable = false)
 	private long qtdHorasParaAviso;
 
 	@OneToMany(mappedBy = "tipo", fetch = FetchType.EAGER)

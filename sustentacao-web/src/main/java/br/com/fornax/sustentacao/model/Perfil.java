@@ -17,7 +17,7 @@ public class Perfil {
 	@Column(name = "CODIGO_PERFIL")
 	private String perfil;
 
-	@Column(name = "DESCRICAO")
+	@Column(name = "DESCRICAO", nullable = false, unique = true)
 	private String descricao;
 
 	@OneToMany(mappedBy = "perfil", fetch = FetchType.EAGER)

@@ -10,4 +10,6 @@ public interface TipoTarefaDAO {
 	void excluir(Object entity);
 
 	List<Object> listarTudo();
+	
+	Object buscarPorId(Object entity, long idTipoTarefa);
 }

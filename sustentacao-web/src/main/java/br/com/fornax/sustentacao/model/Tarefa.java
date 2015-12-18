@@ -22,20 +22,20 @@ public class Tarefa {
 	private long id;
 
 	@ManyToOne
-	@JoinColumn(name = "CODIGO_TIPO_TAREFA")
+	@JoinColumn(name = "CODIGO_TIPO_TAREFA", referencedColumnName = "CODIGO_TIPO_TAREFA")
 	private TipoTarefa tipo;
 
-	@Column(name = "NUMERO_CHAMADO")
+	@Column(name = "NUMERO_CHAMADO", nullable = false/*, unique = true*/)
 	private long numeroChamado;
 
-	@Column(name = "DESCRICAO")
+	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 
 	@ManyToOne
-	@JoinColumn(name = "CODIGO_STATUS")
+	@JoinColumn(name = "CODIGO_STATUS", referencedColumnName = "CODIGO_STATUS")
 	private Status status;
 
-	@Column(name = "QTD_HORAS_DISPONIVEIS")
+	@Column(name = "QTD_HORAS_DISPONIVEIS", nullable = false)
 	private long qtdHorasDisponiveis;
 
 	@OneToMany(mappedBy = "tarefa", fetch = FetchType.EAGER)

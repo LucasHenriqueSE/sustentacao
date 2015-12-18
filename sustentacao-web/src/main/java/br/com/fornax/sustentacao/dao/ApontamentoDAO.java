@@ -1,5 +1,7 @@
 package br.com.fornax.sustentacao.dao;
 
+import java.util.List;
+
 public interface ApontamentoDAO {
 	void inserir(Object entity);
 
@@ -7,7 +9,7 @@ public interface ApontamentoDAO {
 
 	void excluir(Object entity);
 
-	void listarTarefas(Object entity);
+	List<Object> listarTudo();
 
-	void buscarTarefa(Object entity, long id);
+	Object buscarPorId(Object entity, long id);
 }
