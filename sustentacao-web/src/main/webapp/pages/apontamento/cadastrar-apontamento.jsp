@@ -9,13 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" action="/sustentacao/painel/apontamentos/cadastrar-apontamento"
+	<form class=""
+		action="/sustentacao/painel/apontamentos/cadastrar-apontamento"
 		method="post">
-		<br> <input class="" name="dataCadastro" type="hidden" />
 		<div>
 			<div>
-				<select required="required" name="${tarefa.id}" hidden="hidden">
-					<option label="Selecione" selected="selected" value="" />
+				<select name="${tarefa.id}" hidden="hidden">
 					<c:forEach var="apt" items="${apontamento}">
 						<option value="${apt.tarefa.id}" />
 					</c:forEach>
@@ -26,8 +25,11 @@
 					required="required" />
 			</div>
 			<div>
-				Data Apontamento<input class="" name="dataApontamento"
-					placeholder="Data Apontamento" required="required" />
+
+				Data Apontamento<input class="" id="dataApontamento"
+					name="dataApontamento" placeholder="Data Apontamento"
+					required="required"
+					value="<fmt:formatDate value="dataApontamento" pattern="dd-mm-yyyy"/>" />
 			</div>
 			<div>
 				Hora Início<input class="" name="horaInicio"

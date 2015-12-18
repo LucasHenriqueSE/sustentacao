@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "APONTAMENTO")
@@ -24,13 +26,14 @@ public class Apontamento {
 	private Usuario usuario;
 
 	@Column(name = "DATA_CADASTRO", nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Calendar dataCadastro;
 
 	@Column(name = "HORA_INICIO", nullable = false)
-	private Calendar horaInicio;
+	private double horaInicio;
 
 	@Column(name = "HORA_TERMINO", nullable = false)
-	private Calendar horaTermino;
+	private double horaTermino;
 
 	@ManyToOne
 	@JoinColumn(name = "CODIGO_TAREFA", referencedColumnName = "CODIGO_TAREFA")
@@ -40,6 +43,7 @@ public class Apontamento {
 	private String descricao;
 
 	@Column(name = "DATA_APONTAMENTO", nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Calendar dataApontamento;
 
 	public long getId() {
@@ -66,19 +70,23 @@ public class Apontamento {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public Calendar getHoraInicio() {
+	public double getHoraInicio() {
 		return horaInicio;
 	}
 
-	public void setHoraInicio(Calendar horaInicio) {
+	public void setHoraInicio(double horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-	public Calendar getHoraTermino() {
+	public double getHoraTermino() {
 		return horaTermino;
 	}
 
-	public void setHoraTermino(Calendar horaTermino) {
+	public void setHoraTermino(double horaTermino) {
+		this.horaTermino = horaTermino;
+	}
+
+	public void setHoraTermino(int horaTermino) {
 		this.horaTermino = horaTermino;
 	}
 

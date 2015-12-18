@@ -2,14 +2,16 @@ package br.com.fornax.sustentacao.service;
 
 import java.util.List;
 
+import br.com.fornax.sustentacao.model.Apontamento;
+
 public interface ApontamentoService {
-	boolean cadastrarApontamento(Object entity);
+	boolean cadastrarApontamento(Apontamento apontamento);
 
-	boolean editarApontamento(Object entity);
+	boolean editarApontamento(Apontamento apontamento);
 
-	boolean excluirApontamento(Object entity);
+	boolean excluirApontamento(Apontamento apontamento);
 
 	List<Object> listarApontamentos();
 
-	Object buscarApontamentoPorId(Object entity, long idApontamento);
+	Object buscarApontamentoPorId(Apontamento apontamento, long idApontamento);
 }
