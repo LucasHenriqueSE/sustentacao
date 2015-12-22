@@ -25,7 +25,7 @@ public class Tarefa {
 	@JoinColumn(name = "CODIGO_TIPO_TAREFA", referencedColumnName = "CODIGO_TIPO_TAREFA")
 	private TipoTarefa tipo;
 
-	@Column(name = "NUMERO_CHAMADO", nullable = false/*, unique = true*/)
+	@Column(name = "NUMERO_CHAMADO", nullable = false, unique = true)
 	private long numeroChamado;
 
 	@Column(name = "DESCRICAO", nullable = false)

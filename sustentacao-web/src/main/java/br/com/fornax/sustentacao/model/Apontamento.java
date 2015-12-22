@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "APONTAMENTO")
 public class Apontamento {
@@ -26,14 +28,18 @@ public class Apontamento {
 	private Usuario usuario;
 
 	@Column(name = "DATA_CADASTRO", nullable = false)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCadastro;
 
 	@Column(name = "HORA_INICIO", nullable = false)
-	private double horaInicio;
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "HH:mm")
+	private Calendar horaInicio;
 
 	@Column(name = "HORA_TERMINO", nullable = false)
-	private double horaTermino;
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "HH:mm")
+	private Calendar horaTermino;
 
 	@ManyToOne
 	@JoinColumn(name = "CODIGO_TAREFA", referencedColumnName = "CODIGO_TAREFA")
@@ -44,6 +50,7 @@ public class Apontamento {
 
 	@Column(name = "DATA_APONTAMENTO", nullable = false)
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataApontamento;
 
 	public long getId() {
@@ -70,23 +77,19 @@ public class Apontamento {
 		this.dataCadastro = dataCadastro;
 	}
 
-	public double getHoraInicio() {
+	public Calendar getHoraInicio() {
 		return horaInicio;
 	}
 
-	public void setHoraInicio(double horaInicio) {
+	public void setHoraInicio(Calendar horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-	public double getHoraTermino() {
+	public Calendar getHoraTermino() {
 		return horaTermino;
 	}
 
-	public void setHoraTermino(double horaTermino) {
-		this.horaTermino = horaTermino;
-	}
-
-	public void setHoraTermino(int horaTermino) {
+	public void setHoraTermino(Calendar horaTermino) {
 		this.horaTermino = horaTermino;
 	}
 

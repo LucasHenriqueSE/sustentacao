@@ -19,18 +19,19 @@
 				<td>Hora Início</td>
 				<td>Hora Término</td>
 			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			<c:forEach var="listaApontamento" items="${apontamentos}">
+				<tr>
+					<td><fmt:formatDate	value="${listaApontamento.dataCadastro.time}" pattern="dd/MM/yyyy" type="date" /></td>
+					<td>${listaApontamento.tarefa.id}</td>
+					<td>${listaApontamento.descricao}</td>
+					<td><fmt:formatDate	value="${listaApontamento.dataApontamento.time}" pattern="dd/MM/yyyy" type="date" /></td>
+					<td><fmt:formatDate	value="${listaApontamento.horaInicio.time}" pattern="HH:mm" type="time"/></td>
+					<td><fmt:formatDate value="${listaApontamento.horaTermino.time}" pattern="HH:mm" type="time"/></td>
+				</tr>
+			</c:forEach>
 		</table>
 		<br>
-	<button class="" value="" type="submit">Cadastrar Novo</button>
-	<button class=""  value="" type="submit">Editar</button>
+		<a class="" href="/sustentacao/painel" type="submit">Voltar</a>
 	</form>
 </body>
 </html>

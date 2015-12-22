@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -57,6 +58,7 @@ public class LoginController {
 	public ModelAndView listarTarefas() {
 		mav = new ModelAndView();
 		this.mav.setViewName("listar-tarefas");
+		this.mav.addObject("tarefas", tarefaService.listarTarefa());
 
 		return mav;
 	}
@@ -72,7 +74,7 @@ public class LoginController {
 		return mav;
 	}
 
-	@RequestMapping("/painel/tarefas/cadastrar-tarefas")
+	@RequestMapping("/painel/tarefas/cadastrar-tarefa")
 	public String cadastrarTarefa(Tarefa tarefa) {
 		tarefaService.cadastrarTarefa(tarefa);
 		return "cadastrar";
@@ -81,21 +83,21 @@ public class LoginController {
 	@RequestMapping("/painel/apontamentos")
 	public ModelAndView listarApontamentos() {
 		mav.setViewName("apontamento");
+		this.mav.addObject("apontamentos", apontamentoService.listarApontamentos());
 
 		return mav;
 	}
 
-	@RequestMapping("/painel/apontamentos/cadastrar")
-	public ModelAndView ViewCadastroApontamento() {
+	@RequestMapping("/painel/tarefa/{idTarefa}/apontar")
+	public ModelAndView cadastrarApontamento(@PathVariable("idTarefa") long idTarefa) {
 		mav = new ModelAndView();
 		this.mav.setViewName("cadastrar-apontamentos");
-		this.mav.addObject("apontamento", apontamentoService.listarApontamentos());
 
 		return mav;
 	}
 
 	@RequestMapping("/painel/apontamentos/cadastrar-apontamento")
-	public String cadastrarApontamento(Apontamento apontamento) {
+	public String apontar(Apontamento apontamento) {
 		apontamentoService.cadastrarApontamento(apontamento);
 		return "cadastrar-apontamentos";
 	}

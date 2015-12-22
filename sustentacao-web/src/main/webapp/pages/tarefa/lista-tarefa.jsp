@@ -17,18 +17,21 @@
 				<td>Número do Chamado</td>
 				<td>Status</td>
 				<td>Horas Disponíveis</td>
+				<td>Apontar</td>
 			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			<c:forEach var="listaTarefas" items="${tarefas}">
+				<tr>
+					<td>${listaTarefas.tipo.nome}</td>
+					<td>${listaTarefas.descricao}</td>
+					<td>${listaTarefas.numeroChamado}</td>
+					<td>${listaTarefas.status.nome}</td>
+					<td>${listaTarefas.qtdHorasDisponiveis}</td>
+					<td><a id="apontar" href="/sustentacao/painel/tarefa/${listaTarefas.id}/apontar">Apontar</a></td>
+				</tr>
+			</c:forEach>
 		</table>
-		<br>
-		<button class="" value="">Cadastrar Nova</button>
-		<button class="" value="" type="submit">Editar</button>
+		<br> <a class="" href="tarefas/cadastrar" type="button">Cadastrar
+			Tarefa</a>
 	</form>
 </body>
 </html>

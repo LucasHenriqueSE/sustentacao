@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" action="/sustentacao/painel/tarefas/cadastrar-tarefas"
+	<form class="" action="/sustentacao/painel/tarefas/cadastrar-tarefa"
 		method="post">
 		<div>
 			<br> <br>
@@ -37,13 +37,13 @@
 				</select>
 			</div>
 
-<!-- 			<div> -->
-<!-- 				<input class="" name="qtdHorasDisponiveis" -->
-<!-- 					placeholder="Horas Disponíveis" hidden="hidden" value=""/> -->
-<!-- 			</div> -->
+			<div>
+				<input class="" name="qtdHorasDisponiveis"
+					placeholder	="Horas Disponíveis" value="${qtdHorasDisponiveis}"/>
+			</div>
 		</div>
 		<br> <button class="" type="submit" >Salvar</button>
-		<button class="" value="" type="button">Cancelar</button>
+		<a class="" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
 	</form>
 </body>
 </html>

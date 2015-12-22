@@ -15,17 +15,22 @@ import br.com.fornax.sustentacao.service.ApontamentoService;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
-public class ApontamentoServiceImpl implements ApontamentoService{
+public class ApontamentoServiceImpl implements ApontamentoService {
 
 	@Inject
 	private ApontamentoDAO dao;
-	
+
 	@Override
 	public boolean cadastrarApontamento(Apontamento apontamento) {
-		apontamento = new Apontamento();
-		apontamento.setDataCadastro(Calendar.getInstance());
-		dao.inserir(apontamento);
-		return true;
+		List<Apontamento> lista = dao.listarApontamentoDoDia(apontamento.getDataApontamento(),
+				apontamento.getHoraInicio(), apontamento.getHoraTermino());
+
+		if (lista.isEmpty()) {
+			apontamento.setDataCadastro(Calendar.getInstance());
+			dao.inserir(apontamento);
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -50,5 +55,4 @@ public class ApontamentoServiceImpl implements ApontamentoService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
