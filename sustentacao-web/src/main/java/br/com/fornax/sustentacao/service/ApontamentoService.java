@@ -14,4 +14,6 @@ public interface ApontamentoService {
 	List<Object> listarApontamentos();
 
 	Object buscarApontamentoPorId(Apontamento apontamento, long idApontamento);
+	
+	boolean validarHoraInicioFim(String horaInicio, String horaFim, long idTarefa);
 }

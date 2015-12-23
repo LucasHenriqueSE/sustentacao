@@ -1,11 +1,18 @@
 package br.com.fornax.sustentacao.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.fornax.sustentacao.model.Apontamento;
@@ -100,5 +107,11 @@ public class LoginController {
 	public String apontar(Apontamento apontamento) {
 		apontamentoService.cadastrarApontamento(apontamento);
 		return "cadastrar-apontamentos";
+	}
+	
+	@ResponseBody
+	@RequestMapping("validarHoraInicioFim")
+	public boolean validarHoraInicioFim(String horaInicio, String horaTermino, long idTarefa){
+		return apontamentoService.validarHoraInicioFim(horaInicio, horaTermino, idTarefa);
 	}
 }

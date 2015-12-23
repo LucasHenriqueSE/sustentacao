@@ -55,8 +55,7 @@ public class TarefaServiceImpl implements TarefaService {
 
 	@Override
 	public Tarefa buscarTarefaPorId(Tarefa tarefa, long idTarefa) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Tarefa) tarefaDao.buscarPorId(tarefa, idTarefa);
 	}
 
 	@Override

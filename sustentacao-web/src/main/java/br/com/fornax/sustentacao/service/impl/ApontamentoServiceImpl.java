@@ -1,6 +1,9 @@
 package br.com.fornax.sustentacao.service.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -14,6 +17,7 @@ import br.com.fornax.sustentacao.dao.TarefaDAO;
 import br.com.fornax.sustentacao.model.Apontamento;
 import br.com.fornax.sustentacao.model.Tarefa;
 import br.com.fornax.sustentacao.service.ApontamentoService;
+import br.com.fornax.sustentacao.service.TarefaService;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
@@ -23,7 +27,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 	private ApontamentoDAO apontamentoDAO;
 
 	@Inject
-	private TarefaDAO tarefaDAO;
+	private TarefaService tarefaService;
 
 	@Override
 	public boolean cadastrarApontamento(Apontamento apontamento) {
@@ -31,10 +35,10 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 				apontamento.getHoraInicio(), apontamento.getHoraTermino());
 
 		if (lista.isEmpty()) {
-			Tarefa tarefa = (Tarefa) tarefaDAO.buscarPorId(apontamento.getTarefa(), apontamento.getTarefa().getId());
-			int horasTrabalhadas = calcularHorasTrabalhadas(apontamento.getHoraTermino(), apontamento.getHoraInicio());
+			Tarefa tarefa = (Tarefa) tarefaService.buscarTarefaPorId(apontamento.getTarefa(), apontamento.getTarefa().getId());
+			double horasTrabalhadas = calcularHorasTrabalhadas(apontamento.getHoraTermino(), apontamento.getHoraInicio());
 			if (tarefa.getQtdHorasDisponiveis() - horasTrabalhadas >= 0) {
-				tarefa.setQtdHorasDisponiveis(tarefa.getQtdHorasDisponiveis() - horasTrabalhadas);
+				tarefa.setQtdHorasDisponiveis((long) (tarefa.getQtdHorasDisponiveis() - horasTrabalhadas));
 				apontamento.setDataCadastro(Calendar.getInstance());
 				apontamentoDAO.inserir(apontamento);
 				return true;
@@ -66,8 +70,39 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 		return null;
 	}
 
-	public int calcularHorasTrabalhadas(Calendar hora1, Calendar hora2) {
-		int horasTrabalhadas = (hora1.get(Calendar.HOUR_OF_DAY) - hora2.get(Calendar.HOUR_OF_DAY));
-		return horasTrabalhadas;
+	private double calcularHorasTrabalhadas(Calendar horaTermino, Calendar horaInicio) {
+		double minutos = 0;
+		double total = 0;
+		long horasTrabalhadas = (horaTermino.getTimeInMillis() - horaInicio.getTimeInMillis());
+		double qtdHoras = (horasTrabalhadas / 3600000);
+		double qtdMinutos = (horasTrabalhadas % 3600000);
+		if (qtdMinutos > 0) {
+			minutos = (int) (qtdMinutos / 60000);
+			total = minutos / 60;
+		}
+		return qtdHoras + total;
+	}
+
+	@Override
+	public boolean validarHoraInicioFim(String horaInicio, String horaFim, long idTarefa) {
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		try {
+			Date date1 = sdf.parse(horaInicio);
+			Date date2 = sdf.parse(horaFim);
+			
+			Calendar h1 = Calendar.getInstance();
+			Calendar h2 = Calendar.getInstance();
+			h1.setTime(date1);
+			h2.setTime(date2);
+			
+			double horasTrabalhadas = calcularHorasTrabalhadas(h2, h1);
+			Tarefa tarefa = (Tarefa) tarefaService.buscarTarefaPorId(new Tarefa(), idTarefa);
+			if(tarefa.getQtdHorasDisponiveis() < horasTrabalhadas){
+				return false;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return true;
 	}
 }

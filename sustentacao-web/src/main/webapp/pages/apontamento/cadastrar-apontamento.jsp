@@ -5,7 +5,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
+<script src='<c:url value="/resources/js/jquery-2.1.4.min.js"></c:url>'></script>
 <script type="text/javascript">
+	function validar(){
+		var hora1 =$("#horaInicio").val();
+		var hora2 =$("#horaTermino").val();
+		var id =$("#idTarefa").val();
+		
+		$.post('/sustentacao/validarHoraInicioFim?horaInicio=' + hora1 + '&horaTermino=' + hora2 + '&idTarefa=' + id, function(resultado){
+			if(resultado){
+				alert('ok');
+			}else{
+				alert('Horas disponíveis insuficientes');
+			}
+		});
+	}
+
 	function compararHora() {
 		var hora1 = horaInicio.value
 		var hora2 = horaTermino.value
@@ -26,7 +41,7 @@
 		method="post" onsubmit="compararHora(horaInicio, horaTermino);">
 		<div>
 			<div>
-				<input class="" name="tarefa.id" value="${idTarefa}" type="hidden"
+				<input class="" id="idTarefa" name="tarefa.id" value="${idTarefa}" type="hidden"
 					required="required" />
 			</div>
 			<div>
@@ -44,7 +59,7 @@
 			</div>
 			<div>
 				Hora Término<input class="" name="horaTermino" id="horaTermino"
-					placeholder="Hora de Término" required="required" type="time" />
+					placeholder="Hora de Término" required="required" type="time" onblur="validar();"/>
 			</div>
 		</div>
 		<br>
