@@ -30,13 +30,13 @@ public class ApontamentoDAOImpl extends GenericDAO implements ApontamentoDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Apontamento> listarApontamentoDoDia(Calendar dataDeApontamento, Calendar horaInicio,
+	public List<Apontamento> listarApontamentoDoDia(Calendar dataApontamento, Calendar horaInicio,
 			Calendar horaTermino) {
 		Query apontamentos = em.createQuery(
-				"select a from Apontamento a where a.dataApontamento = :dataDeApontamento "
-				+ "and a.horaInicio between :horaInicio and :horaTermino "
-				+ "or a.horaTermino between :horaInicio and :horaTermino");
-		apontamentos.setParameter("dataDeApontamento", dataDeApontamento);
+				"select a from Apontamento a where a.dataApontamento = :dataApontamento "
+				+ "and (a.horaInicio between :horaInicio and :horaTermino "
+				+ "or a.horaTermino between :horaInicio and :horaTermino)");
+		apontamentos.setParameter("dataApontamento", dataApontamento);
 		apontamentos.setParameter("horaInicio", horaInicio);
 		apontamentos.setParameter("horaTermino", horaTermino);
 		return apontamentos.getResultList();
