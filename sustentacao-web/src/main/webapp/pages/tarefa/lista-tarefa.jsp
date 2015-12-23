@@ -26,7 +26,15 @@
 					<td>${listaTarefas.numeroChamado}</td>
 					<td>${listaTarefas.status.nome}</td>
 					<td>${listaTarefas.qtdHorasDisponiveis}</td>
-					<td><a id="apontar" href="/sustentacao/painel/tarefa/${listaTarefas.id}/apontar">Apontar</a></td>
+					<c:choose>
+						<c:when test="${listaTarefas.qtdHorasDisponiveis > 0}">
+							<td><a id="apontar"
+								href="/sustentacao/painel/tarefa/${listaTarefas.id}/apontar">Apontar</a></td>
+						</c:when>
+						<c:otherwise>
+							<td>Horas não disponiveis</td>
+						</c:otherwise>
+					</c:choose>
 				</tr>
 			</c:forEach>
 		</table>

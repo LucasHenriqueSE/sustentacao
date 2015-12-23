@@ -35,12 +35,7 @@
 						<option label="${listaStatus.nome}" value="" />
 					</c:forEach>
 				</select>
-			</div>
-
-			<div>
-				<input class="" name="qtdHorasDisponiveis"
-					placeholder	="Horas Disponíveis" value="${qtdHorasDisponiveis}"/>
-			</div>
+			</div>	
 		</div>
 		<br> <button class="" type="submit" >Salvar</button>
 		<a class="" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
