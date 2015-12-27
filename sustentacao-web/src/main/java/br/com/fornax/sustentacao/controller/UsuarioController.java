@@ -1,18 +1,17 @@
 package br.com.fornax.sustentacao.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class LoginController {
+public class UsuarioController {
 	private ModelAndView mav;
 	
-	@RequestMapping("/acesso")
-	public ModelAndView login(HttpServletRequest request) {
-		mav.setViewName("acesso");
+	@RequestMapping("/painel/exibir-perfil")
+	public ModelAndView usuario() {
+		mav = new ModelAndView();
+		this.mav.setViewName("usuario");
 
 		return mav;
 	}
