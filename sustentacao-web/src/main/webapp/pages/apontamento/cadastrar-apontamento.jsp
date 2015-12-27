@@ -7,15 +7,17 @@
 <head>
 <script src='<c:url value="/resources/js/jquery-2.1.4.min.js"></c:url>'></script>
 <script type="text/javascript">
-	function validar(){
-		var hora1 =$("#horaInicio").val();
-		var hora2 =$("#horaTermino").val();
-		var id =$("#idTarefa").val();
-		
-		$.post('/sustentacao/validarHoraInicioFim?horaInicio=' + hora1 + '&horaTermino=' + hora2 + '&idTarefa=' + id, function(resultado){
-			if(resultado){
-				alert('ok');
-			}else{
+	function validar() {
+		var hora1 = $("#horaInicio").val();
+		var hora2 = $("#horaTermino").val();
+		var id = $("#idTarefa").val();
+
+		$.post('/sustentacao/validarHoraInicioFim?horaInicio=' + hora1
+				+ '&horaTermino=' + hora2 + '&idTarefa=' + id, function(
+				resultado) {
+			if (resultado) {
+				return true;
+			} else {
 				alert('Horas disponíveis insuficientes');
 			}
 		});
@@ -41,8 +43,8 @@
 		method="post" onsubmit="compararHora(horaInicio, horaTermino);">
 		<div>
 			<div>
-				<input class="" id="idTarefa" name="tarefa.id" value="${idTarefa}" type="hidden"
-					required="required" />
+				<input class="" id="idTarefa" name="tarefa.id" value="${idTarefa}"
+					type="hidden" required="required" />
 			</div>
 			<div>
 				Descrição<input class="" name="descricao" placeholder="Descrição"
@@ -55,15 +57,17 @@
 			</div>
 			<div>
 				Hora Início<input class="" name="horaInicio" id="horaInicio"
-					placeholder="Hora de Início" required="required" type="time" />
+					placeholder="Hora de Início" required
+					pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}" />
 			</div>
 			<div>
 				Hora Término<input class="" name="horaTermino" id="horaTermino"
-					placeholder="Hora de Término" required="required" type="time" onblur="validar();"/>
+					placeholder="Hora de Término" required onblur="validar();"
+					pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}" />
 			</div>
 		</div>
 		<br>
-		<button class="" type="submit" >Cadastrar</button>
+		<button class="" type="submit">Cadastrar</button>
 		<a class="" href="/sustentacao/painel/apontamentos" type="button">Cancelar</a>
 	</form>
 </body>

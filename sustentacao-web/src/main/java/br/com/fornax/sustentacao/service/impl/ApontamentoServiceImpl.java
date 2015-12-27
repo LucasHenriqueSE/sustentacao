@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fornax.sustentacao.dao.ApontamentoDAO;
-import br.com.fornax.sustentacao.dao.TarefaDAO;
 import br.com.fornax.sustentacao.model.Apontamento;
 import br.com.fornax.sustentacao.model.Tarefa;
 import br.com.fornax.sustentacao.service.ApontamentoService;
@@ -77,8 +76,8 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 		double qtdHoras = (horasTrabalhadas / 3600000);
 		double qtdMinutos = (horasTrabalhadas % 3600000);
 		if (qtdMinutos > 0) {
-			minutos = (int) (qtdMinutos / 60000);
-			total = minutos / 60;
+			minutos = (qtdMinutos / 60000);
+			total = minutos / 100;
 		}
 		return qtdHoras + total;
 	}
