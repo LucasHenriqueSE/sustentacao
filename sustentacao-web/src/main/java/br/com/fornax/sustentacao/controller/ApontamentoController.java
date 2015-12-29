@@ -19,7 +19,7 @@ public class ApontamentoController {
 	private ApontamentoService apontamentoService;
 
 	@RequestMapping("/painel/apontamentos")
-	public ModelAndView listarApontamentos() {
+	public ModelAndView listar() {
 		mav = new ModelAndView();
 		mav.setViewName("apontamento");
 		this.mav.addObject("apontamentos", apontamentoService.listarApontamentos());
@@ -28,7 +28,7 @@ public class ApontamentoController {
 	}
 
 	@RequestMapping("/painel/tarefa/{idTarefa}/apontar")
-	public ModelAndView cadastrarApontamento(@PathVariable("idTarefa") long idTarefa) {
+	public ModelAndView viewCadastrarApontamento(@PathVariable("idTarefa") long idTarefa) {
 		mav = new ModelAndView();
 		this.mav.setViewName("cadastrar-apontamentos");
 
@@ -36,7 +36,7 @@ public class ApontamentoController {
 	}
 
 	@RequestMapping("/painel/apontamentos/cadastrar-apontamento")
-	public String apontar(Apontamento apontamento) {
+	public String cadastrar(Apontamento apontamento) {
 		apontamentoService.cadastrarApontamento(apontamento);
 		return "cadastrar-apontamentos";
 	}

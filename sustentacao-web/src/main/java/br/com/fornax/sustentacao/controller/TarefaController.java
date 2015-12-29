@@ -25,7 +25,7 @@ public class TarefaController {
 	private StatusService statusService;
 	
 	@RequestMapping("/painel/tarefas")
-	public ModelAndView listarTarefas() {
+	public ModelAndView listar() {
 		mav = new ModelAndView();
 		this.mav.setViewName("listar-tarefas");
 		this.mav.addObject("tarefas", tarefaService.listarTarefa());
@@ -34,7 +34,7 @@ public class TarefaController {
 	}
 
 	@RequestMapping("/painel/tarefas/cadastrar")
-	public ModelAndView ViewCadastroTarefa() {
+	public ModelAndView viewCadastrarTarefa() {
 		mav = new ModelAndView();
 
 		this.mav.setViewName("cadastrar");
@@ -45,7 +45,7 @@ public class TarefaController {
 	}
 
 	@RequestMapping("/painel/tarefas/cadastrar-tarefa")
-	public String cadastrarTarefa(Tarefa tarefa) {
+	public String cadastrar(Tarefa tarefa) {
 		tarefaService.cadastrarTarefa(tarefa);
 		return "cadastrar";
 	}

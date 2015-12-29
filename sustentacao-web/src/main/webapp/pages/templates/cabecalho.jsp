@@ -9,7 +9,7 @@
 <body>
 	<a class="" href="/sustentacao/painel/apontamentos">Apontamento de Horas</a>
 	<a class="" href="/sustentacao/painel/tarefas">Tarefas</a>
-	<a class="" href="/sustentacao/painel/exibir-perfil">Minhas Informações</a>
+	<a class="" href="/sustentacao/painel/cadastrar-usuario">Cadastrar Usuário</a>
 	<a class="" href="/sustentacao/painel">Painel Principal</a>
 </body>
 </html>

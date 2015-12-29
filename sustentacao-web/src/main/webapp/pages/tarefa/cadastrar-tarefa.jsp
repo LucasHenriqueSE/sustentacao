@@ -14,20 +14,20 @@
 		<div>
 			<br> <br>
 			<div>
-				Tipo de Tarefa <select required="required" name="tipo.id">
+				Tipo de Tarefa <select required name="tipo.id">
 					<option label="Selecione" selected="selected" value="" />
 					<c:forEach var="listaTipo" items="${tipo}">
-						<option value="${listaTipo.id}" >${listaTipo.nome}</option>
+						<option value="${listaTipo.id}">${listaTipo.nome}</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div>
 				Número do Chamado<input class="" name="numeroChamado"
-					placeholder="Número do Chamado" required="required" />
+					placeholder="Número do Chamado" required />
 			</div>
 			<div>
 				Descrição<input class="" name="descricao" value=""
-					placeholder="Descrição" required="required" />
+					placeholder="Descrição" required />
 			</div>
 			<div>
 				<select hidden="hidden">
@@ -35,9 +35,10 @@
 						<option label="${listaStatus.nome}" value="" />
 					</c:forEach>
 				</select>
-			</div>	
+			</div>
 		</div>
-		<br> <button class="" type="submit" >Salvar</button>
+		<br>
+		<button class="" type="submit">Salvar</button>
 		<a class="" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
 	</form>
 </body>

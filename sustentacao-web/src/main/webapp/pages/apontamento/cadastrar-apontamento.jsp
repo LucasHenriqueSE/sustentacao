@@ -5,7 +5,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
+<!-- <script id="mascaras" type="text/javascript"> -->
+<!-- // $("#dataApontamento").mask("99/99/9999"); -->
+<!-- </script> -->
 <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"></c:url>"></script>
+<!-- <script src="jquery.maskedinput.js" type="text/javascript"></script> -->
 <script type="text/javascript">
 	function validar() {
 		var hora1 = $("#horaInicio").val();
