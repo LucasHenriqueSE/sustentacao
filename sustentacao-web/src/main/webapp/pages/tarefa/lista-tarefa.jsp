@@ -27,7 +27,7 @@
 					<td>${listaTarefas.status.nome}</td>
 					<td>${listaTarefas.qtdHorasDisponiveis}</td>
 					<c:choose>
-						<c:when test="${listaTarefas.qtdHorasDisponiveis > 0}">
+						<c:when test="${listaTarefas.qtdHorasDisponiveis > '00:00'}">
 							<td><a id="apontar"
 								href="/sustentacao/painel/tarefa/${listaTarefas.id}/apontar">Apontar</a></td>
 						</c:when>

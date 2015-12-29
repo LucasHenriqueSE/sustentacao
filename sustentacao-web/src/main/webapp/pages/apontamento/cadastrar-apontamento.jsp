@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
-<script src='<c:url value="/resources/js/jquery-2.1.4.min.js"></c:url>'></script>
+<script src="<c:url value="/resources/js/jquery-2.1.4.min.js"></c:url>"></script>
 <script type="text/javascript">
 	function validar() {
 		var hora1 = $("#horaInicio").val();
@@ -44,26 +44,26 @@
 		<div>
 			<div>
 				<input class="" id="idTarefa" name="tarefa.id" value="${idTarefa}"
-					type="hidden" required="required" />
+					type="hidden" required />
 			</div>
 			<div>
 				Descrição<input class="" name="descricao" placeholder="Descrição"
-					required="required" />
+					required />
 			</div>
 			<div>
 				Data Apontamento<input class="" id="dataApontamento"
-					name="dataApontamento" placeholder="Data Apontamento"
-					required="required" value="" />
+					name="dataApontamento" placeholder="Data Apontamento" required
+					value="" type="datetime" />
 			</div>
 			<div>
 				Hora Início<input class="" name="horaInicio" id="horaInicio"
-					placeholder="Hora de Início" required
-					pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}" />
+					placeholder="Hora de Início" required type="time"
+					pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" />
 			</div>
 			<div>
 				Hora Término<input class="" name="horaTermino" id="horaTermino"
 					placeholder="Hora de Término" required onblur="validar();"
-					pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}" />
+					type="time" pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" />
 			</div>
 		</div>
 		<br>

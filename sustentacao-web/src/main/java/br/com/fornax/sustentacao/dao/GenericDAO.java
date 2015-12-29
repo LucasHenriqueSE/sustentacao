@@ -18,7 +18,11 @@ public abstract class GenericDAO {
 	private EntityManager em;
 
 	public void inserir(Object entity) {
-		em.persist(entity);
+		try {
+			em.persist(entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void editar(Object entity) {

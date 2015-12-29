@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UsuarioController {
 	private ModelAndView mav;
 	
-	@RequestMapping("/painel/exibir-perfil")
+	@RequestMapping("/painel/cadastrar-usuario")
 	public ModelAndView usuario() {
 		mav = new ModelAndView();
 		this.mav.setViewName("usuario");

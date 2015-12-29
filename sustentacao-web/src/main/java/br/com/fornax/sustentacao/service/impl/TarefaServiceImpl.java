@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fornax.sustentacao.dao.TarefaDAO;
-import br.com.fornax.sustentacao.dao.TipoTarefaDAO;
 import br.com.fornax.sustentacao.model.Status;
 import br.com.fornax.sustentacao.model.Tarefa;
 import br.com.fornax.sustentacao.model.TipoTarefa;
@@ -20,32 +19,30 @@ import br.com.fornax.sustentacao.service.TarefaService;
 public class TarefaServiceImpl implements TarefaService {
 	
 	@Inject
-	private TipoTarefaDAO tipoTarefaDao;
-
-	@Inject
 	private TarefaDAO tarefaDao;
 	
 	private static final long CODIGO_STATUS_TAREFA_ABERTO = 1;
 	
 	@Override
 	public boolean cadastrarTarefa(Tarefa tarefa) {
-		tarefa.setStatus(new Status(CODIGO_STATUS_TAREFA_ABERTO));
-		TipoTarefa tipo = (TipoTarefa) tipoTarefaDao.buscarPorId(new TipoTarefa(), tarefa.getTipo().getId());
-		tarefa.setQtdHorasDisponiveis(tipo.getQtdHoras());
-		tarefaDao.inserir(tarefa);
-		return true;
+			tarefa.setStatus(new Status(CODIGO_STATUS_TAREFA_ABERTO));
+			TipoTarefa tipo = (TipoTarefa) tarefaDao.buscarPorId(new TipoTarefa(), tarefa.getTipo().getId());
+			tarefa.setQtdHorasDisponiveis(tipo.getQtdHoras());
+			tarefaDao.inserir(tarefa);
+			
+			return true;
 	}
 
 	@Override
 	public boolean editarTarefa(Tarefa tarefa) {
-		// TODO Auto-generated method stub
-		return false;
+		tarefaDao.editar(tarefa);
+		return true;
 	}
 
 	@Override
 	public boolean excluirTarefa(Tarefa tarefa) {
-		// TODO Auto-generated method stub
-		return false;
+		tarefaDao.excluir(tarefa);
+		return true;
 	}
 
 	@Override
@@ -60,8 +57,6 @@ public class TarefaServiceImpl implements TarefaService {
 
 	@Override
 	public List<Object> buscarTarefaPorTipo(long idTipoTarefa) {
-		// TODO Auto-generated method stub
-		return null;
+		return tarefaDao.buscarTarefaPorTipo(idTipoTarefa);
 	}
-
 }

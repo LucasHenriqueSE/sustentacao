@@ -36,7 +36,7 @@ public class Tarefa {
 	private Status status;
 
 	@Column(name = "QTD_HORAS_DISPONIVEIS", nullable = false)
-	private double qtdHorasDisponiveis;
+	private String qtdHorasDisponiveis;
 
 	@OneToMany(mappedBy = "tarefa", fetch = FetchType.EAGER)
 	private List<Apontamento> apontamentos;
@@ -81,11 +81,11 @@ public class Tarefa {
 		this.status = status;
 	}
 
-	public double getQtdHorasDisponiveis() {
+	public String getQtdHorasDisponiveis() {
 		return qtdHorasDisponiveis;
 	}
 
-	public void setQtdHorasDisponiveis(double qtdHorasDisponiveis) {
+	public void setQtdHorasDisponiveis(String qtdHorasDisponiveis) {
 		this.qtdHorasDisponiveis = qtdHorasDisponiveis;
 	}
 

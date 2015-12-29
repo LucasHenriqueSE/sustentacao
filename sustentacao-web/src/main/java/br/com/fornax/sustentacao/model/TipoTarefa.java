@@ -23,10 +23,10 @@ public class TipoTarefa {
 	private String nome;
 
 	@Column(name = "QTD_HORAS", nullable = false)
-	private long qtdHoras;
+	private String qtdHoras;
 
 	@Column(name = "QTD_HORAS_ALERTA", nullable = false)
-	private long qtdHorasParaAviso;
+	private String qtdHorasParaAviso;
 
 	@OneToMany(mappedBy = "tipo", fetch = FetchType.EAGER)
 	private List<Tarefa> tarefas;
@@ -47,19 +47,19 @@ public class TipoTarefa {
 		this.nome = nome;
 	}
 
-	public long getQtdHoras() {
+	public String getQtdHoras() {
 		return qtdHoras;
 	}
 
-	public void setQtdHoras(long qtdHoras) {
+	public void setQtdHoras(String qtdHoras) {
 		this.qtdHoras = qtdHoras;
 	}
 
-	public long getQtdHorasParaAviso() {
+	public String getQtdHorasParaAviso() {
 		return qtdHorasParaAviso;
 	}
 
-	public void setQtdHorasParaAviso(long qtdHorasParaAviso) {
+	public void setQtdHorasParaAviso(String qtdHorasParaAviso) {
 		this.qtdHorasParaAviso = qtdHorasParaAviso;
 	}
 

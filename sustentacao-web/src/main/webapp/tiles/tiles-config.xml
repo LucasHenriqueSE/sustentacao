@@ -18,7 +18,7 @@
 
 	<!-- Usuário -->
 	<definition name="usuario" extends="main">
-		<put-attribute name="conteudo" value="/pages/usuario/exibir-perfil.jsp" />
+		<put-attribute name="conteudo" value="/pages/usuario/cadastrar-usuario.jsp" />
 	</definition>
 
 	<!-- Tarefa -->
