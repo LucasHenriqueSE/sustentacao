@@ -43,7 +43,7 @@
 </head>
 <body>
 	<form class="" id="formApt"
-		action="/sustentacao/painel/tarefa/cadastrar-apontamento"
+		action="/sustentacao/painel/apontamento/editar"
 		method="post" onsubmit="compararHora();">
 		<div>
 			<div>
@@ -51,28 +51,28 @@
 					type="hidden" required />
 			</div>
 			<div>
-				Descrição<input class="" name="descricao" placeholder="Descrição"
+				Descrição<input class="" name="descricao" value="${descricao}"
 					required />
 			</div>
 			<div>
 				Data Apontamento<input class="" id="dataApontamento"
-					name="dataApontamento" placeholder="Data Apontamento" required
-					value="" type="datetime" />
+					name="dataApontamento" required value="${dataApontamento}"
+					type="datetime" />
 			</div>
 			<div>
 				Hora Início<input class="" name="horaInicio" id="horaInicio"
-					placeholder="Hora de Início" required type="time"
+					value="${horaInicio}" required type="time"
 					pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" />
 			</div>
 			<div>
 				Hora Término<input class="" name="horaTermino" id="horaTermino"
-					placeholder="Hora de Término" required onblur="validar();"
+					value="${horaTermino}" required onblur="validar();"
 					type="time" pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" />
 			</div>
 		</div>
 		<br>
 		<button class="" type="submit">Cadastrar</button>
-		<a class="" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
+		<a class="" href="/sustentacao/painel/apontamentos" type="button">Cancelar</a>
 	</form>
 </body>
 </html>

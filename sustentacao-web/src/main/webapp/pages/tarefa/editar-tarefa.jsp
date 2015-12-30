@@ -9,35 +9,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" action="/sustentacao/painel/tarefas/cadastrar-tarefa"
+	<form class="" action="/sustentacao/painel/tarefas/editar"
 		method="post">
 		<div>
 			<br> <br>
 			<div>
 				Tipo de Tarefa <select required name="tipo.id">
-					<option label="Selecione" selected="selected" value="" />
 					<c:forEach var="listaTipo" items="${tipo}">
-						<option value="${listaTipo.id}">${listaTipo.nome}</option>
+						<option value="${listaTipo.id}" selected label="${listaTipo.nome}" />
 					</c:forEach>
 				</select>
 			</div>
 			<div>
 				Número do Chamado<input class="" name="numeroChamado"
-					value="${numeroChamado}" placeholder="Número do Chamado" required />
+					value="${numeroChamado}" required />
 			</div>
 			<div>
 				Descrição<input class="" name="descricao" value="${descricao}"
-					placeholder="Descrição" required />
-			</div>
-			<div>
-				Horas Disponíveis<input class="" name="qtdHorasDisponiveis"
-					value="${qtdHorasDisponiveis}" placeholder="Horas Disponíveis"
 					required />
 			</div>
+			<%-- 			<c:forEach var="listaTipo" items="${tipo}"> --%>
+			<c:if test="${id == 3 || id == 4}">
+				<div>
+					Horas Disponíveis<input class="" name="qtdHorasDisponiveis"
+						value="${qtdHorasDisponiveis}" required />
+				</div>
+			</c:if>
+			<%-- 			</c:forEach> --%>
 			<div>
 				<select required name="status.id">
 					<c:forEach var="listaStatus" items="${status}">
-						<option label="${listaStatus.nome}" value="" />
+						Status<option selected label="${listaStatus.nome}"
+							value="${listaStatus.nome}" />
 					</c:forEach>
 				</select>
 			</div>

@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" action="/sustentacao/painel/tarefas/cadastrar-tarefa"
+	<form class="" action="/sustentacao/painel/tarefas/cadastrar"
 		method="post">
 		<div>
 			<br> <br>

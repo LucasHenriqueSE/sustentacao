@@ -14,14 +14,15 @@ import br.com.fornax.sustentacao.service.ApontamentoService;
 @Controller
 public class ApontamentoController {
 	private ModelAndView mav;
-	
+
 	@Inject
 	private ApontamentoService apontamentoService;
 
 	@RequestMapping("/painel/apontamentos")
 	public ModelAndView listar() {
 		mav = new ModelAndView();
-		mav.setViewName("apontamento");
+		
+		this.mav.setViewName("listar-apontamentos");
 		this.mav.addObject("apontamentos", apontamentoService.listarApontamentos());
 
 		return mav;
@@ -30,20 +31,34 @@ public class ApontamentoController {
 	@RequestMapping("/painel/tarefa/{idTarefa}/apontar")
 	public ModelAndView viewCadastrarApontamento(@PathVariable("idTarefa") long idTarefa) {
 		mav = new ModelAndView();
-		this.mav.setViewName("cadastrar-apontamentos");
+		this.mav.setViewName("cadastrar-apontamento");
 
 		return mav;
 	}
 
-	@RequestMapping("/painel/apontamentos/cadastrar-apontamento")
+	@RequestMapping("/painel/tarefa/cadastrar-apontamento")
 	public String cadastrar(Apontamento apontamento) {
 		apontamentoService.cadastrarApontamento(apontamento);
-		return "cadastrar-apontamentos";
+		return "listar-apontamentos";
 	}
-	
+
+	@RequestMapping("/painel/apontamento/{idApontamento}/editar-apontamento")
+	public ModelAndView viewEditar(@PathVariable("idApontamento") long idApontamento) {
+		mav = new ModelAndView();
+		this.mav.setViewName("editar-apontamento");
+
+		return mav;
+	}
+
+	@RequestMapping("/painel/apontamento/editar")
+	public String editar(Apontamento apontamento) {
+		apontamentoService.editarApontamento(apontamento);
+		return "listar-apontamentos";
+	}
+
 	@ResponseBody
 	@RequestMapping("validarHoraInicioFim")
-	public boolean validarHoraInicioFim(String horaInicio, String horaTermino, long idTarefa){
+	public boolean validarHoraInicioFim(String horaInicio, String horaTermino, long idTarefa) {
 		return apontamentoService.validarHoraInicioFim(horaInicio, horaTermino, idTarefa);
 	}
 }

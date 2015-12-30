@@ -35,11 +35,13 @@
 							<td>Horas não disponiveis</td>
 						</c:otherwise>
 					</c:choose>
+					<td><a
+						href="/sustentacao/painel/tarefa/${listaTarefas.id}/editar-tarefa">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<br> <a class="" href="tarefas/cadastrar" type="button">Cadastrar
-			Tarefa</a>
+		<br> <a class="" href="tarefas/cadastrar-tarefa" type="button">Cadastrar
+			Tarefa</a> <a class="" href="/sustentacao/painel" type="submit">Voltar</a>
 	</form>
 </body>
 </html>

@@ -9,7 +9,7 @@
 	</definition>
 
 	<definition name="acesso" extends="main">
-		<put-attribute name="cabecalho" value=""/>
+		<put-attribute name="cabecalho" value="" />
 		<put-attribute name="conteudo" value="/pages/acesso.jsp" />
 	</definition>
 	<definition name="painel" extends="main">
@@ -18,23 +18,34 @@
 
 	<!-- Usuário -->
 	<definition name="usuario" extends="main">
-		<put-attribute name="conteudo" value="/pages/usuario/cadastrar-usuario.jsp" />
+		<put-attribute name="conteudo"
+			value="/pages/usuario/cadastrar-usuario.jsp" />
 	</definition>
 
 	<!-- Tarefa -->
 	<definition name="listar-tarefas" extends="main">
 		<put-attribute name="conteudo" value="/pages/tarefa/lista-tarefa.jsp" />
 	</definition>
-	
-	<definition name="cadastrar" extends="main">
+
+	<definition name="cadastrar-tarefa" extends="main">
 		<put-attribute name="conteudo" value="/pages/tarefa/cadastrar-tarefa.jsp" />
 	</definition>
 
-	<!-- Apontamento -->
-	<definition name="apontamento" extends="main">
-		<put-attribute name="conteudo" value="/pages/apontamento/lista-apontamentos.jsp" />
+	<definition name="editar-tarefa" extends="main">
+		<put-attribute name="conteudo" value="/pages/tarefa/editar-tarefa.jsp" />
 	</definition>
-	<definition name="cadastrar-apontamentos" extends="main">
-		<put-attribute name="conteudo" value="/pages/apontamento/cadastrar-apontamento.jsp" />
+
+	<!-- Apontamento -->
+	<definition name="listar-apontamentos" extends="main">
+		<put-attribute name="conteudo"
+			value="/pages/apontamento/lista-apontamentos.jsp" />
+	</definition>
+	<definition name="cadastrar-apontamento" extends="main">
+		<put-attribute name="conteudo"
+			value="/pages/apontamento/cadastrar-apontamento.jsp" />
+	</definition>
+	<definition name="editar-apontamento" extends="main">
+		<put-attribute name="conteudo"
+			value="/pages/apontamento/editar-apontamento.jsp" />
 	</definition>
 </tiles-definitions>

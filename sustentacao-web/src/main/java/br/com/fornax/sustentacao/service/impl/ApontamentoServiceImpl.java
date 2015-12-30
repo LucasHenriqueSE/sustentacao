@@ -104,11 +104,11 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 		}
 		String qtdHorasDisponiveis = tarefa.getQtdHorasDisponiveis();
 		String horasTrabalhadas = calcularHoras(horaFim, horaInicio);
-		
+
 		int segundosDisponiveis = 0;
 		int segundosTrabalhados = 0;
 		if (qtdHorasDisponiveis.substring(3, 4).equals(":")) {
-			segundosDisponiveis  = (Integer.parseInt(qtdHorasDisponiveis.substring(0, 3)) * 3600)
+			segundosDisponiveis = (Integer.parseInt(qtdHorasDisponiveis.substring(0, 3)) * 3600)
 					+ (Integer.parseInt(qtdHorasDisponiveis.substring(4, 6)) * 60);
 		} else if (qtdHorasDisponiveis.substring(2, 3).equals(":")) {
 			segundosDisponiveis = (Integer.parseInt(qtdHorasDisponiveis.substring(0, 2)) * 3600)
@@ -121,7 +121,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 			segundosTrabalhados = (Integer.parseInt(horasTrabalhadas.substring(0, 2)) * 3600)
 					+ (Integer.parseInt(horasTrabalhadas.substring(3, 5)) * 60);
 		}
-		
+
 		if (segundosTrabalhados > segundosDisponiveis) {
 			return false;
 		} else {

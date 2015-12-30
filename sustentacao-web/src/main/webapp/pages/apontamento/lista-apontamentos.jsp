@@ -18,6 +18,7 @@
 				<td>Data Apontamento</td>
 				<td>Hora Início</td>
 				<td>Hora Término</td>
+				<td>Editar</td>
 			</tr>
 			<c:forEach var="listaApontamento" items="${apontamentos}">
 				<tr>
@@ -27,6 +28,7 @@
 					<td><fmt:formatDate	value="${listaApontamento.dataApontamento.time}" pattern="dd/MM/yyyy" type="date" /></td>
 					<td><fmt:formatDate	value="${listaApontamento.horaInicio.time}" pattern="HH:mm" type="time"/></td>
 					<td><fmt:formatDate value="${listaApontamento.horaTermino.time}" pattern="HH:mm" type="time"/></td>
+					<td><a href="/sustentacao/painel/apontamento/${listaApontamento.id}/editar-apontamento">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
