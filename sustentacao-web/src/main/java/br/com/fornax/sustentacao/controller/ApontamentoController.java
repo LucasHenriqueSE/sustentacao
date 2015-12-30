@@ -21,7 +21,7 @@ public class ApontamentoController {
 	@RequestMapping("/painel/apontamentos")
 	public ModelAndView listar() {
 		mav = new ModelAndView();
-		
+
 		this.mav.setViewName("listar-apontamentos");
 		this.mav.addObject("apontamentos", apontamentoService.listarApontamentos());
 
@@ -43,9 +43,12 @@ public class ApontamentoController {
 	}
 
 	@RequestMapping("/painel/apontamento/{idApontamento}/editar-apontamento")
-	public ModelAndView viewEditar(@PathVariable("idApontamento") long idApontamento) {
+	public ModelAndView viewEditar(@PathVariable("idApontamento") long idApontamento, Apontamento apontamento) {
 		mav = new ModelAndView();
+
 		this.mav.setViewName("editar-apontamento");
+		this.mav.addObject("data", apontamento.getDataApontamento());
+		this.mav.addObject("apontamento", apontamentoService.buscarApontamentoPorId(apontamento, idApontamento));
 
 		return mav;
 	}

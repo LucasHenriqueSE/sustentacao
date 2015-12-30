@@ -5,11 +5,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
-<!-- <script id="mascaras" type="text/javascript"> -->
-<!-- // $("#dataApontamento").mask("99/99/9999"); -->
-<!-- </script> -->
 <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"></c:url>"></script>
-<!-- <script src="jquery.maskedinput.js" type="text/javascript"></script> -->
+<script
+	src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#dataApontamento").mask("99/99/9999");
+		$("#horaInicio").mask("99:99");
+		$("#horaTermino").mask("99:99");
+	});
+</script>
 <script type="text/javascript">
 	function validar() {
 		var hora1 = $("#horaInicio").val();
@@ -61,13 +66,11 @@
 			</div>
 			<div>
 				Hora Início<input class="" name="horaInicio" id="horaInicio"
-					placeholder="Hora de Início" required type="time"
-					pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" />
+					placeholder="Hora de Início" required />
 			</div>
 			<div>
 				Hora Término<input class="" name="horaTermino" id="horaTermino"
-					placeholder="Hora de Término" required onblur="validar();"
-					type="time" pattern="[0-9]{2}:[0-9]{2} [0-9]{2}$" />
+					placeholder="Hora de Término" required onblur="validar();" />
 			</div>
 		</div>
 		<br>

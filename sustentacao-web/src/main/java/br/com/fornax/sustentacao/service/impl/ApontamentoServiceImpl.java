@@ -59,9 +59,8 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 	}
 
 	@Override
-	public Object buscarApontamentoPorId(Apontamento apontamento, long idApontamento) {
-		apontamentoDAO.buscarPorId(apontamento, idApontamento);
-		return true;
+	public Apontamento buscarApontamentoPorId(Apontamento apontamento, long idApontamento) {
+		return (Apontamento) apontamentoDAO.buscarPorId(apontamento, idApontamento);
 	}
 
 	private String calcularHorasTrabalhadas(Calendar horaTermino, Calendar horaInicio) {

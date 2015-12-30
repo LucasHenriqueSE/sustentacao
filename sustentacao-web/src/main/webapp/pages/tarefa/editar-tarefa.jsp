@@ -21,25 +21,25 @@
 				</select>
 			</div>
 			<div>
-				Número do Chamado<input class="" name="numeroChamado"
-					value="${numeroChamado}" required />
+				Número do Chamado <input class="" name="numeroChamado"
+					value="${tarefa.numeroChamado}" required />
 			</div>
 			<div>
-				Descrição<input class="" name="descricao" value="${descricao}"
+				Descrição <input class="" name="descricao" value="${tarefa.descricao}"
 					required />
 			</div>
 			<%-- 			<c:forEach var="listaTipo" items="${tipo}"> --%>
 			<c:if test="${id == 3 || id == 4}">
 				<div>
-					Horas Disponíveis<input class="" name="qtdHorasDisponiveis"
-						value="${qtdHorasDisponiveis}" required />
+					Horas Disponíveis <input class="" name="qtdHorasDisponiveis"
+						value="${tarefa.qtdHorasDisponiveis}" required />
 				</div>
 			</c:if>
 			<%-- 			</c:forEach> --%>
 			<div>
-				<select required name="status.id">
+				Status <select required name="status.id">
 					<c:forEach var="listaStatus" items="${status}">
-						Status<option selected label="${listaStatus.nome}"
+						<option selected label="${listaStatus.nome}"
 							value="${listaStatus.nome}" />
 					</c:forEach>
 				</select>

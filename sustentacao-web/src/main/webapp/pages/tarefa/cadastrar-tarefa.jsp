@@ -32,7 +32,7 @@
 			<div>
 				<select hidden="hidden">
 					<c:forEach var="listaStatus" items="${status}">
-						<option label="${listaStatus.nome}" value="" />
+						Status<option label="${listaStatus.nome}" value="" />
 					</c:forEach>
 				</select>
 			</div>

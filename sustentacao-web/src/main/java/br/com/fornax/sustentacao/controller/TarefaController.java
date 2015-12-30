@@ -24,7 +24,7 @@ public class TarefaController {
 
 	@Inject
 	private StatusService statusService;
-
+	
 	@RequestMapping("/painel/tarefas")
 	public ModelAndView listar() {
 		mav = new ModelAndView();
@@ -52,11 +52,11 @@ public class TarefaController {
 	}
 
 	@RequestMapping("/painel/tarefa/{idTarefa}/editar-tarefa")
-	public ModelAndView viewEditarTarefa(@PathVariable("idTarefa") long idTarefa) {
+	public ModelAndView viewEditarTarefa(@PathVariable("idTarefa") long idTarefa, Tarefa tarefa) {
 		mav = new ModelAndView();
 
 		this.mav.setViewName("editar-tarefa");
-		this.mav.addObject("tarefa", tipoTarefaService.listarTipoTarefa());
+		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(tarefa, idTarefa));
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
 
