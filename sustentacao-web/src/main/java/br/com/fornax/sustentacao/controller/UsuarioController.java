@@ -10,13 +10,14 @@ import br.com.fornax.sustentacao.model.Usuario;
 import br.com.fornax.sustentacao.service.UsuarioService;
 
 @Controller
+@RequestMapping("/painel/listar-usuarios")
 public class UsuarioController {
 	private ModelAndView mav;
 	
 	@Inject
 	private UsuarioService usuarioService;
 	
-	@RequestMapping("/painel/listar-usuarios/cadastrar-usuario")
+	@RequestMapping("/cadastrar-usuario")
 	public ModelAndView viewCadastrarUsuario() {
 		mav = new ModelAndView();
 		this.mav.setViewName("usuario");
@@ -24,7 +25,7 @@ public class UsuarioController {
 		return mav;
 	}
 	
-	@RequestMapping("/painel/listar-usuarios/cadastrar")
+	@RequestMapping("/cadastrar")
 	public String cadastrar(Usuario usuario){
 		usuarioService.cadastrar(usuario);
 		return "usuario";

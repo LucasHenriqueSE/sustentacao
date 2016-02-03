@@ -9,11 +9,10 @@
 	</definition>
 
 	<definition name="acesso" extends="main">
-		<put-attribute name="cabecalho" value="" />
 		<put-attribute name="conteudo" value="/pages/acesso.jsp" />
 	</definition>
 	<definition name="painel" extends="main">
-		<put-attribute name="conteudo" value="/pages/painel.jsp" />
+		<put-attribute name="conteudo" value="/pages/painel/painel.jsp" />
 	</definition>
 
 	<!-- Usuário -->

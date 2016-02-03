@@ -12,13 +12,14 @@ import br.com.fornax.sustentacao.model.Apontamento;
 import br.com.fornax.sustentacao.service.ApontamentoService;
 
 @Controller
+@RequestMapping("/painel/apontamentos")
 public class ApontamentoController {
 	private ModelAndView mav;
 
 	@Inject
 	private ApontamentoService apontamentoService;
 
-	@RequestMapping("/painel/apontamentos")
+	@RequestMapping
 	public ModelAndView listar() {
 		mav = new ModelAndView();
 

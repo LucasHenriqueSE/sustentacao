@@ -25,7 +25,7 @@ public class TarefaController {
 	@Inject
 	private StatusService statusService;
 	
-	@RequestMapping("/painel/tarefas")
+	@RequestMapping
 	public ModelAndView listar() {
 		mav = new ModelAndView();
 		this.mav.setViewName("listar-tarefas");
