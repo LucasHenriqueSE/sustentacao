@@ -52,30 +52,32 @@
 		method="post" onsubmit="compararHora();">
 		<div>
 			<div>
-				<input class="" id="idTarefa" name="tarefa.id" value="${idTarefa}"
+				<input id="idTarefa" name="tarefa.id" value="${idTarefa}"
 					type="hidden" required />
 			</div>
-			<div>
-				Descrição<input class="" name="descricao" placeholder="Descrição"
-					required />
+			<div class="input-group">
+				<label for="descricao">Descrição</label>
+				<input class="form-control" id="descricao" name="descricao" placeholder="Descrição"/>
 			</div>
-			<div>
-				Data Apontamento<input class="" id="dataApontamento"
-					name="dataApontamento" placeholder="Data Apontamento" required
-					value="" type="datetime" />
+			<div class="input-group">
+				<label for="dataApontamento">Data Apontamento</label>
+				<input class="form-control" id="dataApontamento"
+					name="dataApontamento" placeholder="Data Apontamento" type="datetime" />
 			</div>
-			<div>
-				Hora Início<input class="" name="horaInicio" id="horaInicio"
-					placeholder="Hora de Início" required />
+			<div class="input-group">
+				<label for="horaInicio">Hora Início</label>
+				<input class="form-control" name="horaInicio" id="horaInicio"
+					placeholder="Hora de Início" />
 			</div>
-			<div>
-				Hora Término<input class="" name="horaTermino" id="horaTermino"
-					placeholder="Hora de Término" required onblur="validar();" />
+			<div class="input-group">
+				<label for="horaTermino">Hora Término</label>
+				<input class="form-control" name="horaTermino" id="horaTermino"
+					placeholder="Hora de Término" onblur="validar();" />
 			</div>
 		</div>
 		<br>
-		<button class="" type="submit">Cadastrar</button>
-		<a class="" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
+		<button class="btn btn-default" type="submit">Cadastrar</button>
+		<a class="btn btn-default" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
 	</form>
 </body>
 </html>

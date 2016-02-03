@@ -1,8 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"></c:url>"></script>
@@ -11,9 +8,9 @@
 <script src="<c:url value="/resources/js/jquery-ui.js"></c:url>"></script>
 <script type="text/javascript">
 	jQuery(function() {
-// 		$("#dataApontamento").mask("99/99/9999");
-		$("#horaInicio").mask("99:99");
-		$("#horaTermino").mask("99:99");
+		// 		$("#dataApontamento").mask("99/99/9999");
+		//	$("#horaInicio").mask("99:99");
+		//$("#horaTermino").mask("99:99");
 	});
 </script>
 <script type="text/javascript">
@@ -45,39 +42,40 @@
 	};
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Editar Apontamento</title>
 </head>
 <body>
-	<form class="" id="formApt"
-		action="/sustentacao/painel/apontamento/editar" method="post"
-		onsubmit="compararHora();">
+	<form id="formApt" action="/sustentacao/painel/apontamento/editar"
+		method="post" onsubmit="compararHora();">
 		<div>
 			<div>
-				<input class="" id="idTarefa" name="apontamento.tarefa.id"
-					value="${idTarefa}" type="hidden" required />
+				<input id="idTarefa" name="apontamento.tarefa.id"
+					value="${idTarefa}" type="hidden" />
 			</div>
-			<div>
-				Descrição<input class="" id="descricao" name="descricao"
-					value="${apontamento.descricao}" required />
+			<div class="input-group">
+				<label for="descricao">Descrição</label> <input class="form-control"
+					id="descricao" name="descricao" value="${apontamento.descricao}" />
 			</div>
-			<div>
-				Data Apontamento<input class="" id="dataApontamento"
-					name="dataApontamento" required
-					value="${apontamento.dataApontamento.time}" />
+			<div class="input-group">
+				<label for="dataApontamento">Data Apontamento</label> <input
+					class="form-control" id="dataApontamento" name="dataApontamento"
+					value='<fmt:formatDate value="${apontamento.dataApontamento.time}"/>' />
 			</div>
-			<div>
-				Hora Início<input class="" name="horaInicio" id="horaInicio"
-					value="${apontamento.horaInicio.time}" required />
+			<div class="input-group">
+				<label for="horaInicio">Hora Início</label> <input
+					class="form-control" name="horaInicio" id="horaInicio"
+					value="${apontamento.horaInicio.time}" pattern="dd/MM/yyyy" />
 			</div>
-			<div>
-				Hora Término<input class="" name="horaTermino" id="horaTermino"
-					value="${apontamento.horaTermino.time}" required
-					onblur="validar();" />
+			<div class="input-group">
+				<label for="horaTermino">Hora Término</label> <input
+					class="form-control" name="horaTermino" id="horaTermino"
+					value="${apontamento.horaTermino.time}" onblur="validar();" />
 			</div>
 		</div>
 		<br>
-		<button class="" type="submit">Cadastrar</button>
-		<a class="" href="/sustentacao/painel/apontamentos" type="button">Cancelar</a>
+		<button class="btn btn-default" type="submit">Cadastrar</button>
+		<a class="btn btn-default"
+			href="/sustentacao/painel/apontamentos" type="button">Cancelar</a>
 	</form>
 </body>
 </html>

@@ -9,25 +9,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form class="" action="/sustentacao/painel/tarefas/cadastrar"
+	<form action="/sustentacao/painel/tarefas/cadastrar"
 		method="post">
 		<div>
 			<br> <br>
-			<div>
-				Tipo de Tarefa <select required name="tipo.id">
+			<div class="input-group">
+			<label for="tipoTarefa">Tipo de Tarefa</label>
+				<select class="form-control" id="tipoTarefa" name="tipo.id">
 					<option label="Selecione" selected="selected" value="" />
 					<c:forEach var="listaTipo" items="${tipo}">
 						<option value="${listaTipo.id}">${listaTipo.nome}</option>
 					</c:forEach>
 				</select>
 			</div>
-			<div>
-				Número do Chamado<input class="" name="numeroChamado"
-					placeholder="Número do Chamado" required />
+			<div class="input-group">
+				<label for="numeroChamado">Número do Chamado</label>
+				<input class="form-control" id="numeroChamado" name="numeroChamado"
+					placeholder="Número do Chamado" />
 			</div>
-			<div>
-				Descrição<input class="" name="descricao" value=""
-					placeholder="Descrição" required />
+			<div class="input-group">
+			<label for="descricao">Descrição</label>
+				<input class="form-control" id="descricao" name="descricao" value=""
+					placeholder="Descrição" />
 			</div>
 			<div>
 				<select hidden="hidden">
@@ -38,8 +41,8 @@
 			</div>
 		</div>
 		<br>
-		<button class="" type="submit">Salvar</button>
-		<a class="" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
+		<button class="btn btn-default" type="submit">Salvar</button>
+		<a class="btn btn-default" href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
 	</form>
 </body>
 </html>

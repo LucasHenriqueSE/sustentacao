@@ -27,18 +27,14 @@ public class TarefaController {
 	
 	@RequestMapping
 	public ModelAndView listar() {
-		mav = new ModelAndView();
-		this.mav.setViewName("listar-tarefas");
+		mav = new ModelAndView("listar-tarefas");
 		this.mav.addObject("tarefas", tarefaService.listarTarefa());
-
 		return mav;
 	}
 
 	@RequestMapping("/painel/tarefas/cadastrar-tarefa")
 	public ModelAndView viewCadastrarTarefa() {
-		mav = new ModelAndView();
-
-		this.mav.setViewName("cadastrar-tarefa");
+		mav = new ModelAndView("cadastrar-tarefa");
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
 
@@ -48,14 +44,12 @@ public class TarefaController {
 	@RequestMapping("/painel/tarefas/cadastrar")
 	public String cadastrar(Tarefa tarefa) {
 		tarefaService.cadastrarTarefa(tarefa);
-		return "listar-tarefas";
+		return "redirect: listar-tarefas";
 	}
 
 	@RequestMapping("/painel/tarefa/{idTarefa}/editar-tarefa")
 	public ModelAndView viewEditarTarefa(@PathVariable("idTarefa") long idTarefa, Tarefa tarefa) {
-		mav = new ModelAndView();
-
-		this.mav.setViewName("editar-tarefa");
+		mav = new ModelAndView("editar-tarefa");
 		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(tarefa, idTarefa));
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
@@ -66,6 +60,6 @@ public class TarefaController {
 	@RequestMapping("/painel/tarefas/editar")
 	public String editar(Tarefa tarefa) {
 		tarefaService.editarTarefa(tarefa);
-		return "listar-tarefas";
+		return "redirect: listar-tarefas";
 	}
 }

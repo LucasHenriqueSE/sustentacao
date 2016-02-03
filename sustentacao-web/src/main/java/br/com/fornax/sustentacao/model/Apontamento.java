@@ -38,7 +38,7 @@ public class Apontamento {
 
 	@Column(name = "HORA_TERMINO", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "HH:mm")
+	@DateTimeFormat(pattern = "HH:mm", style="")
 	private Calendar horaTermino;
 
 	@ManyToOne

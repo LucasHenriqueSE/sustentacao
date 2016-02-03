@@ -19,15 +19,13 @@ public class UsuarioController {
 	
 	@RequestMapping("/cadastrar-usuario")
 	public ModelAndView viewCadastrarUsuario() {
-		mav = new ModelAndView();
-		this.mav.setViewName("usuario");
-
+		mav = new ModelAndView("usuario");
 		return mav;
 	}
 	
 	@RequestMapping("/cadastrar")
 	public String cadastrar(Usuario usuario){
 		usuarioService.cadastrar(usuario);
-		return "usuario";
+		return "redirect: ";
 	}
 }

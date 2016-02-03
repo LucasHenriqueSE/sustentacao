@@ -12,42 +12,36 @@ import br.com.fornax.sustentacao.model.Apontamento;
 import br.com.fornax.sustentacao.service.ApontamentoService;
 
 @Controller
-@RequestMapping("/painel/apontamentos")
 public class ApontamentoController {
 	private ModelAndView mav;
 
 	@Inject
 	private ApontamentoService apontamentoService;
 
-	@RequestMapping
+	@RequestMapping("/painel/apontamentos")
 	public ModelAndView listar() {
-		mav = new ModelAndView();
-
-		this.mav.setViewName("listar-apontamentos");
+		mav = new ModelAndView("listar-apontamentos");
 		this.mav.addObject("apontamentos", apontamentoService.listarApontamentos());
 
 		return mav;
 	}
 
-	@RequestMapping("/painel/tarefa/{idTarefa}/apontar")
+	@RequestMapping("painel/tarefa/{idTarefa}/apontar")
 	public ModelAndView viewCadastrarApontamento(@PathVariable("idTarefa") long idTarefa) {
-		mav = new ModelAndView();
-		this.mav.setViewName("cadastrar-apontamento");
-
+		mav = new ModelAndView("cadastrar-apontamento");
 		return mav;
 	}
 
 	@RequestMapping("/painel/tarefa/cadastrar-apontamento")
 	public String cadastrar(Apontamento apontamento) {
 		apontamentoService.cadastrarApontamento(apontamento);
-		return "listar-apontamentos";
+		return "redirect: listar-apontamentos";
 	}
 
 	@RequestMapping("/painel/apontamento/{idApontamento}/editar-apontamento")
 	public ModelAndView viewEditar(@PathVariable("idApontamento") long idApontamento, Apontamento apontamento) {
-		mav = new ModelAndView();
+		mav = new ModelAndView("editar-apontamento");
 
-		this.mav.setViewName("editar-apontamento");
 		this.mav.addObject("data", apontamento.getDataApontamento());
 		this.mav.addObject("apontamento", apontamentoService.buscarApontamentoPorId(apontamento, idApontamento));
 
@@ -57,7 +51,7 @@ public class ApontamentoController {
 	@RequestMapping("/painel/apontamento/editar")
 	public String editar(Apontamento apontamento) {
 		apontamentoService.editarApontamento(apontamento);
-		return "listar-apontamentos";
+		return "redirect: listar-apontamentos";
 	}
 
 	@ResponseBody

@@ -11,9 +11,7 @@ public class PainelController {
 
 	@RequestMapping
 	public ModelAndView painel() {
-		mav = new ModelAndView();
-		this.mav.setViewName("painel");
-
+		mav = new ModelAndView("painel");
 		return mav;
 	}
 }

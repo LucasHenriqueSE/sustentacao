@@ -13,8 +13,7 @@ public class LoginController {
 
 	@RequestMapping
 	public ModelAndView login(HttpServletRequest request) {
-		mav.setViewName("acesso");
-
-		return mav;
+		mav = new ModelAndView("acesso");
+		return this.mav;
 	}
 }
