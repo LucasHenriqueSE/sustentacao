@@ -17,17 +17,17 @@
 	<dependencies>
 
 		<!-- velocity -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.velocity</groupId> -->
-<!-- 			<artifactId>velocity</artifactId> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.velocity</groupId> -->
+		<!-- <artifactId>velocity</artifactId> -->
+		<!-- <scope>compile</scope> -->
+		<!-- </dependency> -->
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.velocity</groupId> -->
-<!-- 			<artifactId>velocity-tools</artifactId> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.velocity</groupId> -->
+		<!-- <artifactId>velocity-tools</artifactId> -->
+		<!-- <scope>compile</scope> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -239,6 +239,25 @@
 		<finalName>sustentacao</finalName>
 
 		<plugins>
+
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-war-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors> -->
+			<!-- <webResources> -->
+			<!-- <resource> -->
+			<!-- <directory>${basedir}/src/main/webapp</directory> -->
+			<!-- <targetPath /> -->
+			<!-- <filtering>true</filtering> -->
+			<!-- <excludes> -->
+			<!-- <exclude>**/*.woff</exclude> -->
+			<!-- <exclude>**/*.woff2</exclude> -->
+			<!-- <exclude>**/*.ttf</exclude> -->
+			<!-- </excludes> -->
+			<!-- </resource> -->
+			<!-- </webResources> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>

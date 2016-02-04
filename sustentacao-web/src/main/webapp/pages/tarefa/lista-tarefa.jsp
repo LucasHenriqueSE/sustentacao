@@ -1,16 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<html>
-<head>
 <title>Lista de Tarefas</title>
-</head>
-<body>
-	<form class="" action="" method="get">
-		<div class="table-responsive">
-			<table class="table table-hover table-bordered">
+<form class="" action="" method="get">
+	<div class="table-responsive">
+		<table class="table table-hover table-bordered">
+			<thead>
 				<tr class="text-center">
 					<td>Tipo de Tarefa</td>
 					<td>Descrição</td>
@@ -20,6 +13,8 @@
 					<td>Apontar</td>
 					<td>Editar</td>
 				</tr>
+			</thead>
+			<tbody>
 				<c:forEach var="listaTarefas" items="${tarefas}">
 					<tr class="text-center">
 						<td>${listaTarefas.tipo.nome}</td>
@@ -40,13 +35,12 @@
 							href="/sustentacao/painel/tarefa/${listaTarefas.id}/editar-tarefa"></a></td>
 					</tr>
 				</c:forEach>
-			</table>
-		</div>
-		<div class="text-right">
-			<br>
-			<a class="btn btn-lg" href="tarefas/cadastrar-tarefa" type="button">Cadastrar Tarefa</a>
-			<a class="btn btn-lg" href="/sustentacao/painel" type="submit">Voltar</a>
-		</div>
-	</form>
-</body>
-</html>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-right">
+		<br> <a class="btn btn-lg" href="tarefas/cadastrar-tarefa"
+			type="button">Cadastrar Tarefa</a> <a class="btn btn-lg"
+			href="/sustentacao/painel" type="submit">Voltar</a>
+	</div>
+</form>

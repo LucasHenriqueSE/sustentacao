@@ -53,7 +53,7 @@ public class TarefaController {
 		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(tarefa, idTarefa));
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
-
+		
 		return mav;
 	}
 

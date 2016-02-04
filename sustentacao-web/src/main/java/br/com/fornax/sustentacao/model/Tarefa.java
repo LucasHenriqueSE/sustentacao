@@ -35,7 +35,7 @@ public class Tarefa {
 	@JoinColumn(name = "CODIGO_STATUS", referencedColumnName = "CODIGO_STATUS")
 	private Status status;
 
-	@Column(name = "QTD_HORAS_DISPONIVEIS", nullable = false)
+	@Column(name = "QTD_HORAS_DISPONIVEIS")
 	private String qtdHorasDisponiveis;
 
 	@OneToMany(mappedBy = "tarefa", fetch = FetchType.EAGER)
