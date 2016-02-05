@@ -5,9 +5,9 @@
 		<br> <br> <input name="tarefa.id" value="${tarefa.id}">
 		<div class="input-group">
 			<label for="tipoTarefa">Tipo de Tarefa </label> <select
-				class="form-control" id="tipoTarefa" name="tarefa.tipo.id">
-				<c:forEach var="listaTipo" items="${tipo}">
-					<option value="${listaTipo.id}" label="${listaTipo.nome}"></option>
+				class="form-control" id="tipoTarefa" name="tarefa.tipo.nome">
+				<c:forEach var="tipos" items="${tipo}">
+					<option value="${tipos.id}" label="${tipos.nome}" ></option>
 				</c:forEach>
 			</select>
 		</div>
@@ -29,7 +29,7 @@
 		</c:if>
 		<div class="input-group">
 			<label for="statusChamado">Status</label> <select
-				class="form-control" id="statusChamado" name="status.id">
+				class="form-control" id="statusChamado" name="status.id" >
 				<c:forEach var="listaStatus" items="${status}">
 					<option value="${listaStatus.id}">${listaStatus.nome}</option>
 				</c:forEach>

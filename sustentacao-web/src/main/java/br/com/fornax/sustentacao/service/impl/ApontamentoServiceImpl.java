@@ -43,7 +43,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 
 	@Override
 	public boolean editarApontamento(Apontamento apontamento) {
-		apontamentoDAO.editar(apontamento);
+		cadastrarApontamento(apontamento);
 		return true;
 	}
 

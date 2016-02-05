@@ -1,12 +1,10 @@
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!-- <script -->
-<%-- 	src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script> --%>
-<%-- <script src="<c:url value="/resources/js/jquery-ui.js"></c:url>"></script> --%>
-<script type="text/javascript">
-	(function() {
-		// 		$("#dataApontamento").mask("99/99/9999");
-		//	$("#horaInicio").mask("99:99");
-		//$("#horaTermino").mask("99:99");
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript" id="mascaraDataHora">
+	$(document).ready(function() {
+		$('#dataApontamento').mask('99/99/9999');
+		$('#horaInicio').mask('99:99');
+		$('#horaTermino').mask('99:99');
 	});
 </script>
 <script type="text/javascript">
@@ -38,12 +36,15 @@
 	};
 </script>
 <title>Editar Apontamento</title>
-<form id="formApt" action="/sustentacao/painel/apontamento/editar"
-	method="post" onsubmit="compararHora();">
+<form id="formApt" action="/sustentacao/painel/apontamento/${idApontamento}/editar"
+	method="POST" onsubmit="compararHora();">
 	<div>
 		<div>
-			<input id="idTarefa" name="apontamento.tarefa.id" value="${idTarefa}"
-				type="hidden" />
+			<input id="idTarefa" name="apontamento.tarefa.id"
+				value="${apontamento.tarefa.id}" type="hidden" />
+				
+			<input id="idApontamento" name="apontamento.id"
+				value="${{idApontamento}}" type="hidden" />
 		</div>
 		<div class="input-group">
 			<label for="descricao">Descrição</label> <input class="form-control"
@@ -57,12 +58,12 @@
 		<div class="input-group">
 			<label for="horaInicio">Hora Início</label> <input
 				class="form-control" name="horaInicio" id="horaInicio"
-				value="${apontamento.horaInicio.time}" pattern="dd/MM/yyyy" />
+				value="${horaInicio}" />
 		</div>
 		<div class="input-group">
 			<label for="horaTermino">Hora Término</label> <input
 				class="form-control" name="horaTermino" id="horaTermino"
-				value="${apontamento.horaTermino.time}" onblur="validar();" />
+				value="${horaTermino}" onblur="validar();" />
 		</div>
 	</div>
 	<br>

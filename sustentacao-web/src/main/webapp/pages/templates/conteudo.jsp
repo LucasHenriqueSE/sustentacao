@@ -4,16 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" charset=UTF-8>
-<style type="text/css">
-	<%@include file="/resources/static/css/bootstrap.min.css" %>
-	<%@include file="/resources/static/css/style.css" %>
-</style>
+<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/bootstrap.min.css"></c:url>' />
+<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/style.css"></c:url>' />
 </head>
 <body>
+	<script type="text/javascript" src='<c:url value="/resources/js/jquery-2.2.0.min.js"></c:url>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/js/jquery.maskedinput.js"></c:url>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/js/bootstrap.min.js"></c:url>'></script>
+	
 	<tiles:insertAttribute name="cabecalho" />
 
 	<tiles:insertAttribute name="conteudo" />
 
 	<tiles:insertAttribute name="rodape" />
+	
 </body>
 </html>

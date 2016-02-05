@@ -3,6 +3,7 @@ package br.com.fornax.sustentacao.controller;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,7 +26,7 @@ public class TarefaController {
 	@Inject
 	private StatusService statusService;
 	
-	@RequestMapping
+	@RequestMapping("/painel/tarefas")
 	public ModelAndView listar() {
 		mav = new ModelAndView("listar-tarefas");
 		this.mav.addObject("tarefas", tarefaService.listarTarefa());
@@ -42,7 +43,7 @@ public class TarefaController {
 	}
 
 	@RequestMapping("/painel/tarefas/cadastrar")
-	public String cadastrar(Tarefa tarefa) {
+	public String cadastrar(@Validated Tarefa tarefa) {
 		tarefaService.cadastrarTarefa(tarefa);
 		return "redirect: listar-tarefas";
 	}
@@ -58,7 +59,7 @@ public class TarefaController {
 	}
 
 	@RequestMapping("/painel/tarefas/editar")
-	public String editar(Tarefa tarefa) {
+	public String editar(@Validated Tarefa tarefa) {
 		tarefaService.editarTarefa(tarefa);
 		return "redirect: listar-tarefas";
 	}
