@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Lista de Tarefas</title>
+<c:import url="menu.jsp"></c:import>
 <form class="" action="" method="get">
 	<div class="table-responsive">
 		<table class="table table-hover table-bordered">

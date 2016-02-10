@@ -40,11 +40,8 @@
 	method="POST" onsubmit="compararHora();">
 	<div>
 		<div>
-			<input id="idTarefa" name="apontamento.tarefa.id"
-				value="${apontamento.tarefa.id}" type="hidden" />
-				
 			<input id="idApontamento" name="apontamento.id"
-				value="${{idApontamento}}" type="hidden" />
+				value="${idApontamento}" type="hidden" />
 		</div>
 		<div class="input-group">
 			<label for="descricao">Descrição</label> <input class="form-control"

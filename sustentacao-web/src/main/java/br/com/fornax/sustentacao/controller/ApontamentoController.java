@@ -53,7 +53,7 @@ public class ApontamentoController {
 	}
 
 	@RequestMapping("/painel/apontamento/{idApontamento}/editar")
-	public String editar(@PathVariable("idApontamento") long idApontamento, @Validated Apontamento apontamento) {
+	public String editar(@PathVariable("idApontamento") long idApontamento, Apontamento apontamento) {
 		apontamento = apontamentoService.buscarApontamentoPorId(new Apontamento(), idApontamento);
 		apontamentoService.editarApontamento(apontamento);
 		

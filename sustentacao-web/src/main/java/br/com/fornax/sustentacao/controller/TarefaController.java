@@ -43,7 +43,7 @@ public class TarefaController {
 	}
 
 	@RequestMapping("/painel/tarefas/cadastrar")
-	public String cadastrar(@Validated Tarefa tarefa) {
+	public String cadastrar(Tarefa tarefa) {
 		tarefaService.cadastrarTarefa(tarefa);
 		return "redirect: listar-tarefas";
 	}
