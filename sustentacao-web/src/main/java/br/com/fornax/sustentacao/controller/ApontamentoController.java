@@ -36,7 +36,7 @@ public class ApontamentoController {
 	@RequestMapping("/painel/tarefa/cadastrar-apontamento")
 	public String cadastrar(@Validated Apontamento apontamento) {
 		apontamentoService.cadastrarApontamento(apontamento);
-		return "redirect: listar-apontamentos";
+		return "listar-apontamentos";
 	}
 
 	@RequestMapping("/painel/apontamento/{idApontamento}/editar-apontamento")

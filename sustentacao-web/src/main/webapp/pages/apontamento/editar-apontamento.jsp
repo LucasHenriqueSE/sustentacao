@@ -36,13 +36,12 @@
 	};
 </script>
 <title>Editar Apontamento</title>
-<form id="formApt" action="/sustentacao/painel/apontamento/${idApontamento}/editar"
+<form id="formApt"
+	action="/sustentacao/painel/apontamento/${idApontamento}/editar"
 	method="POST" onsubmit="compararHora();">
 	<div>
-		<div>
-			<input id="idApontamento" name="apontamento.id"
-				value="${idApontamento}" type="hidden" />
-		</div>
+		<input id="idApontamento" name="apontamento.id"
+			value="${idApontamento}" type="hidden" />
 		<div class="input-group">
 			<label for="descricao">Descrição</label> <input class="form-control"
 				id="descricao" name="descricao" value="${apontamento.descricao}" />
@@ -55,12 +54,12 @@
 		<div class="input-group">
 			<label for="horaInicio">Hora Início</label> <input
 				class="form-control" name="horaInicio" id="horaInicio"
-				value="${horaInicio}" />
+				value='<c:out value="${horaInicio}"></c:out>' />
 		</div>
 		<div class="input-group">
 			<label for="horaTermino">Hora Término</label> <input
 				class="form-control" name="horaTermino" id="horaTermino"
-				value="${horaTermino}" onblur="validar();" />
+				value="${horaTermino}" onblur="validar();" type="datetime" />
 		</div>
 	</div>
 	<br>

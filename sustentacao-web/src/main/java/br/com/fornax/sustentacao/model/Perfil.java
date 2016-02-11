@@ -15,7 +15,7 @@ public class Perfil {
 
 	@Id
 	@Column(name = "CODIGO_PERFIL")
-	private String perfil;
+	private String codigo;
 
 	@Column(name = "DESCRICAO", nullable = false, unique = true)
 	private String descricao;
@@ -23,12 +23,12 @@ public class Perfil {
 	@OneToMany(mappedBy = "perfil", fetch = FetchType.EAGER)
 	private List<Usuario> usuarios;
 
-	public String getPerfil() {
-		return perfil;
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public void setPerfil(String perfil) {
-		this.perfil = perfil;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getDescricao() {

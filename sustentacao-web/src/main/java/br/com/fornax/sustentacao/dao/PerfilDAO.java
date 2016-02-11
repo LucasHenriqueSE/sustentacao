@@ -9,7 +9,7 @@ public interface PerfilDAO {
 
 	void excluir(Object entity);
 
-	List<Object> listarTudo(long idPerfil);
+	List<Object> listarTudo();
 
 	Object buscarPorId(Object entity, long id);
 }

@@ -55,7 +55,7 @@ $(document).ready(function(){
 		</div>
 		<div class="input-group">
 			<label for="horaInicio">Hora Início</label> <input
-				class="form-control" name="horaTermino" id="horaInicio"
+				class="form-control" name="horaInicio" id="horaInicio"
 				placeholder="Hora de Inicio" />
 		</div>
 		<div class="input-group">
