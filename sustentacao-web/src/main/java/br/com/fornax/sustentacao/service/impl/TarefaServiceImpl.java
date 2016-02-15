@@ -34,8 +34,14 @@ public class TarefaServiceImpl implements TarefaService {
 	}
 
 	@Override
-	public boolean editarTarefa(Tarefa tarefa) {
-		tarefaDao.editar(tarefa);
+	public boolean editarTarefa(Tarefa tarefa, long idTarefa) {
+		Tarefa tarefaEditada = buscarTarefaPorId(tarefa, idTarefa);
+		tarefaEditada.setTipo(tarefa.getTipo());
+		tarefaEditada.setNumeroChamado(tarefa.getNumeroChamado());
+		tarefaEditada.setDescricao(tarefa.getDescricao());
+		tarefaEditada.setQtdHorasDisponiveis(tarefa.getQtdHorasDisponiveis());
+		tarefaEditada.setStatus(tarefa.getStatus());
+		tarefaDao.editar(tarefaEditada);
 		return true;
 	}
 

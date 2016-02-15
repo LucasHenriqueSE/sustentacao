@@ -42,8 +42,13 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 	}
 
 	@Override
-	public boolean editarApontamento(Apontamento apontamento) {
-		apontamentoDAO.editar(apontamento);
+	public boolean editarApontamento(Apontamento apontamento, long idApontamento) {
+		Apontamento apontamentoEditado = buscarApontamentoPorId(apontamento, idApontamento);
+		apontamentoEditado.setDescricao(apontamento.getDescricao());
+		apontamentoEditado.setDataApontamento(apontamento.getDataApontamento());
+		apontamentoEditado.setHoraInicio(apontamento.getHoraInicio());
+		apontamentoEditado.setHoraTermino(apontamento.getHoraTermino());
+		apontamentoDAO.editar(apontamentoEditado);
 		return true;
 	}
 

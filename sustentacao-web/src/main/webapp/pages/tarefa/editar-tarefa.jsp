@@ -1,14 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Editar Tarefa</title>
-<form class="" action="/sustentacao/painel/tarefas/editar" method="post">
+<form action="/sustentacao/painel/tarefa/${idTarefa}/editar"
+	method="POST">
 	<div>
-		<br> <br> <input name="tarefa.id" value="${tarefa.id}">
+		<br> <br> <input name="tarefa.id" value="${idTarefa}"
+			type="hidden">
 		<div class="input-group">
 			<label for="tipoTarefa">Tipo de Tarefa </label> <select
-				class="form-control" id="tipoTarefa" name="tarefa.tipo.nome">
+				class="form-control" id="tipoTarefa" name="tipo.id">
 				<c:forEach var="tipos" items="${tipo}">
-					<option value="${tipos.id}" label="${tipos.nome}" ></option>
+					<c:choose>
+						<c:when test="${tarefa.tipo.id == tipos.id}">
+							<option value="${tipos.id}" label="${tipos.nome}" selected></option>
+						</c:when>
+						<c:otherwise>
+							<option value="${tipos.id}" label="${tipos.nome}"></option>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
+
 			</select>
 		</div>
 		<div class="input-group">
@@ -29,9 +39,17 @@
 		</c:if>
 		<div class="input-group">
 			<label for="statusChamado">Status</label> <select
-				class="form-control" id="statusChamado" name="status.id" >
+				class="form-control" id="statusChamado" name="status.id">
 				<c:forEach var="listaStatus" items="${status}">
-					<option value="${listaStatus.id}">${listaStatus.nome}</option>
+					<c:choose>
+						<c:when test="${tarefa.status.id == listaStatus.id}">
+							<option value="${listaStatus.id}" label="${listaStatus.nome}"
+								selected></option>
+						</c:when>
+						<c:otherwise>
+							<option value="${listaStatus.id}" label="${listaStatus.nome}"></option>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</select>
 		</div>

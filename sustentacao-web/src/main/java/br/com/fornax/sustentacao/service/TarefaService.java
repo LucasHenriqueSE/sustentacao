@@ -7,7 +7,7 @@ import br.com.fornax.sustentacao.model.Tarefa;
 public interface TarefaService {
 	boolean cadastrarTarefa(Tarefa tarefa);
 
-	boolean editarTarefa(Tarefa tarefa);
+	boolean editarTarefa(Tarefa tarefa, long idTarefa);
 
 	boolean excluirTarefa(Tarefa tarefa);
 

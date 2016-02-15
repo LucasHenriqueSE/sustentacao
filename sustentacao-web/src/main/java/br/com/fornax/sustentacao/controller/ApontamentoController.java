@@ -54,10 +54,9 @@ public class ApontamentoController {
 
 	@RequestMapping("/painel/apontamento/{idApontamento}/editar")
 	public String editar(@PathVariable("idApontamento") long idApontamento, Apontamento apontamento) {
-		apontamento = apontamentoService.buscarApontamentoPorId(new Apontamento(), idApontamento);
-		apontamentoService.editarApontamento(apontamento);
+		apontamentoService.editarApontamento(apontamento, idApontamento);
 		
-		return "listar-apontamentos";
+		return "redirect:/painel/apontamentos";
 	}
 
 	@ResponseBody
