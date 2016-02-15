@@ -54,12 +54,12 @@
 		<div class="input-group">
 			<label for="horaInicio">Hora Início</label> <input
 				class="form-control" name="horaInicio" id="horaInicio"
-				value='<c:out value="${horaInicio}"></c:out>' />
+				value="${horaInicio}" />
 		</div>
 		<div class="input-group">
 			<label for="horaTermino">Hora Término</label> <input
 				class="form-control" name="horaTermino" id="horaTermino"
-				value="${horaTermino}" onblur="validar();" type="datetime" />
+				value="${horaTermino}" onblur="validar();"  />
 		</div>
 	</div>
 	<br>
