@@ -2,8 +2,7 @@
 <title>Cadastro de Usuário</title>
 <c:import url="menu.jsp"></c:import>
 <div class="container form-usuario">
-	<form class="" action="/painel/listar-usuarios/cadastrar"
-		method="post">
+	<form class="" action="/sustentacao/painel/usuario/cadastrar" method="post">
 		<br> <input id="id" value="" type="hidden">
 		<div class="input-group">
 			<label for="nome">Nome</label><input class="form-control" id="nome"
@@ -23,14 +22,14 @@
 		</div>
 		<div class="input-group">
 			<label for="perfil">Perfil</label><select class="form-control"
-				id="perfil" name="perfil">
+				id="perfil" name="perfil.id">
 				<c:forEach var="perfilUsuario" items="${perfil}">
-					<option>${perfilUsuario.descricao}</option>
+					<option value="perfilUsuario.id">${perfilUsuario.descricao}</option>
 				</c:forEach>
 			</select>
 		</div>
 		<br>
-		<button class="btn" type="submit">Cadastrar Novo</button>
-		<button class="btn" type="submit">Editar</button>
+		<button class="btn" type="submit">Salvar</button>
+		<button class="btn" type="submit">Cancelar</button>
 	</form>
 </div>

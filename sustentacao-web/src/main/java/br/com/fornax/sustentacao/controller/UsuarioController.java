@@ -20,17 +20,26 @@ public class UsuarioController {
 	@Inject
 	private PerfilService perfilService;
 	
-	
-	@RequestMapping("painel/cadastrar-usuario")
-	public ModelAndView viewCadastrarUsuario() {
-		mav = new ModelAndView("usuario");
-		mav.addObject("perfil", perfilService.listarPerfis());
+	@RequestMapping("painel/usuarios")
+	public ModelAndView listarUsuarios(){
+		mav = new ModelAndView("lista-usuarios");
+		this.mav.addObject("usuarios", usuarioService.listarUsuarios());
+		
 		return mav;
 	}
 	
-	@RequestMapping("painel/cadastrar")
+	
+	@RequestMapping("painel/usuario/cadastrar-usuario")
+	public ModelAndView viewCadastrarUsuario() {
+		mav = new ModelAndView("usuario");
+		this.mav.addObject("perfil", perfilService.listarPerfis());
+		
+		return mav;
+	}
+	
+	@RequestMapping("painel/usuario/cadastrar")
 	public String cadastrar(Usuario usuario){
 		usuarioService.cadastrar(usuario);
-		return "";
+		return "redirect:/painel/usuarios";
 	}
 }
