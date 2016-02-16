@@ -32,7 +32,6 @@ public class Apontamento {
 	@JoinColumn(name = "CODIGO_USUARIO", referencedColumnName = "CODIGO_USUARIO", unique = true)
 	private Usuario usuario;
 
-	@NotNull
 	@Column(name = "DATA_CADASTRO")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCadastro;

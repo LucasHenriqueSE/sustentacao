@@ -1,7 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Editar Tarefa</title>
-<form action="/sustentacao/painel/tarefa/${idTarefa}/editar"
+<form class="container" action="/sustentacao/painel/tarefa/${idTarefa}/editar"
 	method="POST">
+	<script type="text/javascript" id="mascaraDataHora">
+$(document).ready(function(){
+	$('#qtdHorasDisponiveis').mask('99:99');
+	$('#qtdHorasDisponiveis').mask('999:99');
+});
+</script>
+<c:if test="${tarefa == null}">
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+</c:if>
 	<div>
 		<br> <br> <input name="tarefa.id" value="${idTarefa}"
 			type="hidden">
@@ -24,7 +35,7 @@
 		<div class="input-group">
 			<label for="numeroChamado">Número do Chamado</label> <input
 				class="form-control" id="numeroChamado" name="numeroChamado"
-				value="${tarefa.numeroChamado}" />
+				value="${tarefa.numeroChamado}"/>
 		</div>
 		<div class="input-group">
 			<label for="descricao">Descrição</label> <input class="form-control"

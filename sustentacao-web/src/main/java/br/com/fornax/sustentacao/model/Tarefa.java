@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "TAREFA")
@@ -21,13 +24,16 @@ public class Tarefa {
 	@Column(name = "CODIGO_TAREFA")
 	private long id;
 
+	@NotEmpty
 	@ManyToOne
 	@JoinColumn(name = "CODIGO_TIPO_TAREFA", referencedColumnName = "CODIGO_TIPO_TAREFA")
 	private TipoTarefa tipo;
 
+	@NotNull
 	@Column(name = "NUMERO_CHAMADO", nullable = false, unique = true)
 	private long numeroChamado;
 
+	@NotEmpty(message = "Preencha o campo descrição")
 	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 
@@ -35,7 +41,7 @@ public class Tarefa {
 	@JoinColumn(name = "CODIGO_STATUS", referencedColumnName = "CODIGO_STATUS")
 	private Status status;
 
-	@Column(name = "QTD_HORAS_DISPONIVEIS")
+	@Column(name = "QTD_HORAS_DISPONIVEIS", nullable = false)
 	private String qtdHorasDisponiveis;
 
 	@OneToMany(mappedBy = "tarefa", fetch = FetchType.EAGER)
