@@ -24,7 +24,6 @@ public class Tarefa {
 	@Column(name = "CODIGO_TAREFA")
 	private long id;
 
-	@NotEmpty
 	@ManyToOne
 	@JoinColumn(name = "CODIGO_TIPO_TAREFA", referencedColumnName = "CODIGO_TIPO_TAREFA")
 	private TipoTarefa tipo;

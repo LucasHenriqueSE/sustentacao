@@ -2,17 +2,9 @@
 <title>Editar Tarefa</title>
 <form class="container" action="/sustentacao/painel/tarefa/${idTarefa}/editar"
 	method="POST">
-	<script type="text/javascript" id="mascaraDataHora">
-$(document).ready(function(){
-	$('#qtdHorasDisponiveis').mask('99:99');
-	$('#qtdHorasDisponiveis').mask('999:99');
-});
-</script>
-<c:if test="${tarefa == null}">
-<div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-</div>
-</c:if>
+<!-- <div class="alert alert-danger alert-dismissible" role="alert"> -->
+<!--   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+<!-- </div> -->
 	<div>
 		<br> <br> <input name="tarefa.id" value="${idTarefa}"
 			type="hidden">
