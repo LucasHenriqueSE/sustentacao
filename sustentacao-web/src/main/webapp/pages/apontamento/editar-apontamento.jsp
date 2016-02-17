@@ -54,12 +54,12 @@
 		<div class="input-group">
 			<label for="horaInicio">Hora Início</label> <input
 				class="form-control" name="horaInicio" id="horaInicio"
-				value="${horaInicio}" />
+				value='<fmt:formatDate value="${apontamento.horaInicio.time}" pattern="HH:mm"/>' />
 		</div>
 		<div class="input-group">
 			<label for="horaTermino">Hora Término</label> <input
 				class="form-control" name="horaTermino" id="horaTermino"
-				value="${horaTermino}" onblur="validar();"  />
+				value='<fmt:formatDate value="${apontamento.horaTermino.time}" pattern="HH:mm"/>' onblur="validar();"  />
 		</div>
 	</div>
 	<br>

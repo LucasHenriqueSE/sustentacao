@@ -63,13 +63,13 @@ public class Apontamento {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataApontamento;
 
-	public String formataHora(Calendar hora) {
-		Date date = hora.getTime();
-		String stringFormat = "HH:mm";
-		SimpleDateFormat formata = new SimpleDateFormat(stringFormat);
-	
-		return formata.format(date);
-	}
+//	public String formataHora(Calendar hora) {
+//		Date date = hora.getTime();
+//		String stringFormat = "HH:mm";
+//		SimpleDateFormat formata = new SimpleDateFormat(stringFormat);
+//	
+//		return formata.format(date);
+//	}
 
 	public long getId() {
 		return id;

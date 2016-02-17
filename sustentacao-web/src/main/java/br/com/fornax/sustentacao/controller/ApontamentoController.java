@@ -44,11 +44,7 @@ public class ApontamentoController {
 		apontamento = apontamentoService.buscarApontamentoPorId(new Apontamento(), idApontamento);
 		mav = new ModelAndView("editar-apontamento");
 
-		this.mav.addObject("data", apontamento.getDataApontamento());
 		this.mav.addObject("apontamento", apontamento);
-		this.mav.addObject("horaInicio", apontamento.formataHora(apontamento.getHoraInicio()));
-		this.mav.addObject("horaTermino", apontamento.formataHora(apontamento.getHoraTermino()));
-		
 		return mav;
 	}
 

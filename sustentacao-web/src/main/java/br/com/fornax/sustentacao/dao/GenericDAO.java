@@ -26,7 +26,11 @@ public abstract class GenericDAO {
 	}
 
 	public void editar(Object entity) {
-		em.merge(entity);
+		try {
+			em.merge(entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void excluir(Object entity) {

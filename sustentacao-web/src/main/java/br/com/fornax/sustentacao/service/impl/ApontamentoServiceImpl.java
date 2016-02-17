@@ -26,8 +26,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 
 	@Override
 	public boolean cadastrarApontamento(Apontamento apontamento) {
-		List<Apontamento> lista = apontamentoDAO.listarApontamentoDoDia(apontamento.getDataApontamento(),
-				apontamento.getHoraInicio(), apontamento.getHoraTermino());
+		List<Apontamento> lista = apontamentosDoDia(apontamento);
 
 		if (lista.isEmpty()) {
 			String horasTrabalhadas = calcularHorasTrabalhadas(apontamento.getHoraTermino(),
@@ -43,13 +42,21 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 
 	@Override
 	public boolean editarApontamento(Apontamento apontamento, long idApontamento) {
+		List<Apontamento> lista = apontamentosDoDia(apontamento);
+
 		Apontamento apontamentoEditado = buscarApontamentoPorId(apontamento, idApontamento);
-		apontamentoEditado.setDescricao(apontamento.getDescricao());
-		apontamentoEditado.setDataApontamento(apontamento.getDataApontamento());
-		apontamentoEditado.setHoraInicio(apontamento.getHoraInicio());
-		apontamentoEditado.setHoraTermino(apontamento.getHoraTermino());
-		apontamentoDAO.editar(apontamentoEditado);
-		return true;
+		apontamento.setId(apontamentoEditado.getId());
+		apontamento.setDataCadastro(apontamentoEditado.getDataCadastro());
+		apontamento.setUsuario(apontamentoEditado.getUsuario());
+		apontamento.setTarefa(apontamentoEditado.getTarefa());
+		if(!lista.isEmpty() && lista.size() == 1){
+			if(lista.get(0).getId() == apontamento.getId()){
+				apontamentoDAO.editar(apontamento);	
+			}
+		}else if(lista.isEmpty()){
+			apontamentoDAO.editar(apontamento);
+		}
+		return false;
 	}
 
 	@Override
@@ -184,5 +191,11 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 			}
 		}
 		return horas + ":" + minutos;
+	}
+
+	private List<Apontamento> apontamentosDoDia(Apontamento apontamento) {
+		List<Apontamento> lista = apontamentoDAO.listarApontamentoDoDia(apontamento.getDataApontamento(),
+				apontamento.getHoraInicio(), apontamento.getHoraTermino());
+		return lista;
 	}
 }
