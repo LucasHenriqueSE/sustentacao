@@ -21,13 +21,6 @@
 			<label for="descricao">Descrição</label> <input class="form-control"
 				id="descricao" name="descricao" value="" placeholder="Descrição" />
 		</div>
-		<div>
-			<select hidden="hidden">
-				<c:forEach var="listaStatus" items="${status}">
-						Status<option label="${listaStatus.nome}" value="" />
-				</c:forEach>
-			</select>
-		</div>
 	</div>
 	<br>
 	<button class="btn btn-default" type="submit">Salvar</button>

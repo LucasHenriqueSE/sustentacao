@@ -1,12 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script type="text/javascript" id="mascaraDataHora">
-	$(document).ready(function() {
-		$('#dataApontamento').mask('99/99/9999');
-		$('#horaInicio').mask('99:99');
-		$('#horaTermino').mask('99:99');
-	});
-</script>
 <script type="text/javascript">
 	function validar() {
 		var hora1 = $("#horaInicio").val();

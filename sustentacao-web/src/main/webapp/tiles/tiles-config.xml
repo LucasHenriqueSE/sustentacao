@@ -16,12 +16,15 @@
 	</definition>
 
 	<!-- Usuário -->
+	<definition name="lista-usuarios" extends="main">
+		<put-attribute name="conteudo" value="/pages/usuario/lista-usuarios.jsp" />
+	</definition>
 	<definition name="usuario" extends="main">
 		<put-attribute name="conteudo"
 			value="/pages/usuario/cadastrar-usuario.jsp" />
 	</definition>
-	<definition name="lista-usuarios" extends="main">
-		<put-attribute name="conteudo" value="/pages/usuario/lista-usuarios.jsp" />
+	<definition name="editar-usuario" extends="main">
+		<put-attribute name="conteudo" value="/pages/usuario/editar-usuario.jsp"></put-attribute>
 	</definition>
 
 	<!-- Tarefa -->

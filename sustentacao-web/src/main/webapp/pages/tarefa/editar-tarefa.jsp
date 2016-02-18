@@ -4,25 +4,24 @@
 	$(document).ready(function() {
 		//$('#qtdHorasDisponiveis').mask('99?9:99');
 	});
-	
-	function reformatarHorasDisponiveis(){
-		var qtd= $('#qtdHorasDisponiveis').val().replace('_','');
-		qtd = $('#qtdHorasDisponiveis').val().replace(':00','');
-		$('#qtdHorasDisponiveis').val(qtd+':00');
+
+	function reformatarHorasDisponiveis() {
+		var qtd = $('#qtdHorasDisponiveis').val().replace('_', '');
+		qtd = $('#qtdHorasDisponiveis').val().replace(':00', '');
+		$('#qtdHorasDisponiveis').val(qtd + ':00');
 	}
-	
-	function removemascara(){
-		var qtd= $('#qtdHorasDisponiveis').val().replace('_','');
+
+	function removemascara() {
+		var qtd = $('#qtdHorasDisponiveis').val().replace('_', '');
 		$('#qtdHorasDisponiveis').unmask();
 		$('#qtdHorasDisponiveis').val(qtd);
-		
 	}
 </script>
-<form class="container" action="/sustentacao/painel/tarefa/${idTarefa}/editar"
-	method="POST">
-<!-- <div class="alert alert-danger alert-dismissible" role="alert"> -->
-<!--   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-<!-- </div> -->
+<form class="container"
+	action="/sustentacao/painel/tarefa/${idTarefa}/editar" method="POST">
+	<!-- <div class="alert alert-danger alert-dismissible" role="alert"> -->
+	<!--   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+	<!-- </div> -->
 	<div>
 		<br> <br> <input name="tarefa.id" value="${idTarefa}"
 			type="hidden">
@@ -45,7 +44,7 @@
 		<div class="input-group">
 			<label for="numeroChamado">Número do Chamado</label> <input
 				class="form-control" id="numeroChamado" name="numeroChamado"
-				value="${tarefa.numeroChamado}"/>
+				value="${tarefa.numeroChamado}" />
 		</div>
 		<div class="input-group">
 			<label for="descricao">Descrição</label> <input class="form-control"
@@ -54,7 +53,8 @@
 		<c:if test="${tarefa.tipo.id == 3 || tarefa.tipo.id == 4}">
 			<div class="input-group">
 				<label for="qtdHorasDisponiveis">Horas Disponíveis</label> <input
-					class="form-control" id="qtdHorasDisponiveis" onfocus="removemascara();" onblur="reformatarHorasDisponiveis();"
+					class="form-control" id="qtdHorasDisponiveis"
+					onfocus="removemascara();" onblur="reformatarHorasDisponiveis();"
 					name="qtdHorasDisponiveis" value="${tarefa.qtdHorasDisponiveis}" />
 			</div>
 		</c:if>

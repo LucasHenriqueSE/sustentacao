@@ -33,7 +33,7 @@
 						<td><fmt:formatDate
 								value="${listaApontamento.horaTermino.time}" pattern="HH:mm"
 								type="time" /></td>
-						<td><a class="glyphicon glyphicon-edit"
+						<td><a class="glyphicon glyphicon-edit" title="Editar"
 							href="/sustentacao/painel/apontamento/${listaApontamento.id}/editar-apontamento"></a></td>
 					</tr>
 				</c:forEach>

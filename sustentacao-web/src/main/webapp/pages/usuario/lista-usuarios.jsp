@@ -6,24 +6,29 @@
 		<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
+					<td>Login</td>
 					<td>Nome</td>
 					<td>Email</td>
-					<td>Login</td>
-					<td>Senha</td>
+					<td hidden="hidden">Senha</td>
 					<td>Perfil</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="usuario" items="${usuarios}">
 					<tr>
+						<td><a href="/sustentacao/painel/usuario/${usuario.id}/editar">${usuario.login}</a></td>
 						<td>${usuario.nome}</td>
 						<td>${usuario.email}</td>
-						<td>${usuario.login}</td>
-						<td>${usuario.senha}</td>
-						<td>${usuario.perfil}</td>
+						<td hidden="hidden">${usuario.senha}</td>
+						<td>${usuario.perfil.descricao}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<div class="text-right">
+		<br> <a class="btn btn-lg" href="usuario/cadastrar-usuario"
+			type="button">Cadastrar Usuário</a> <a class="btn btn-lg"
+			href="/sustentacao/painel" type="submit">Voltar</a>
+	</div>
 	</div>
 </form>
