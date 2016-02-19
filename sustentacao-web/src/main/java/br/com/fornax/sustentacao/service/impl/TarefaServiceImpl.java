@@ -1,5 +1,6 @@
 package br.com.fornax.sustentacao.service.impl;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,14 +35,9 @@ public class TarefaServiceImpl implements TarefaService {
 	}
 
 	@Override
-	public boolean editarTarefa(Tarefa tarefa, long idTarefa) {
-		Tarefa tarefaEditada = buscarTarefaPorId(tarefa, idTarefa);
-		tarefaEditada.setTipo(tarefa.getTipo());
-		tarefaEditada.setNumeroChamado(tarefa.getNumeroChamado());
-		tarefaEditada.setDescricao(tarefa.getDescricao());
-		tarefaEditada.setQtdHorasDisponiveis(tarefa.getQtdHorasDisponiveis());
-		tarefaEditada.setStatus(tarefa.getStatus());
-		tarefaDao.editar(tarefaEditada);
+	public boolean editarTarefa(Tarefa tarefa) {
+		tarefa.setDataEdicao(Calendar.getInstance());
+		tarefaDao.editar(tarefa);
 		return true;
 	}
 

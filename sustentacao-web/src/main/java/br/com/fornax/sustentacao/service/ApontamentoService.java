@@ -7,7 +7,7 @@ import br.com.fornax.sustentacao.model.Apontamento;
 public interface ApontamentoService {
 	boolean cadastrarApontamento(Apontamento apontamento);
 
-	boolean editarApontamento(Apontamento apontamento, long idApontamento);
+	boolean editarApontamento(Apontamento apontamento);
 
 	boolean excluirApontamento(Apontamento apontamento);
 

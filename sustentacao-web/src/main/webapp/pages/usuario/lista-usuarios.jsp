@@ -16,7 +16,7 @@
 			<tbody>
 				<c:forEach var="usuario" items="${usuarios}">
 					<tr>
-						<td><a href="/sustentacao/painel/usuario/${usuario.id}/editar">${usuario.login}</a></td>
+						<td><a href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.login}</a></td>
 						<td>${usuario.nome}</td>
 						<td>${usuario.email}</td>
 						<td hidden="hidden">${usuario.senha}</td>
@@ -27,7 +27,7 @@
 		</table>
 		<div class="text-right">
 		<br> <a class="btn btn-lg" href="usuario/cadastrar-usuario"
-			type="button">Cadastrar Usuário</a> <a class="btn btn-lg"
+			type="button">Novo</a> <a class="btn btn-lg"
 			href="/sustentacao/painel" type="submit">Voltar</a>
 	</div>
 	</div>

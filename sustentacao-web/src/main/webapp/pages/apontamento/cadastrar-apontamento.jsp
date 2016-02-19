@@ -42,7 +42,7 @@ $(document).ready(function(){
 	<div>
 		<div>
 			<input id="idTarefa" name="tarefa.id" value="${idTarefa}"
-				type="hidden" required />
+				type="hidden" />
 		</div>
 		<div class="input-group">
 			<label for="descricao">Descrição</label> <input class="form-control"

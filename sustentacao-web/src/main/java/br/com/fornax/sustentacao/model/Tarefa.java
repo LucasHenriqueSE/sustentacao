@@ -1,5 +1,6 @@
 package br.com.fornax.sustentacao.model;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,9 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "TAREFA")
@@ -42,6 +46,11 @@ public class Tarefa {
 
 	@Column(name = "QTD_HORAS_DISPONIVEIS", nullable = false)
 	private String qtdHorasDisponiveis;
+
+	@Column(name = "DATA_EDICAO")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Calendar dataEdicao;
 
 	@OneToMany(mappedBy = "tarefa", fetch = FetchType.EAGER)
 	private List<Apontamento> apontamentos;
@@ -92,6 +101,14 @@ public class Tarefa {
 
 	public void setQtdHorasDisponiveis(String qtdHorasDisponiveis) {
 		this.qtdHorasDisponiveis = qtdHorasDisponiveis;
+	}
+
+	public Calendar getDataEdicao() {
+		return dataEdicao;
+	}
+
+	public void setDataEdicao(Calendar dataEdicao) {
+		this.dataEdicao = dataEdicao;
 	}
 
 	public List<Apontamento> getApontamentos() {

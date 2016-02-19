@@ -58,9 +58,9 @@ public class TarefaController {
 		return mav;
 	}
 
-	@RequestMapping("/painel/tarefa/{idTarefa}/editar")
-	public String editar(@Validated Tarefa tarefa, @PathVariable("idTarefa") long idTarefa) {
-		tarefaService.editarTarefa(tarefa, idTarefa);
+	@RequestMapping("/painel/tarefa/editar")
+	public String editar(@Validated Tarefa tarefa) {
+		tarefaService.editarTarefa(tarefa);
 		return "redirect:/painel/tarefas";
 	}
 }

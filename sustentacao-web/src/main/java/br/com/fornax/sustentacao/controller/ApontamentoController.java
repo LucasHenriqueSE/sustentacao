@@ -48,9 +48,9 @@ public class ApontamentoController {
 		return mav;
 	}
 
-	@RequestMapping("/painel/apontamento/{idApontamento}/editar")
-	public String editar(@PathVariable("idApontamento") long idApontamento, Apontamento apontamento) {
-		apontamentoService.editarApontamento(apontamento, idApontamento);
+	@RequestMapping("/painel/apontamento/editar")
+	public String editar(Apontamento apontamento) {
+		apontamentoService.editarApontamento(apontamento);
 		
 		return "redirect:/painel/apontamentos";
 	}

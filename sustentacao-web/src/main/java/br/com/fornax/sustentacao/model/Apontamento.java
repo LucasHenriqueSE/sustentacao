@@ -32,7 +32,13 @@ public class Apontamento {
 
 	@Column(name = "DATA_CADASTRO")
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataCadastro;
+
+	@Column(name = "DATA_EDICAO")
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Calendar dataEdicao;
 
 	@NotNull
 	@Column(name = "HORA_INICIO", nullable = false)
@@ -51,7 +57,7 @@ public class Apontamento {
 	@JoinColumn(name = "CODIGO_TAREFA", referencedColumnName = "CODIGO_TAREFA")
 	private Tarefa tarefa;
 
-	@NotEmpty(message="Informe uma descriÃ§Ã£o")
+	@NotEmpty(message = "Informe uma descrição")
 	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 
@@ -61,13 +67,13 @@ public class Apontamento {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataApontamento;
 
-//	public String formataHora(Calendar hora) {
-//		Date date = hora.getTime();
-//		String stringFormat = "HH:mm";
-//		SimpleDateFormat formata = new SimpleDateFormat(stringFormat);
-//	
-//		return formata.format(date);
-//	}
+	// public String formataHora(Calendar hora) {
+	// Date date = hora.getTime();
+	// String stringFormat = "HH:mm";
+	// SimpleDateFormat formata = new SimpleDateFormat(stringFormat);
+	//
+	// return formata.format(date);
+	// }
 
 	public long getId() {
 		return id;
@@ -91,6 +97,14 @@ public class Apontamento {
 
 	public void setDataCadastro(Calendar dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+
+	public Calendar getDataEdicao() {
+		return dataEdicao;
+	}
+
+	public void setDataEdicao(Calendar dataEdicao) {
+		this.dataEdicao = dataEdicao;
 	}
 
 	public Calendar getHoraInicio() {

@@ -1,6 +1,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript">
+	$(document).ready(function() {
+		$('#dataApontamento').mask('99/99/9999');
+		$('#horaInicio').mask('99:99');
+		$('#horaTermino').mask('99:99');
+	});
+</script>
+<script type="text/javascript">
 	function validar() {
 		var hora1 = $("#horaInicio").val();
 		var hora2 = $("#horaTermino").val();
@@ -29,12 +36,27 @@
 	};
 </script>
 <title>Editar Apontamento</title>
-<form id="formApt"
-	action="/sustentacao/painel/apontamento/${idApontamento}/editar"
+<form id="formApt" action="/sustentacao/painel/apontamento/editar"
 	method="POST" onsubmit="compararHora();">
 	<div>
-		<input id="idApontamento" name="apontamento.id"
-			value="${idApontamento}" type="hidden" />
+		<div>
+			<input id="idApontamento" name="id" value="${idApontamento}"
+				type="hidden" />
+		</div>
+		<div>
+			<input id="idTarefa" name="tarefa.id"
+				value="${apontamento.tarefa.id}" type="hidden">
+		</div>
+		<div>
+			<input id="dataEdicao" name="dataEdicao"
+				value='<fmt:formatDate value="${apontamento.dataEdicao.time}"/>'
+				type="hidden" />
+		</div>
+		<div>
+			<input id="dataCadastro" name="dataCadastro"
+				value='<fmt:formatDate value="${apontamento.dataCadastro.time}"/>'
+				type="hidden" />
+		</div>
 		<div class="input-group">
 			<label for="descricao">Descrição</label> <input class="form-control"
 				id="descricao" name="descricao" value="${apontamento.descricao}" />
@@ -52,7 +74,8 @@
 		<div class="input-group">
 			<label for="horaTermino">Hora Término</label> <input
 				class="form-control" name="horaTermino" id="horaTermino"
-				value='<fmt:formatDate value="${apontamento.horaTermino.time}" pattern="HH:mm"/>' onblur="validar();"  />
+				value='<fmt:formatDate value="${apontamento.horaTermino.time}" pattern="HH:mm"/>'
+				onblur="validar();" />
 		</div>
 	</div>
 	<br>

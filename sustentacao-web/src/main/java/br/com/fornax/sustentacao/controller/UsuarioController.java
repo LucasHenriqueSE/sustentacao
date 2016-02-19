@@ -29,7 +29,6 @@ public class UsuarioController {
 		return mav;
 	}
 	
-	
 	@RequestMapping("painel/usuario/cadastrar-usuario")
 	public ModelAndView viewCadastrar() {
 		mav = new ModelAndView("usuario");
@@ -46,9 +45,9 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("painel/usuario/{idUsuario}/editar-usuario")
-	public ModelAndView viewEditar(Usuario usuario, @PathVariable("idUsuario") long idUsuario){
+	public ModelAndView viewEditar(@PathVariable("idUsuario") long idUsuario){
 		mav = new ModelAndView("editar-usuario");
-		this.mav.addObject("usuario", usuarioService.listarUsuarios());
+		this.mav.addObject("usuario", usuarioService.buscarUsuarioPorId(new Usuario(), idUsuario));
 		this.mav.addObject("perfil", perfilService.listarPerfis());
 		
 		return mav;

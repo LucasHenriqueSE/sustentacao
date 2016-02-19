@@ -17,14 +17,20 @@
 		$('#qtdHorasDisponiveis').val(qtd);
 	}
 </script>
-<form class="container"
-	action="/sustentacao/painel/tarefa/${idTarefa}/editar" method="POST">
+<form class="container" action="/sustentacao/painel/tarefa/editar"
+	method="POST">
 	<!-- <div class="alert alert-danger alert-dismissible" role="alert"> -->
 	<!--   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
 	<!-- </div> -->
 	<div>
-		<br> <br> <input name="tarefa.id" value="${idTarefa}"
-			type="hidden">
+		<br> <br>
+		<div>
+			<input name="id" value="${idTarefa}" type="hidden">
+		</div>
+		<div>
+			<input id="dataEdicao" name="dataEdicao" value="${tarefa.dataEdicao}"
+				type="hidden">
+		</div>
 		<div class="input-group">
 			<label for="tipoTarefa">Tipo de Tarefa </label> <select
 				class="form-control" id="tipoTarefa" name="tipo.id">
