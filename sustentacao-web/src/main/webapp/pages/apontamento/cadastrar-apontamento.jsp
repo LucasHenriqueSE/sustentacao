@@ -1,11 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script
 	src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script>
 <script type="text/javascript" id="mascaraDataHora">
-$(document).ready(function(){
-	$('#dataApontamento').mask('99/99/9999');
-	$('#horaInicio').mask('99:99');
-	$('#horaTermino').mask('99:99');
-});
+	$(document).ready(function() {
+		$('#dataApontamento').mask('99/99/9999');
+		$('#horaInicio').mask('99:99');
+		$('#horaTermino').mask('99:99');
+	});
 </script>
 <script type="text/javascript">
 	function validar() {
@@ -36,8 +37,13 @@ $(document).ready(function(){
 	};
 </script>
 <title>Cadastrar Apontamento</title>
-<form class="" id="formApt"
-	action="/sustentacao/painel/tarefa/cadastrar-apontamento" method="post"
+<div class="alert alert-danger alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<form class="" id="cadastroApontamento"
+	action="/sustentacao/painel/tarefa/cadastrar-apontamento" method="POST"
 	onsubmit="compararHora();">
 	<div>
 		<div>
@@ -51,7 +57,7 @@ $(document).ready(function(){
 		<div class="input-group">
 			<label for="dataApontamento">Data Apontamento</label> <input
 				class="form-control" id="dataApontamento" name="dataApontamento"
-				placeholder="Data Apontamento" type="datetime" />
+				placeholder="Data Apontamento" />
 		</div>
 		<div class="input-group">
 			<label for="horaInicio">Hora Início</label> <input

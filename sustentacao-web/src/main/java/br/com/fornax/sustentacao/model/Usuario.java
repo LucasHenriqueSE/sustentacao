@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "USUARIO")
 public class Usuario {
@@ -21,15 +24,20 @@ public class Usuario {
 	@Column(name = "CODIGO_USUARIO")
 	private long id;
 
+	@NotEmpty(message="Informe o nome completo!")
 	@Column(name = "NOME", nullable = false)
 	private String nome;
 
+	@NotEmpty(message = "Informe um login!")
 	@Column(name = "LOGIN", nullable = false, unique = true)
 	private String login;
 
+	@NotEmpty(message = "Informe uma senha!")
 	@Column(name = "SENHA", nullable = false)
 	private String senha;
 
+	@NotEmpty
+	@Email(message = "Informe um email válido!")
 	@Column(name = "EMAIL", nullable = false, unique = true)
 	private String email;
 

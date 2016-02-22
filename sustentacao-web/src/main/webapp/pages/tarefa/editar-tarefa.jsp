@@ -1,4 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <title>Editar Tarefa</title>
 <script type="text/javascript" id="mascaraDataHora">
 	$(document).ready(function() {
@@ -28,7 +29,8 @@
 			<input name="id" value="${idTarefa}" type="hidden">
 		</div>
 		<div>
-			<input id="dataEdicao" name="dataEdicao" value="${tarefa.dataEdicao}"
+			<input id="dataEdicao" name="dataEdicao"
+				value='<fmt:formatDate value="${tarefa.dataEdicao.time}"/>'
 				type="hidden">
 		</div>
 		<div class="input-group">

@@ -29,22 +29,23 @@ public class Tarefa {
 	private long id;
 
 	@ManyToOne
+//	@NotEmpty(message = "Selecione um tipo de tarefa válido!")
 	@JoinColumn(name = "CODIGO_TIPO_TAREFA", referencedColumnName = "CODIGO_TIPO_TAREFA")
 	private TipoTarefa tipo;
 
 	@NotNull
-	@Column(name = "NUMERO_CHAMADO", nullable = false, unique = true)
+	@Column(name = "NUMERO_CHAMADO", unique = true)
 	private long numeroChamado;
 
-	@NotEmpty(message = "Preencha o campo descriÃ§Ã£o")
-	@Column(name = "DESCRICAO", nullable = false)
+	@NotEmpty(message = "Preencha o campo descrição!")
+	@Column(name = "DESCRICAO")
 	private String descricao;
 
 	@ManyToOne
 	@JoinColumn(name = "CODIGO_STATUS", referencedColumnName = "CODIGO_STATUS")
 	private Status status;
 
-	@Column(name = "QTD_HORAS_DISPONIVEIS", nullable = false)
+	@Column(name = "QTD_HORAS_DISPONIVEIS")
 	private String qtdHorasDisponiveis;
 
 	@Column(name = "DATA_EDICAO")

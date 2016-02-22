@@ -8,7 +8,7 @@
 }
 
 .menu-navegacao {
-
+	
 }
 
 .apontamentos {
@@ -26,4 +26,8 @@
 .form-usuario {
 	margin-left: 520px;
 	width: 300px;
+}
+
+.btn-cadastrar {
+	line-height: 0;
 }

@@ -3,6 +3,7 @@ package br.com.fornax.sustentacao.controller;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,8 @@ import br.com.fornax.sustentacao.service.TipoTarefaService;
 
 @Controller
 public class TarefaController {
+	private static final String LISTA_TAREFAS = "/painel/tarefas";
+	
 	private ModelAndView mav;
 
 	@Inject
@@ -26,14 +29,14 @@ public class TarefaController {
 	@Inject
 	private StatusService statusService;
 	
-	@RequestMapping("/painel/tarefas")
+	@RequestMapping(LISTA_TAREFAS)
 	public ModelAndView listar() {
 		mav = new ModelAndView("listar-tarefas");
 		this.mav.addObject("tarefas", tarefaService.listarTarefa());
 		return mav;
 	}
 
-	@RequestMapping("/painel/tarefas/cadastrar-tarefa")
+	@RequestMapping("/painel/tarefa/cadastrar-tarefa")
 	public ModelAndView viewCadastrarTarefa() {
 		mav = new ModelAndView("cadastrar-tarefa");
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
@@ -42,10 +45,13 @@ public class TarefaController {
 		return mav;
 	}
 
-	@RequestMapping("/painel/tarefas/cadastrar")
-	public String cadastrar(Tarefa tarefa) {
+	@RequestMapping("/painel/tarefa/cadastrar")
+	public String cadastrar(@Validated Tarefa tarefa, BindingResult result) {
+		if (result.hasErrors()) {
+			return "redirect:" + this;
+		}
 		tarefaService.cadastrarTarefa(tarefa);
-		return "redirect:/painel/tarefas";
+		return "redirect:" + LISTA_TAREFAS;
 	}
 
 	@RequestMapping("/painel/tarefa/{idTarefa}/editar-tarefa")
@@ -54,13 +60,13 @@ public class TarefaController {
 		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(tarefa, idTarefa));
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
-		
+
 		return mav;
 	}
 
 	@RequestMapping("/painel/tarefa/editar")
 	public String editar(@Validated Tarefa tarefa) {
 		tarefaService.editarTarefa(tarefa);
-		return "redirect:/painel/tarefas";
+		return "redirect:" + LISTA_TAREFAS;
 	}
 }

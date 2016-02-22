@@ -1,9 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <title>Lista de Usuários</title>
 <c:import url="menu.jsp"></c:import>
-<form class="container" method="GET">
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#usuarios').DataTable();
+	});
+</script>
+<form class="container-fluid" method="GET">
 	<div class="table-responsive text-center">
-		<table class="table table-hover table-bordered">
+		<table class="table table-hover table-bordered" id="usuarios">
 			<thead>
 				<tr>
 					<td>Login</td>
@@ -16,7 +21,8 @@
 			<tbody>
 				<c:forEach var="usuario" items="${usuarios}">
 					<tr>
-						<td><a href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.login}</a></td>
+						<td><a
+							href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.login}</a></td>
 						<td>${usuario.nome}</td>
 						<td>${usuario.email}</td>
 						<td hidden="hidden">${usuario.senha}</td>
@@ -25,10 +31,9 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div class="text-right">
-		<br> <a class="btn btn-lg" href="usuario/cadastrar-usuario"
-			type="button">Novo</a> <a class="btn btn-lg"
-			href="/sustentacao/painel" type="submit">Voltar</a>
-	</div>
+		<div class="text-center btn-cadastrar">
+			<br> <a class="btn btn-default btn-lg" href="usuario/cadastrar-usuario"
+				type="button">Cadastrar Usuário</a>
+		</div>
 	</div>
 </form>

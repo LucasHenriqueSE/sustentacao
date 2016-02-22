@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Cadastrar Tarefa</title>
-<form action="/sustentacao/painel/tarefas/cadastrar" method="post">
+<form action="/sustentacao/painel/tarefa/cadastrar" method="POST">
 	<div>
 		<br> <br>
 		<div class="input-group">
