@@ -6,13 +6,13 @@
 		$('#usuarios').DataTable();
 	});
 </script>
-<form class="container-fluid" method="GET">
+<form class="container" method="GET">
 	<div class="table-responsive text-center">
 		<table class="table table-hover table-bordered" id="usuarios">
 			<thead>
 				<tr>
-					<td>Login</td>
-					<td>Nome</td>
+					<td>Usuário</td>
+<!-- 					<td>Nome</td> -->
 					<td>Email</td>
 					<td hidden="hidden">Senha</td>
 					<td>Perfil</td>
@@ -23,7 +23,7 @@
 					<tr>
 						<td><a
 							href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.login}</a></td>
-						<td>${usuario.nome}</td>
+<%-- 						<td>${usuario.nome}</td> --%>
 						<td>${usuario.email}</td>
 						<td hidden="hidden">${usuario.senha}</td>
 						<td>${usuario.perfil.descricao}</td>

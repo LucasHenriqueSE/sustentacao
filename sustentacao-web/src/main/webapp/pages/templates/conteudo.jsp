@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" charset=UTF-8>
+<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/reset.css"></c:url>' />
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/jquery.dataTables.min.css"></c:url>' />
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/bootstrap.min.css"></c:url>' />
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/style.css"></c:url>' />

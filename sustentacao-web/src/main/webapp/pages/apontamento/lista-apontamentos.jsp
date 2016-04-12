@@ -7,7 +7,7 @@
 		$('#apontamentos').DataTable();
 	});
 </script>
-<form class="container-fluid" action="" method="GET">
+<form class="container" method="GET">
 	<div class="table-responsive text-center">
 		<table class="table table-hover table-bordered" id="apontamentos">
 			<thead>
