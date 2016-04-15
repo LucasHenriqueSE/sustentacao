@@ -27,10 +27,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(datasource).passwordEncoder(passwordEncoder)
-				.usersByUsernameQuery("select codigo_usuario, login, senha from usuario where login = ? ")
-				.authoritiesByUsernameQuery(
-						"select u.codigo_usuario as usuario, p.codigo_perfil as authority from perfil p, usuario u where"
+		auth.
+		jdbcAuthentication()
+		.dataSource(datasource)
+		.passwordEncoder(passwordEncoder)
+		.usersByUsernameQuery("select login as usuario,senha as senha, ativo as enabled from usuario where login = ? ")
+		.authoritiesByUsernameQuery(
+						"select u.codigo_usuario as usuario, p.descricao as authority from perfil p, usuario u where"
 								+ " u.codigo_perfil = p.codigo_perfil and u.login = ?")
 				.getUserDetailsService();
 	}

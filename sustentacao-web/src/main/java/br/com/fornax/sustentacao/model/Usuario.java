@@ -40,6 +40,9 @@ public class Usuario {
 	@Email(message = "Informe um email válido!")
 	@Column(name = "EMAIL", nullable = false, unique = true)
 	private String email;
+	
+	@Column(name = "ATIVO", nullable = false)
+	private Boolean ativo;
 
 	@ManyToOne
 	@JoinColumn(name = "CODIGO_PERFIL", referencedColumnName = "CODIGO_PERFIL")
@@ -102,5 +105,13 @@ public class Usuario {
 
 	public void setApontamentos(List<Apontamento> apontamentos) {
 		this.apontamentos = apontamentos;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 }

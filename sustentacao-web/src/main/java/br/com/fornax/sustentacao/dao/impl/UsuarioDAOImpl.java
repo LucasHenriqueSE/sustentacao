@@ -31,6 +31,7 @@ public class UsuarioDAOImpl extends GenericDAO implements UsuarioDAO {
 	@Override
 	public Usuario buscarUsuarioPorLogin(String username) {
 		Query query = em.createQuery("select u from Usuario u where u.login = :username");
+		query.setParameter("username",username);
 		return (Usuario) query.getSingleResult();
 	}
 }
