@@ -2,18 +2,23 @@ package br.com.fornax.sustentacao.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/acesso")
 public class LoginController {
-	private ModelAndView mav;
 
-	@RequestMapping
-	public ModelAndView login(HttpServletRequest request) {
-		mav = new ModelAndView("acesso");
-		return this.mav;
+	@RequestMapping("/")
+	public String login(HttpServletRequest request) {
+
+		/**
+		 * VERIFICA SE EXISTE SESSÃO PARA O USUARIO, CASO EXISTA REDIRECIONA
+		 * PARA O PAINEL, SENÃO VAI PARA TELA DE LOGIN
+		 */
+		if (!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
+			return "redirect:/painel";
+		}
+		return "acesso";
 	}
 }

@@ -36,6 +36,8 @@ public class TarefaServiceImpl implements TarefaService {
 
 	@Override
 	public boolean editarTarefa(Tarefa tarefa) {
+		TipoTarefa tipo = (TipoTarefa) tarefaDao.buscarPorId(new TipoTarefa(), tarefa.getTipo().getId());
+		tarefa.setQtdHorasDisponiveis(tipo.getQtdHoras());
 		tarefa.setDataEdicao(Calendar.getInstance());
 		tarefaDao.editar(tarefa);
 		return true;

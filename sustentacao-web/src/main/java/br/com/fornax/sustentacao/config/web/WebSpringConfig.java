@@ -6,9 +6,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
+
+import br.com.fornax.sustentacao.web.interceptor.AutorizadorInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -37,5 +40,10 @@ public class WebSpringConfig extends WebMvcConfigurerAdapter {
 		TilesConfigurer tilesConfigurer = new TilesConfigurer();
 		tilesConfigurer.setDefinitions("/tiles/tiles-config.xml");
 		return tilesConfigurer;
+	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+	    registry.addInterceptor(new AutorizadorInterceptor()).addPathPatterns("/painel/**").addPathPatterns("/logout").excludePathPatterns("/");
 	}
 }

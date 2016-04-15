@@ -18,10 +18,6 @@
 				id="login" name="login" value="${usuario.login}" /><br>
 		</div>
 		<div class="input-group">
-			<label for="senha">Senha</label><input class="form-control"
-				id="senha" name="senha" type="password" value="${usuario.senha}" /><br>
-		</div>
-		<div class="input-group">
 			<label for="perfil">Perfil</label><select class="form-control"
 				id="perfil" name="perfil.codigo" required>
 				<c:forEach var="perfilUsuario" items="${perfil}">

@@ -58,14 +58,24 @@
 			<label for="descricao">Descrição</label> <input class="form-control"
 				id="descricao" name="descricao" value="${tarefa.descricao}" />
 		</div>
-		<c:if test="${tarefa.tipo.id == 3 || tarefa.tipo.id == 4}">
-			<div class="input-group">
-				<label for="qtdHorasDisponiveis">Horas Disponíveis</label> <input
-					class="form-control" id="qtdHorasDisponiveis"
-					onfocus="removemascara();" onblur="reformatarHorasDisponiveis();"
-					name="qtdHorasDisponiveis" value="${tarefa.qtdHorasDisponiveis}" />
-			</div>
-		</c:if>
+		<c:choose>
+			<c:when test="${tarefa.tipo.id == 3 || tarefa.tipo.id == 4}">
+				<div class="input-group">
+					<label for="qtdHorasDisponiveis">Horas Disponíveis</label> <input
+						class="form-control" id="qtdHorasDisponiveis"
+						onfocus="removemascara();" onblur="reformatarHorasDisponiveis();"
+						name="qtdHorasDisponiveis" value="${tarefa.qtdHorasDisponiveis}" />
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="input-group">
+					<input class="form-control" id="qtdHorasDisponiveis"
+						onfocus="removemascara();" onblur="reformatarHorasDisponiveis();"
+						name="qtdHorasDisponiveis" value="${tarefa.qtdHorasDisponiveis}"
+						type="hidden" />
+				</div>
+			</c:otherwise>
+		</c:choose>
 		<div class="input-group">
 			<label for="statusChamado">Status</label> <select
 				class="form-control" id="statusChamado" name="status.id">

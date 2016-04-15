@@ -17,6 +17,8 @@
 .menu-navegacao li a {
 	color: #000;
 	padding: 8px;
+	margin-right: 10px;
+	font-size: 15px;
 }
 .menu-navegacao li a:hover {
 	background-color: #FFF;
@@ -38,11 +40,6 @@
 
 .usuarios {
 	
-}
-
-.form-usuario {
-	margin-left: 520px;
-	width: 300px;
 }
 
 .btn-cadastrar {

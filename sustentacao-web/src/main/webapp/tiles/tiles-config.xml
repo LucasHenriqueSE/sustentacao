@@ -8,9 +8,14 @@
 		<put-attribute name="rodape" value="/pages/templates/rodape.jsp" />
 	</definition>
 
-	<definition name="acesso" extends="main">
-		<put-attribute name="conteudo" value="/pages/acesso.jsp" />
+	<!-- Semear - 403 -->
+	<definition name="403" template="/pages/erro/403.jsp">
 	</definition>
+
+
+	<definition name="acesso" template="/pages/acesso.jsp">
+	</definition>
+
 	<definition name="painel" extends="main">
 		<put-attribute name="conteudo" value="/pages/painel/painel.jsp" />
 	</definition>

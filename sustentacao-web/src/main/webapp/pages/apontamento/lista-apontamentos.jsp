@@ -27,7 +27,7 @@
 					<tr>
 						<td><fmt:formatDate
 								value="${listaApontamento.dataCadastro.time}" /></td>
-						<td>${listaApontamento.tarefa.id}</td>
+						<td>${listaApontamento.tarefa.descricao}</td>
 						<td>${listaApontamento.descricao}</td>
 						<td><fmt:formatDate
 								value="${listaApontamento.dataApontamento.time}" /></td>

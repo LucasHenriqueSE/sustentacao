@@ -37,11 +37,11 @@
 	};
 </script>
 <title>Cadastrar Apontamento</title>
-<div class="alert alert-danger alert-dismissible" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		<span aria-hidden="true">&times;</span>
-	</button>
-</div>
+<!-- <div class="alert alert-danger alert-dismissible" role="alert"> -->
+<!-- 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"> -->
+<!-- 		<span aria-hidden="true">&times;</span> -->
+<!-- 	</button> -->
+<!-- </div> -->
 <form class="" id="cadastroApontamento"
 	action="/sustentacao/painel/tarefa/cadastrar-apontamento" method="POST"
 	onsubmit="compararHora();">

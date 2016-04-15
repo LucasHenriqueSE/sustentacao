@@ -11,7 +11,9 @@ public interface UsuarioService {
 
 	boolean excluir(Usuario usuario);
 
-	List<Object> listarUsuarios();
+	List<Usuario> listarUsuarios();
 
 	Object buscarUsuarioPorId(Usuario usuario, long idUsuario);
+
+	Object buscarUsuarioPorLogin(String username);
 }

@@ -12,9 +12,8 @@ public class WebAppInitialiazer implements WebApplicationInitializer {
 
 	@Override
 	@SuppressWarnings("resource")
-	public void onStartup(ServletContext servletContext)
-			throws ServletException {
-		
+	public void onStartup(ServletContext servletContext) throws ServletException {
+
 		// Le as configurações do Spring que foram feitas via classe e anotações
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(WebSpringConfig.class);
@@ -24,10 +23,9 @@ public class WebAppInitialiazer implements WebApplicationInitializer {
 		dispatcherContext.register(WebSpringConfig.class);
 
 		// Faz com que o sistema entenda as requisições a partir da "/"
-		ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
-				"dispatcher", new DispatcherServlet(dispatcherContext));
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher",
+				new DispatcherServlet(dispatcherContext));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");
 	}
-
 }
