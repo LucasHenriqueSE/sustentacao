@@ -13,8 +13,7 @@
 	</definition>
 
 	<!-- Tela de Login -->
-	<definition name="acesso" extends="main">
-		<put-attribute name="conteudo" value="/pages/acesso.jsp"></put-attribute>
+	<definition name="acesso" template="/pages/acesso.jsp">
 	</definition>
 
 	<!-- Painel Principal -->
