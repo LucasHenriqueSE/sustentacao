@@ -6,15 +6,15 @@ import br.com.fornax.sustentacao.dao.entity.UsuarioEntity;
 import br.com.fornax.sustentacao.model.Usuario;
 
 public interface UsuarioService {
-	boolean cadastrar(Usuario usuario);
+	public boolean cadastrar(Usuario usuario);
 
-	boolean editar(Usuario usuario);
+	public boolean editar(Usuario usuario);
 
-	boolean excluir(Usuario usuario);
+	public boolean excluir(Usuario usuario);
 
-	List<UsuarioEntity> listarUsuarios();
+	public List<UsuarioEntity> listarUsuarios();
 
-	Object buscarUsuarioPorId(Usuario usuario, long idUsuario);
+	public Usuario buscarUsuarioPorId(long idUsuario);
 
-	Object buscarUsuarioPorLogin(String username);
+	public Usuario buscarUsuarioPorLogin(String username);
 }

@@ -21,31 +21,29 @@ public class PainelController {
 
 	@Inject
 	private UsuarioService usuarioService;
-	
+
 	@RequestMapping("/painel")
 	public ModelAndView painel(HttpServletRequest req, Model model) {
 		this.mav.clear();
 		mav.setViewName("403");
-		User user = (User) SecurityContextHolder.getContext()
-				.getAuthentication().getPrincipal();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		/** VERIFICA PERFIL DO USUARIO LOGADO */
 		for (GrantedAuthority g : user.getAuthorities()) {
-			 boolean valido = verificaPerfil(g.getAuthority(), mav);
-			 if(valido){
-				 break;
-			 }
+			boolean valido = verificaPerfil(g.getAuthority(), mav);
+			if (valido) {
+				break;
+			}
 		}
 		/** SETA DADOS DO USUARIO NA SESSAO */
 		if (!model.containsAttribute("usuario")) {
-			model.addAttribute("usuario",usuarioService.buscarUsuarioPorLogin(user.getUsername()));
+			model.addAttribute("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
 		}
-		
 		return mav;
 	}
-	
-	private boolean verificaPerfil(String perfil, ModelAndView mav ) {
+
+	private boolean verificaPerfil(String perfil, ModelAndView mav) {
 		boolean valido = false;
-		if (perfil.equals("1") || perfil.equals("2")){
+		if (perfil.equals("Administrador") || perfil.equals("Usuario")) {
 			this.mav.setViewName("painel");
 			valido = true;
 		}

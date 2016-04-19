@@ -31,10 +31,10 @@
 						</div>
 						<div class="form-group col-md-3">
 							<label for="perfil">Perfil</label><select class="form-control"
-								id="perfil" name="perfil.codigo" required>
+								id="perfil" name="perfil.id" required>
 								<option value="">Selecione...</option>
 								<c:forEach var="perfilUsuario" items="${perfil}">
-									<option value="${perfilUsuario.codigo}">${perfilUsuario.descricao}</option>
+									<option value="${perfilUsuario.id}">${perfilUsuario.descricao}</option>
 								</c:forEach>
 							</select>
 						</div>

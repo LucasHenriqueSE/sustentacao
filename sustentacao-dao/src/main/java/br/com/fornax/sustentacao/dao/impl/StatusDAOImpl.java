@@ -23,7 +23,7 @@ public class StatusDAOImpl extends GenericDAO implements StatusDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Object> listarTudo() {
-		Query lista = em.createQuery("select s from Status s");
+		Query lista = em.createQuery("select s from StatusEntity s");
 		return lista.getResultList();
 	}
 }

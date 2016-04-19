@@ -12,35 +12,44 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.fornax.sustentacao.dao.UsuarioDAO;
 import br.com.fornax.sustentacao.dao.entity.UsuarioEntity;
 import br.com.fornax.sustentacao.model.Usuario;
+import br.com.fornax.sustentacao.service.ParseService;
 import br.com.fornax.sustentacao.service.UsuarioService;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService {
 
 	@Inject
 	private UsuarioDAO usuarioDao;
-	
+
 	@Inject
 	private PasswordEncoder passwordEncoder;
-	
+
+	@Inject
+	private ParseService parse;
+
 	@Override
 	public boolean cadastrar(Usuario usuario) {
-		usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
-		usuarioDao.inserir(usuario);
-		return true;
+		try {
+			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+			usuarioDao.inserir(parse.parseToEntity(usuario));
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean editar(Usuario usuario) {
 		usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
-		usuarioDao.editar(usuario);
+		usuarioDao.editar(parse.parseToEntity(usuario));
 		return true;
 	}
 
 	@Override
 	public boolean excluir(Usuario usuario) {
-		usuarioDao.excluir(usuario);
+		usuarioDao.excluir(parse.parseToEntity(usuario));
 		return true;
 	}
 
@@ -50,12 +59,12 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 
 	@Override
-	public Object buscarUsuarioPorId(Usuario usuario, long idUsuario) {
-		return usuarioDao.buscarPorId(usuario, idUsuario);
+	public Usuario buscarUsuarioPorId(long idUsuario) {
+		return parse.parseToModel(usuarioDao.buscarPorId(idUsuario));
 	}
 
 	@Override
-	public Object buscarUsuarioPorLogin(String username) {
-		return usuarioDao.buscarUsuarioPorLogin(username);
+	public Usuario buscarUsuarioPorLogin(String username) {
+		return parse.parseToModel(usuarioDao.buscarUsuarioPorLogin(username));
 	}
 }
