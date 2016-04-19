@@ -33,8 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.passwordEncoder(passwordEncoder)
 		.usersByUsernameQuery("select login as usuario,senha as senha, ativo as enabled from usuario where login = ? ")
 		.authoritiesByUsernameQuery(
-						"select u.codigo_usuario as usuario, p.descricao as authority from perfil p, usuario u where"
-								+ " u.codigo_perfil = p.codigo_perfil and u.login = ?")
+						"select u.id as usuario, p.descricao as authority from perfil p, usuario u where"
+								+ " u.id = p.id and u.login = ?")
 				.getUserDetailsService();
 	}
 
