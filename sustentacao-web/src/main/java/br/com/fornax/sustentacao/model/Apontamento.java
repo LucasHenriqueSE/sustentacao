@@ -27,7 +27,7 @@ public class Apontamento {
 	private long id;
 
 	@ManyToOne
-	@JoinColumn(name = "CODIGO_USUARIO", referencedColumnName = "CODIGO_USUARIO", unique = true)
+	@JoinColumn(name = "USUARIO", referencedColumnName = "ID", unique = true)
 	private Usuario usuario;
 
 	@Column(name = "DATA_CADASTRO")

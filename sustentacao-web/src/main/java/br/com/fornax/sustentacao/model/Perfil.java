@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Perfil {
 
 	@Id
-	@Column(name = "CODIGO_PERFIL")
+	@Column(name = "ID")
 	private String codigo;
 
 	@Column(name = "DESCRICAO", nullable = false, unique = true)

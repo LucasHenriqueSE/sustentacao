@@ -1,0 +1,12 @@
+html, body {
+	height: 100%;
+}
+
+.campos {
+	top: 6em;
+}
+
+.btn-entrar {
+	top: 8em;
+	clear: both;
+}

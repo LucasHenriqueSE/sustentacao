@@ -21,7 +21,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "CODIGO_USUARIO")
+	@Column(name = "ID")
 	private long id;
 
 	@NotEmpty(message="Informe o nome completo!")
@@ -45,7 +45,7 @@ public class Usuario {
 	private Boolean ativo;
 
 	@ManyToOne
-	@JoinColumn(name = "CODIGO_PERFIL", referencedColumnName = "CODIGO_PERFIL")
+	@JoinColumn(name = "PERFIL", referencedColumnName = "ID")
 	private Perfil perfil;
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
