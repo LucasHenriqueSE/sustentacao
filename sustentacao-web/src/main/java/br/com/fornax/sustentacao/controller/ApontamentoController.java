@@ -3,7 +3,6 @@ package br.com.fornax.sustentacao.controller;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.fornax.sustentacao.model.Apontamento;
 import br.com.fornax.sustentacao.service.ApontamentoService;
+
 
 @Controller
 public class ApontamentoController {
@@ -34,7 +34,7 @@ public class ApontamentoController {
 	}
 
 	@RequestMapping("/painel/tarefa/cadastrar-apontamento")
-	public String cadastrar(@Validated Apontamento apontamento) {
+	public String cadastrar(Apontamento apontamento) {
 		apontamentoService.cadastrarApontamento(apontamento);
 		return "redirect:/painel/apontamentos";
 	}

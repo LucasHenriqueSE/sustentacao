@@ -7,6 +7,9 @@
   <name>sustentacao</name>
   <modules>
   	<module>sustentacao-web</module>
+  	<module>sustentacao-dao</module>
+  	<module>sustentacao-model</module>
+  	<module>sustentacao-service</module>
   </modules>
   <properties>
 		<spring.version>4.0.5.RELEASE</spring.version>
