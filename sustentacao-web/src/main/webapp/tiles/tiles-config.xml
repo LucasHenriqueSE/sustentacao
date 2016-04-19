@@ -8,14 +8,16 @@
 		<put-attribute name="rodape" value="/pages/templates/rodape.jsp" />
 	</definition>
 
-	<!-- Semear - 403 -->
+	<!-- ERRO - 403 -->
 	<definition name="403" template="/pages/erro/403.jsp">
 	</definition>
 
-
-	<definition name="acesso" template="/pages/acesso.jsp">
+	<!-- Tela de Login -->
+	<definition name="acesso" extends="main">
+		<put-attribute name="conteudo" value="/pages/acesso.jsp"></put-attribute>
 	</definition>
 
+	<!-- Painel Principal -->
 	<definition name="painel" extends="main">
 		<put-attribute name="conteudo" value="/pages/painel/painel.jsp" />
 	</definition>
@@ -24,36 +26,46 @@
 	<definition name="lista-usuarios" extends="main">
 		<put-attribute name="conteudo" value="/pages/usuario/lista-usuarios.jsp" />
 	</definition>
+	
+	<!-- Cadastro de Usuário -->
 	<definition name="usuario" extends="main">
 		<put-attribute name="conteudo"
 			value="/pages/usuario/cadastrar-usuario.jsp" />
 	</definition>
+	
+	<!-- Edição de Usuário -->
 	<definition name="editar-usuario" extends="main">
 		<put-attribute name="conteudo" value="/pages/usuario/editar-usuario.jsp"></put-attribute>
 	</definition>
 
-	<!-- Tarefa -->
+	<!-- Lista de Tarefa -->
 	<definition name="listar-tarefas" extends="main">
 		<put-attribute name="conteudo" value="/pages/tarefa/lista-tarefa.jsp" />
 	</definition>
 
+	<!-- Cadastro de Tarefa -->
 	<definition name="cadastrar-tarefa" extends="main">
 		<put-attribute name="conteudo" value="/pages/tarefa/cadastrar-tarefa.jsp" />
 	</definition>
 
+	<!-- Editação de Tarefa -->
 	<definition name="editar-tarefa" extends="main">
 		<put-attribute name="conteudo" value="/pages/tarefa/editar-tarefa.jsp" />
 	</definition>
 
-	<!-- Apontamento -->
+	<!-- Apontamento - Lista de Apontamentos -->
 	<definition name="listar-apontamentos" extends="main">
 		<put-attribute name="conteudo"
 			value="/pages/apontamento/lista-apontamentos.jsp" />
 	</definition>
+	
+	<!-- Apontamento - Cadastro de Apontamentos -->
 	<definition name="cadastrar-apontamento" extends="main">
 		<put-attribute name="conteudo"
 			value="/pages/apontamento/cadastrar-apontamento.jsp" />
 	</definition>
+	
+	<!-- Apontamento - Edição de Apontamentos -->
 	<definition name="editar-apontamento" extends="main">
 		<put-attribute name="conteudo"
 			value="/pages/apontamento/editar-apontamento.jsp" />
