@@ -1,21 +1,21 @@
 .title-screen {
 	font-family: arial;
-	color: #4DC1FF;
+	color: #004592;
 }
 
 .btn-return:hover, .btn-return:focus, .btn-return {
 	float: left;
-	background-color: #4DC1FF;
+	background-color: #004592;
 	color: #fff;
-	border-color: #4DC1FF;
+	border-color: #004592;
 	margin-top: 40px;
 }
 
 .btn-add:hover, .btn-add:focus, .btn-add {
 	float: right;
-	background-color: #4DC1FF;
+	background-color: #004592;
 	color: #fff;
-	border-color: #4DC1FF;
+	border-color: #004592;
 	margin-top: 40px;
 }
 
