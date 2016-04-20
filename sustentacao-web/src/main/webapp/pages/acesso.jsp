@@ -52,7 +52,7 @@
 								placeholder="Digite seu usuário" required autofocus>
 						</div>
 						<div class="form-group col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
-							<label for="inputPassword">Senha</label> <input type="password"
+							<label for="inputPassword">Senha</label> <input type="senha"
 								id="inputPassword" name="senha" class="form-control"
 								placeholder="Senha" required>
 						</div>
@@ -78,7 +78,7 @@
 			style="background-color: #004592; color: #fff; padding: 20px; margin-top: 68px">
 			<div class="text-center" style="margin-top: 10px">
 				<p>
-					Gestão de Projetos | Desenvolvido por <b><a
+					Apontamento de Horas | Desenvolvido por <b><a
 						target="_blank" style="color: #fff; text-decoration: none"
 						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
 				</p>
@@ -88,7 +88,7 @@
 			style="background-color: #004592; color: #fff; padding: 20px;margin-top:32px">
 			<div class="text-center" style="margin-top: 10px">
 				<p>
-					Gestão de Projetos | Desenvolvido por <b><a
+					Apontamento de Horas | Desenvolvido por <b><a
 						target="_blank" style="color: #fff; text-decoration: none"
 						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
 				</p>
