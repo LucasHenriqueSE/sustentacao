@@ -23,7 +23,7 @@ public class TipoTarefaDAOImpl extends GenericDAO implements TipoTarefaDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Object> listarTudo() {
-		Query lista = em.createQuery("select tipo from TipoTarefa tipo");
+		Query lista = em.createQuery("select tipo from TipoTarefaEntity tipo");
 		return lista.getResultList();
 	}
 }

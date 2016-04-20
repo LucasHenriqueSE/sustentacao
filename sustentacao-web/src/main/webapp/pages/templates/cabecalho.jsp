@@ -88,6 +88,12 @@
 <title>Sistema - Sustentação</title>
 </head>
 <body>
+	<nav class="navbar-inverse navbar-static-top">
+		<div class="panel-heading fx-titulo-painel">
+			<a id="logout" href="/sustentacao/logout/">Logout</a>
+			<h1 class="panel-title">APONTAMENTO DE HORAS</h1>
+		</div>
+	</nav>
 	<nav class="navbar navbar-default navbar-static-top"
 		style="background-color: #004592; color: #fff;">
 		<div class="container-fluid">
@@ -109,12 +115,12 @@
 				style="margin-top: 10px">
 				<div class="hidden-xs hidden-sm"
 					style="float: right; margin-left: 150px">
-					Usuario Logado <a style="background-color: #fff; color: #004592;" href='<c:url value="/logout/"></c:url>'
-						class="btn btn-default">Logout</a>
+					Usuario Logado <a style="background-color: #fff; color: #004592;"
+						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 				<div class="hidden-md hidden-lg">
-					Usuario Logado <a style="background-color: #fff; color: #004592;" href='<c:url value="/logout/"></c:url>'
-						class="btn btn-default">Logout</a>
+					Usuario Logado <a style="background-color: #fff; color: #004592;"
+						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 			</div>
 		</div>

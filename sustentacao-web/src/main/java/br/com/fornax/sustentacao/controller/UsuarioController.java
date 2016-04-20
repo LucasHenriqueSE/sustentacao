@@ -47,7 +47,7 @@ public class UsuarioController {
 	@RequestMapping("painel/usuario/{idUsuario}/editar-usuario")
 	public ModelAndView viewEditar(@PathVariable("idUsuario") long idUsuario){
 		mav = new ModelAndView("editar-usuario");
-		this.mav.addObject("usuario", usuarioService.buscarUsuarioPorId(new Usuario(), idUsuario));
+		this.mav.addObject("usuario", usuarioService.buscarUsuarioPorId(idUsuario));
 		this.mav.addObject("perfil", perfilService.listarPerfis());
 		
 		return mav;

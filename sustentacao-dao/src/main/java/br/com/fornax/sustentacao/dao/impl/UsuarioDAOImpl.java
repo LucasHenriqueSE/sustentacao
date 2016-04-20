@@ -10,13 +10,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fornax.sustentacao.dao.GenericDAO;
 import br.com.fornax.sustentacao.dao.UsuarioDAO;
 import br.com.fornax.sustentacao.dao.entity.UsuarioEntity;
 
 @Repository
 @Transactional(propagation = Propagation.MANDATORY)
-public class UsuarioDAOImpl extends GenericDAO implements UsuarioDAO {
+public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -24,14 +23,45 @@ public class UsuarioDAOImpl extends GenericDAO implements UsuarioDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<UsuarioEntity> listarTudo() {
-		Query lista = em.createQuery("select u from Usuario u");
-		return lista.getResultList();
+		Query query = em.createQuery("select u from UsuarioEntity u");
+		if (!query.getResultList().isEmpty()) {
+			return query.getResultList();
+		}
+		return null;
 	}
 
 	@Override
 	public UsuarioEntity buscarUsuarioPorLogin(String username) {
-		Query query = em.createQuery("select u from Usuario u where u.login = :username");
-		query.setParameter("username",username);
-		return (UsuarioEntity) query.getSingleResult();
+		Query query = em.createQuery("select u from UsuarioEntity u where u.login = :username");
+		query.setParameter("username", username);
+		if (!query.getResultList().isEmpty()) {
+			return (UsuarioEntity) query.getSingleResult();
+		}
+		return null;
+	}
+
+	@Override
+	public void inserir(UsuarioEntity usuario) {
+		em.persist(usuario);
+	}
+
+	@Override
+	public void editar(UsuarioEntity usuario) {
+		em.merge(usuario);
+	}
+
+	@Override
+	public void excluir(UsuarioEntity usuario) {
+		em.remove(usuario);
+	}
+
+	@Override
+	public UsuarioEntity buscarPorId(long idUsuario) {
+		Query query = em.createQuery("select u from UsuarioEntity u where u.id = :idUsuario");
+		query.setParameter("idUsuario", idUsuario);
+		if (!query.getResultList().isEmpty()) {
+			return (UsuarioEntity) query.getSingleResult();
+		}
+		return null;
 	}
 }

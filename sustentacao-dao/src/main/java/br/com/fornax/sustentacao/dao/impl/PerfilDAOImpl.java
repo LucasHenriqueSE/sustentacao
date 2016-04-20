@@ -23,7 +23,7 @@ public class PerfilDAOImpl extends GenericDAO implements PerfilDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object> listarTudo() {
-		Query query = em.createQuery("select p from Perfil p");
+		Query query = em.createQuery("select p from PerfilEntity p");
 		return query.getResultList();
 	}
 

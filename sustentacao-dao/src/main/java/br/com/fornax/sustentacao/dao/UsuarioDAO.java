@@ -5,15 +5,15 @@ import java.util.List;
 import br.com.fornax.sustentacao.dao.entity.UsuarioEntity;
 
 public interface UsuarioDAO {
-	void inserir(Object usuario);
+	public void inserir(UsuarioEntity usuario);
 
-	void editar(Object usuario);
+	public void editar(UsuarioEntity usuario);
 
-	void excluir(Object usuario);
+	public void excluir(UsuarioEntity usuario);
 
-	List<UsuarioEntity> listarTudo();
+	public List<UsuarioEntity> listarTudo();
 
-	Object buscarPorId(Object Usuario, long idUsuario);
+	public UsuarioEntity buscarPorId(long idUsuario);
 
-	Object buscarUsuarioPorLogin(String username);
+	public UsuarioEntity buscarUsuarioPorLogin(String username);
 }

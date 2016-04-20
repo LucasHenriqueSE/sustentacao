@@ -20,3 +20,10 @@ INSERT INTO STATUS VALUES(5, 'Fechado');
 
 INSERT INTO PERFIL VALUES(1, 'Administrador');
 INSERT INTO PERFIL VALUES(2, 'Usuario');
+
+
+
+<!-- USUARIOS -->
+
+INSERT INTO `sustentacao`.`usuario` (`ID`, `ATIVO`, `EMAIL`, `LOGIN`, `NOME`, `SENHA`, `PERFIL`) VALUES ('1', 1, 'lucas.henrique@fornax.com.br', 'LucasHenrique', 'Lucas Henrique de Sousa', '$2a$10$QOrMqBXkT5.peJlG.dsQOeuZwzUK//MxNArmCvP1UKglK8kFSONpO', '1')
+INSERT INTO `sustentacao`.`usuario` (`ID`, `ATIVO`, `EMAIL`, `LOGIN`, `NOME`, `SENHA`, `PERFIL`) VALUES ('2', 1, 'danilo.righetto@fornax.com.br', 'DaniloRighetto', 'Danilo Righetto', '$2a$10$QOrMqBXkT5.peJlG.dsQOeuZwzUK//MxNArmCvP1UKglK8kFSONpO', '1')

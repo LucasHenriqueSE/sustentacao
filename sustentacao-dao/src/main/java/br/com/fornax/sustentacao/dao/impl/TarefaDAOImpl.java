@@ -23,14 +23,14 @@ public class TarefaDAOImpl extends GenericDAO implements TarefaDAO {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Object> buscarTarefaPorTipo(long idTipoTarefa) {
-		Query lista = em.createQuery("select tarefa from Tarefa tarefa where tarefa.tipo.id = :idTipoTarefa");
+		Query lista = em.createQuery("select tarefa from TarefaEntity tarefa where tarefa.tipo.id = :idTipoTarefa");
 		return lista.getResultList();
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Object> listarTudo() {
-		Query lista = em.createQuery("select tarefa from Tarefa tarefa");
+		Query lista = em.createQuery("select tarefa from TarefaEntity tarefa");
 		return lista.getResultList();
 	}
 }

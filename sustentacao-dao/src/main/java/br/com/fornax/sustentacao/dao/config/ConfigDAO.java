@@ -33,7 +33,7 @@ public class ConfigDAO {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		
 		em.setDataSource(dataSource());
-		em.setPackagesToScan(new String[] { "br.com.fornax.sustentacao.model" });
+		em.setPackagesToScan(new String[] { "br.com.fornax.sustentacao.dao.entity" });
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
