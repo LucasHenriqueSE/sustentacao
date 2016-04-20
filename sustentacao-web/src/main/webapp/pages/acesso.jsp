@@ -48,7 +48,7 @@
 					
 						<div class="form-group col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
 							<label for="usuario">Usuário</label> <input
-								type="text" id="usuario" class="form-control" name="username"
+								type="text" id="usuario" class="form-control" name="login"
 								placeholder="Digite seu usuário" required autofocus>
 						</div>
 						<div class="form-group col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">

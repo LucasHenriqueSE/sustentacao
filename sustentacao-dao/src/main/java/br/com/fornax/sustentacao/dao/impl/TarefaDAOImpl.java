@@ -10,27 +10,50 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.fornax.sustentacao.dao.GenericDAO;
 import br.com.fornax.sustentacao.dao.TarefaDAO;
+import br.com.fornax.sustentacao.dao.entity.TarefaEntity;
 
 @Repository
 @Transactional(propagation = Propagation.MANDATORY)
-public class TarefaDAOImpl extends GenericDAO implements TarefaDAO {
+public class TarefaDAOImpl implements TarefaDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public List<Object> buscarTarefaPorTipo(long idTipoTarefa) {
-		Query lista = em.createQuery("select tarefa from TarefaEntity tarefa where tarefa.tipo.id = :idTipoTarefa");
-		return lista.getResultList();
+	public void inserir(TarefaEntity tarefa) {
+		em.persist(tarefa);
+	}
+
+	@Override
+	public void editar(TarefaEntity tarefa) {
+		em.merge(tarefa);
+	}
+
+	@Override
+	public void excluir(TarefaEntity tarefa) {
+		em.remove(tarefa);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Object> listarTudo() {
-		Query lista = em.createQuery("select tarefa from TarefaEntity tarefa");
-		return lista.getResultList();
+	public List<TarefaEntity> listarTudo() {
+		Query query = em.createQuery("select t from TarefaEntity t");
+		return query.getResultList();
 	}
+
+	@Override
+	public TarefaEntity buscarPorId(long idTarefa) {
+		Query query = em.createQuery("select t from TarefaEntity t where t.id = :idTarefa");
+		query.setParameter("idTarefa", idTarefa);
+		return (TarefaEntity) query.getSingleResult();
+	}
+
+//	@Override
+//	@SuppressWarnings("unchecked")
+//	public List<TarefaEntity> buscarTarefaPorTipo(long idTipoTarefa) {
+//		Query query = em.createQuery("select t from TarefaEntity t where t.tipo.id = :idTipoTarefa");
+//		query.setParameter("idTipoTarefa", idTipoTarefa);
+//		return query.getResultList();
+//	}
 }

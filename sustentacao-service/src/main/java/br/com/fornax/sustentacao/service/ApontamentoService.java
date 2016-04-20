@@ -5,17 +5,17 @@ import java.util.List;
 import br.com.fornax.sustentacao.model.Apontamento;
 
 public interface ApontamentoService {
-	//boolean cadastrarApontamento(Apontamento apontamento);
+	// boolean cadastrarApontamento(Apontamento apontamento);
 
-	boolean editarApontamento(Apontamento apontamento);
+	public boolean editarApontamento(Apontamento apontamento);
 
-	boolean excluirApontamento(Apontamento apontamento);
+	public boolean excluirApontamento(Apontamento apontamento);
 
-	List<Object> listarApontamentos();
+	public List<Apontamento> listarApontamentos();
 
-	Apontamento buscarApontamentoPorId(Apontamento apontamento, long idApontamento);
-	
-	boolean validarHoraInicioFim(String horaInicio, String horaFim, long idTarefa);
+	public Apontamento buscarApontamentoPorId(long idApontamento);
 
-	void cadastrarApontamento(Apontamento apontamento);
+	public boolean validarHoraInicioFim(String horaInicio, String horaFim, long idTarefa);
+
+	public void cadastrarApontamento(Apontamento apontamento);
 }

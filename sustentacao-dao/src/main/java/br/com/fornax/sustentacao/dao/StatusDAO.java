@@ -2,12 +2,14 @@ package br.com.fornax.sustentacao.dao;
 
 import java.util.List;
 
+import br.com.fornax.sustentacao.dao.entity.StatusEntity;
+
 public interface StatusDAO {
-	void inserir(Object entity);
+	public void inserir(StatusEntity entity);
 
-	void editar(Object entity);
+	public void editar(StatusEntity entity);
 
-	void excluir(Object entity);
+	public void excluir(StatusEntity entity);
 
-	List<Object> listarTudo();
+	public List<StatusEntity> listarTudo();
 }

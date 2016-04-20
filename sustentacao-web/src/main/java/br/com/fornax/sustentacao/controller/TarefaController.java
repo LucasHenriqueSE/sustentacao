@@ -17,7 +17,7 @@ import br.com.fornax.sustentacao.service.TipoTarefaService;
 @Controller
 public class TarefaController {
 	private static final String LISTA_TAREFAS = "/painel/tarefas";
-	
+
 	private ModelAndView mav;
 
 	@Inject
@@ -28,7 +28,7 @@ public class TarefaController {
 
 	@Inject
 	private StatusService statusService;
-	
+
 	@RequestMapping(LISTA_TAREFAS)
 	public ModelAndView listar() {
 		mav = new ModelAndView("listar-tarefas");
@@ -57,7 +57,7 @@ public class TarefaController {
 	@RequestMapping("/painel/tarefa/{idTarefa}/editar-tarefa")
 	public ModelAndView viewEditarTarefa(@PathVariable("idTarefa") long idTarefa, Tarefa tarefa) {
 		mav = new ModelAndView("editar-tarefa");
-		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(tarefa, idTarefa));
+		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(idTarefa));
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
 

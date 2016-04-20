@@ -1,5 +1,6 @@
 package br.com.fornax.sustentacao.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,6 +10,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fornax.sustentacao.dao.TipoTarefaDAO;
+import br.com.fornax.sustentacao.dao.entity.TipoTarefaEntity;
+import br.com.fornax.sustentacao.model.TipoTarefa;
+import br.com.fornax.sustentacao.service.ParseService;
 import br.com.fornax.sustentacao.service.TipoTarefaService;
 
 @Service
@@ -16,11 +20,18 @@ import br.com.fornax.sustentacao.service.TipoTarefaService;
 public class TipoTarefaServiceImpl implements TipoTarefaService {
 
 	@Inject
-	private TipoTarefaDAO dao;
+	private TipoTarefaDAO tipoTarefaDao;
+
+	@Inject
+	private ParseService parse;
 
 	@Override
-	public List<Object> listarTipoTarefa() {
-		return dao.listarTudo();
+	public List<TipoTarefa> listarTipoTarefa() {
+		List<TipoTarefaEntity> lista = tipoTarefaDao.listarTudo();
+		List<TipoTarefa> tiposTarefa = new ArrayList<TipoTarefa>();
+		for (TipoTarefaEntity tipo : lista) {
+			tiposTarefa.add(parse.parseToModel(tipo));
+		}
+		return tiposTarefa;
 	}
-
 }

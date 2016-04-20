@@ -5,15 +5,15 @@ import java.util.List;
 import br.com.fornax.sustentacao.model.Tarefa;
 
 public interface TarefaService {
-	boolean cadastrarTarefa(Tarefa tarefa);
+	public boolean cadastrarTarefa(Tarefa tarefa);
 
-	boolean editarTarefa(Tarefa tarefa);
+	public boolean editarTarefa(Tarefa tarefa);
 
-	boolean excluirTarefa(Tarefa tarefa);
+	public boolean excluirTarefa(Tarefa tarefa);
 
-	List<Object> listarTarefa();
+	public List<Tarefa> listarTarefa();
 
-	Object buscarTarefaPorId(Tarefa tarefa, long idTarefa);
+	public Tarefa buscarTarefaPorId(long idTarefa);
 
-	List<Object> buscarTarefaPorTipo(long idTipoTarefa);
+//	public List<Tarefa> buscarTarefaPorTipo(long idTipoTarefa);
 }

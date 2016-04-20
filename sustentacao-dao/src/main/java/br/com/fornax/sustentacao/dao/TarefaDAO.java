@@ -2,16 +2,18 @@ package br.com.fornax.sustentacao.dao;
 
 import java.util.List;
 
+import br.com.fornax.sustentacao.dao.entity.TarefaEntity;
+
 public interface TarefaDAO {
-	void inserir(Object entity);
+	public void inserir(TarefaEntity tarefa);
 
-	void editar(Object entity);
+	public void editar(TarefaEntity tarefa);
 
-	void excluir(Object entity);
+	public void excluir(TarefaEntity tarefa);
 
-	List<Object> listarTudo();
+	public List<TarefaEntity> listarTudo();
 
-	Object buscarPorId(Object object, long idTarefa);
+	public TarefaEntity buscarPorId(long idTarefa);
 
-	List<Object> buscarTarefaPorTipo(long idTipoTarefa);
+//	public List<TarefaEntity> buscarTarefaPorTipo(long idTipoTarefa);
 }

@@ -27,15 +27,15 @@
 			</div>
 			<div class="input-group">
 				<label for="perfil">Perfil</label><select class="form-control"
-					id="perfil" name="perfil.codigo" required>
+					id="perfil" name="perfil.id" required>
 					<c:forEach var="perfilUsuario" items="${perfil}">
 						<c:choose>
-							<c:when test="${usuario.perfil.codigo == perfilUsuario.codigo}">
-								<option value="${perfilUsuario.codigo}"
+							<c:when test="${usuario.perfil.id == perfilUsuario.id}">
+								<option value="${perfilUsuario.id}"
 									label="${perfilUsuario.descricao}" selected />
 							</c:when>
 							<c:otherwise>
-								<option value="${perfilUsuario.codigo}"
+								<option value="${perfilUsuario.id}"
 									label="${perfilUsuario.descricao}" />
 							</c:otherwise>
 						</c:choose>

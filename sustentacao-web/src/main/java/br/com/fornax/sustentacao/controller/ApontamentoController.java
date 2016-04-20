@@ -41,7 +41,7 @@ public class ApontamentoController {
 
 	@RequestMapping("/painel/apontamento/{idApontamento}/editar-apontamento")
 	public ModelAndView viewEditar(@PathVariable("idApontamento") long idApontamento, Apontamento apontamento) {
-		apontamento = apontamentoService.buscarApontamentoPorId(new Apontamento(), idApontamento);
+		apontamento = apontamentoService.buscarApontamentoPorId(idApontamento);
 		mav = new ModelAndView("editar-apontamento");
 
 		this.mav.addObject("apontamento", apontamento);

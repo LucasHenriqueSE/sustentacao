@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fornax.sustentacao.dao.GenericDAO;
 import br.com.fornax.sustentacao.dao.StatusDAO;
+import br.com.fornax.sustentacao.dao.entity.StatusEntity;
 
 @Service
 @Transactional(propagation = Propagation.MANDATORY)
@@ -21,8 +22,25 @@ public class StatusDAOImpl extends GenericDAO implements StatusDAO {
 	private EntityManager em;
 
 	@Override
+	public void inserir(StatusEntity status) {
+		em.persist(status);
+
+	}
+
+	@Override
+	public void editar(StatusEntity status) {
+		em.merge(status);
+
+	}
+
+	@Override
+	public void excluir(StatusEntity status) {
+		em.remove(status);
+	}
+
+	@Override
 	@SuppressWarnings("unchecked")
-	public List<Object> listarTudo() {
+	public List<StatusEntity> listarTudo() {
 		Query lista = em.createQuery("select s from StatusEntity s");
 		return lista.getResultList();
 	}

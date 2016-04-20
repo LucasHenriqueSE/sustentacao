@@ -5,7 +5,8 @@ import java.util.List;
 import br.com.fornax.sustentacao.model.Perfil;
 
 public interface PerfilService {
-	List<Object> listarPerfis();
+	public List<Perfil> listarPerfis();
 
-	Perfil buscarPerfilPorId(Perfil perfil, long id);
+	public Perfil buscarPerfilPorId(long id);
+
 }

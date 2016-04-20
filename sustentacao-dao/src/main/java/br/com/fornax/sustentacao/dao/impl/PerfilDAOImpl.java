@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fornax.sustentacao.dao.GenericDAO;
 import br.com.fornax.sustentacao.dao.PerfilDAO;
+import br.com.fornax.sustentacao.dao.entity.PerfilEntity;
 
 @Repository
 @Transactional(propagation = Propagation.MANDATORY)
@@ -19,10 +20,33 @@ public class PerfilDAOImpl extends GenericDAO implements PerfilDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Override
+	public void inserir(PerfilEntity perfil) {
+		em.persist(perfil);
+	}
+
+	@Override
+	public void editar(PerfilEntity perfil) {
+		em.merge(perfil);
+	}
+
+	@Override
+	public void excluir(PerfilEntity perfil) {
+		em.remove(perfil);
+	}
+
+	@Override
+	public PerfilEntity buscarPorId(long idPerfil) {
+		Query query = em.createQuery("select p from PerfilEntity p where p.id = :idPerfil");
+		query.setParameter("idPerfil", idPerfil);
+
+		return (PerfilEntity) query.getSingleResult();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Object> listarTudo() {
+	public List<PerfilEntity> listarTudo() {
 		Query query = em.createQuery("select p from PerfilEntity p");
 		return query.getResultList();
 	}

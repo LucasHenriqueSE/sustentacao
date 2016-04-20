@@ -6,15 +6,16 @@ import java.util.List;
 import br.com.fornax.sustentacao.dao.entity.ApontamentoEntity;
 
 public interface ApontamentoDAO {
-	void inserir(Object entity);
+	public void inserir(ApontamentoEntity apontamento);
 
-	void editar(Object entity);
+	public void editar(ApontamentoEntity apontamento);
 
-	void excluir(Object entity);
+	public void excluir(ApontamentoEntity apontamento);
 
-	List<Object> listarTudo();
+	public List<ApontamentoEntity> listarTudo();
 
-	Object buscarPorId(Object entity, long id);
+	public ApontamentoEntity buscarPorId(long idApontamento);
 
-	List<ApontamentoEntity> listarApontamentoDoDia(Calendar dataDeApontamento, Calendar horaInicio, Calendar horaTermino);
+	public List<ApontamentoEntity> listarApontamentoDoDia(Calendar dataDeApontamento, Calendar horaInicio,
+			Calendar horaTermino);
 }

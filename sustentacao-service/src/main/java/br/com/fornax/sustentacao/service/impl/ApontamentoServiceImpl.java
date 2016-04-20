@@ -2,6 +2,7 @@ package br.com.fornax.sustentacao.service.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,8 @@ import br.com.fornax.sustentacao.dao.entity.ApontamentoEntity;
 import br.com.fornax.sustentacao.model.Apontamento;
 import br.com.fornax.sustentacao.model.Tarefa;
 import br.com.fornax.sustentacao.service.ApontamentoService;
+import br.com.fornax.sustentacao.service.ParseService;
+import br.com.fornax.sustentacao.service.TarefaService;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
@@ -25,6 +28,12 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 	@Inject
 	private ApontamentoDAO apontamentoDAO;
 
+	@Inject
+	private TarefaService tarefaService;
+
+	@Inject
+	ParseService parse;
+
 	@Override
 	public void cadastrarApontamento(Apontamento apontamento) {
 		List<Apontamento> lista = apontamentosDoDia(apontamento);
@@ -32,43 +41,48 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 		if (lista.isEmpty()) {
 			String horasTrabalhadas = calcularHorasTrabalhadas(apontamento.getHoraTermino(),
 					apontamento.getHoraInicio());
-			Tarefa tarefa = (Tarefa) apontamentoDAO.buscarPorId(new Tarefa(), apontamento.getTarefa().getId());
+			Tarefa tarefa = tarefaService.buscarTarefaPorId(apontamento.getTarefa().getId());
 			tarefa.setQtdHorasDisponiveis(calcularHoras(tarefa.getQtdHorasDisponiveis(), horasTrabalhadas));
 			apontamento.setDataCadastro(Calendar.getInstance());
-			apontamentoDAO.inserir(apontamento);
-			//return true;
+			tarefaService.editarTarefa(tarefa);
+			apontamentoDAO.inserir(parse.parseToEntity(apontamento));
+			
 		}
-		//return false;
 	}
 
 	@Override
 	public boolean editarApontamento(Apontamento apontamento) {
 		List<Apontamento> lista = apontamentosDoDia(apontamento);
 		apontamento.setDataEdicao(Calendar.getInstance());
-		if(!lista.isEmpty() && lista.size() == 1){
-			if(lista.get(0).getId() == apontamento.getId()){
-				apontamentoDAO.editar(apontamento);	
+		if (!lista.isEmpty() && lista.size() == 1) {
+			if (lista.get(0).getId() == apontamento.getId()) {
+				apontamentoDAO.editar(parse.parseToEntity(apontamento));
 			}
-		}else if(lista.isEmpty()){
-			apontamentoDAO.editar(apontamento);
+		} else if (lista.isEmpty()) {
+			apontamentoDAO.editar(parse.parseToEntity(apontamento));
 		}
 		return false;
 	}
 
 	@Override
 	public boolean excluirApontamento(Apontamento apontamento) {
-		apontamentoDAO.excluir(apontamento);
+		apontamentoDAO.excluir(parse.parseToEntity(apontamento));
 		return true;
 	}
 
 	@Override
-	public List<Object> listarApontamentos() {
-		return apontamentoDAO.listarTudo();
+	public List<Apontamento> listarApontamentos() {
+		List<ApontamentoEntity> lista = apontamentoDAO.listarTudo();
+		List<Apontamento> apontamentos = new ArrayList<Apontamento>();
+		for (ApontamentoEntity apontamento : lista) {
+			apontamentos.add(parse.parseToModel(apontamento));
+		}
+		return apontamentos;
 	}
 
 	@Override
-	public Apontamento buscarApontamentoPorId(Apontamento apontamento, long idApontamento) {
-		return (Apontamento) apontamentoDAO.buscarPorId(apontamento, idApontamento);
+	public Apontamento buscarApontamentoPorId(long idApontamento) {
+		return parse.parseToModel(apontamentoDAO.buscarPorId(idApontamento));
 	}
 
 	private String calcularHorasTrabalhadas(Calendar horaTermino, Calendar horaInicio) {
@@ -97,7 +111,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 	@Override
 	public boolean validarHoraInicioFim(String horaInicio, String horaFim, long idTarefa) {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-		Tarefa tarefa = (Tarefa) apontamentoDAO.buscarPorId(new Tarefa(), idTarefa);
+		Tarefa tarefa = (Tarefa) tarefaService.buscarTarefaPorId(idTarefa);
 		try {
 			Date date1 = sdf.parse(horaInicio);
 			Date date2 = sdf.parse(horaFim);
@@ -192,7 +206,10 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 	private List<Apontamento> apontamentosDoDia(Apontamento apontamento) {
 		List<ApontamentoEntity> lista = apontamentoDAO.listarApontamentoDoDia(apontamento.getDataApontamento(),
 				apontamento.getHoraInicio(), apontamento.getHoraTermino());
-		return null;
-		//return lista;
+		List<Apontamento> apontamentos = new ArrayList<Apontamento>();
+		for (ApontamentoEntity a : lista) {
+			apontamentos.add(parse.parseToModel(a));
+		}
+		return apontamentos;
 	}
 }

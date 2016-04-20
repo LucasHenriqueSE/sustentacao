@@ -2,14 +2,16 @@ package br.com.fornax.sustentacao.dao;
 
 import java.util.List;
 
+import br.com.fornax.sustentacao.dao.entity.PerfilEntity;
+
 public interface PerfilDAO {
-	void inserir(Object entity);
+	public void inserir(PerfilEntity perfil);
 
-	void editar(Object entity);
+	public void editar(PerfilEntity perfil);
 
-	void excluir(Object entity);
+	public void excluir(PerfilEntity perfil);
 
-	List<Object> listarTudo();
+	public PerfilEntity buscarPorId(long idPerfil);
 
-	Object buscarPorId(Object entity, long id);
+	public List<PerfilEntity> listarTudo();
 }
