@@ -78,7 +78,7 @@
 			style="background-color: #004592; color: #fff; padding: 20px; margin-top: 68px">
 			<div class="text-center" style="margin-top: 10px">
 				<p>
-					Gestão de Projetos | Desenvolvido por <b><a
+					Apontamento de Horas | Desenvolvido por <b><a
 						target="_blank" style="color: #fff; text-decoration: none"
 						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
 				</p>
@@ -88,7 +88,7 @@
 			style="background-color: #004592; color: #fff; padding: 20px;margin-top:32px">
 			<div class="text-center" style="margin-top: 10px">
 				<p>
-					Gestão de Projetos | Desenvolvido por <b><a
+					Apontamento de Horas | Desenvolvido por <b><a
 						target="_blank" style="color: #fff; text-decoration: none"
 						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
 				</p>
