@@ -1,57 +1,66 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<title>Cadastro de Usuário</title>
-<c:import url="menu.jsp" />
-<div class="section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<form class="" action="/sustentacao/painel/usuario/cadastrar"
-					method="post">
-					<div class="row col-md-offset-1">
-						<div class="form-group col-md-4">
-							<label for="nome">Nome</label><input class="form-control"
-								id="nome" name="nome" placeholder="Digite o Nome Completo"
-								required autofocus />
-						</div>
-						<div class="form-group col-md-3">
-							<label for="login">Login</label><input class="form-control"
-								id="login" name="login" placeholder="Digite o Login" required />
-						</div>
-						<div class="form-group col-md-3">
-							<label for="senha">Senha</label><input class="form-control"
-								id="senha" name="senha" type="password"
-								placeholder="Digite a Senha" required />
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+	<div class="section">
+		<div class="container">
+			<h4 class="title-screen">Cadastro de Usuario</h4>
+			<hr />
+			<div id="alertas"></div>
+			<form action="/sustentacao/painel/usuario/cadastrar" method="POST" role="form">
+				<div class="row">
+					<div class="form-group col-md-offset-2 col-md-4">
+						<label for="nome">Nome Completo:</label> <input type="text"
+							class="form-control" id="nome" name="nome"
+							placeholder="Digite o nome" required autofocus>
+					</div>
+					<div class="form-group col-md-4">
+						<label>Usuario:</label> <input
+							type="email" class="form-control" id="usuario"
+							placeholder="Digite o nome do usuario" name="email" required>
+					</div>
+					<div class="form-group col-md-offset-2 col-md-4">
+						<label>Senha:</label> <input type="password" class="form-control"
+							id="senha" placeholder="Digite a senha" name="senha" required>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="perfil">Perfil:</label> <select id="perfil"
+							class="form-control" name="perfil.id"
+							onchange="verificaPerfil();" required>
+							<option value="">Selecione ...</option>
+							<c:forEach items="${perfil}" var="perfil">
+								<option value="${perfil.id}">${perfil.descricao}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div style="clear: both;"
+						class="form-group col-md-offset-2 col-md-4">
+						<div class="radio">
+							<label>Realiza login no sistema?</label> <label><input
+								type="radio" name="ativo" value="true" required>Sim</label>
+							<label><input type="radio" name="ativo"
+								value="false" required>Não</label>
 						</div>
 					</div>
-					<div class="row col-md-offset-1">
-						<div class="form-group col-md-4">
-							<label for="email">Email</label><input class="form-control"
-								id="email" name="email" placeholder="Digite um Email válido"
-								required />
-						</div>
-						<div class="form-group col-md-3">
-							<label for="perfil">Perfil</label><select class="form-control"
-								id="perfil" name="perfil.id" required>
-								<option value="">Selecione...</option>
-								<c:forEach var="perfilUsuario" items="${perfil}">
-									<option value="${perfilUsuario.id}">${perfilUsuario.descricao}</option>
-								</c:forEach>
-							</select>
-						</div>
-						<br />
-						<div class="form-group col-md-offset-8">
-							<label>Usuário Ativo?</label><br />
-							<label for="sim"><input id="sim" name="ativo"
-								value="true" type="radio" required /> Sim</label> <label for="nao"><input
-								id="nao" name="ativo" value="false" type="radio" required /> Não</label>
-						</div>
-					</div>
-					<br>
-					<button style="float: right;" class="btn btn-default" type="submit">Salvar</button>
-					<a class="btn btn-default" style="float: left"
-						href="/sustentacao/painel/usuarios" type="button">Cancelar</a>
-				</form>
-			</div>
+				</div>
+				<hr />
+				<div class="form-group col-xs-offset-0">
+					<a href='<c:url value="/sustentacao/painel/usuarios" />'
+						style="float: left; background-color: #004592; color: #fff; border-color: #004592"
+						class="btn btn-default">Cancelar</a>
+					<button type="submit"
+						style="float: right; background-color: #004592; color: #fff; border-color: #004592"
+						class="btn btn-default">Salvar Usuário</button>
+				</div>
+			</form>
 		</div>
 	</div>
-</div>
+</body>
+</html>

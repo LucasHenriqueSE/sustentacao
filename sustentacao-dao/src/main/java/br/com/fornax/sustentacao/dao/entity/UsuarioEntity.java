@@ -28,8 +28,7 @@ public class UsuarioEntity {
 	@Column(name = "NOME", nullable = false)
 	private String nome;
 
-	@NotEmpty(message = "Informe um login!")
-	@Column(name = "LOGIN", nullable = false, unique = true)
+	@Column(name = "LOGIN", nullable = true)
 	private String login;
 
 	@NotEmpty(message = "Informe uma senha!")
