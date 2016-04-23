@@ -11,7 +11,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 	      HttpServletResponse response,
 	      Object controller) throws Exception {
 	      if(request.getRequestURI().equals("/sustentacao/painel") || request.getRequestURI().equals("/sustentacao/painel/")
-	    		  || request.getSession().getAttribute("email") != null) {
+	    		  || request.getSession().getAttribute("usuario") != null) {
 	        return true;
 	      }
 	      else if(request.getRequestURI().equals("/sustentacao/logout")){
