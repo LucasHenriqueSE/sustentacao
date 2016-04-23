@@ -115,11 +115,11 @@
 				style="margin-top: 10px">
 				<div class="hidden-xs hidden-sm"
 					style="float: right; margin-left: 150px">
-					Usuario Logado <a style="background-color: #fff; color: #004592;"
+					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 				<div class="hidden-md hidden-lg">
-					Usuario Logado <a style="background-color: #fff; color: #004592;"
+					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 			</div>
