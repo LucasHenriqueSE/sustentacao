@@ -47,27 +47,33 @@
 	color: #fff;
 }
 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	color: #fff;	
+}
+
 #menu>.active>a {
 	color: #000;
 	background-color: #fff;
 }
 
 .paginate_button.current:hover {
-	background: #4DC1FF !important;
+	background: #004592 !important;
+	color: #fff;
 }
 
 .paginate_button.current {
-	background: #4DC1FF !important;
+	background: #004592 !important;
+	color: #fff;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff),
 		color-stop(100%, #dcdcdc));
-	color: #000 !important;
+	color: #fff !important;
 }
 
 .dropdown-menu {
-	background-color: #4DC1FF !important;
+	background-color: #004592 !important;
 	color: #fff;
 }
 
@@ -77,7 +83,7 @@
 }
 
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-	background-color: #4DC1FF !important;
+	background-color: #004592 !important;
 	color: #fff;
 }
 

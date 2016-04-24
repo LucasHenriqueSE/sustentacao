@@ -6,6 +6,15 @@
 		$('#usuarios').DataTable();
 	});
 </script>
+<style type="text/css">
+<!--
+
+-->
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	color: #fff;	
+}
+</style>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
 		<table id="usuarios" class="table table-responsive">
@@ -40,6 +49,7 @@
 					</c:choose>
 				</tbody>
 			</table>
+			<br /><br />
 		<div class="text-center btn-cadastrar">
 			<br> <a class="btn btn-default btn-md" style="background-color: #004592; color: #fff; border-color: #004592" href="usuario/cadastrar-usuario"
 				type="button">Cadastrar Usuário</a>

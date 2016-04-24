@@ -9,7 +9,7 @@
 </script>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
-		<table id="usuarios" class="table table-responsive">
+		<table id="tarefas" class="table table-responsive">
 				<thead>
 					<tr>
 						<td class="text-center"><span style="font-weight: bold;">#</span></td>
