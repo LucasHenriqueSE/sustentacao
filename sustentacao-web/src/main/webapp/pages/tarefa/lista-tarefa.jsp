@@ -1,14 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <title>Lista de Tarefas</title>
-<c:import url="menu.jsp"></c:import>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#menu-tarefas").attr('class', 'active');
 		$('#tarefas').DataTable();
 	});
 </script>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
+	<br /><br />
 		<table id="tarefas" class="table table-responsive">
 				<thead>
 					<tr>
@@ -61,7 +62,8 @@
 				</tbody>
 			</table>
 		<div class="text-center btn-cadastrar">
-			<br> <a class="btn btn-default btn-md" style="background-color: #004592; color: #fff; border-color: #004592" href="tarefa/cadastrar-tarefa"
+		<br /><br />
+			<br> <a class="btn btn-default btn-md" style="background-color: #004592; color: #fff; border-color: #004592; margin-top: 10px;" href="tarefa/cadastrar-tarefa"
 				type="button">Cadastrar Tarefa</a>
 		</div>
 	</div>

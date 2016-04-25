@@ -3,6 +3,7 @@
 	src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script>
 <script type="text/javascript" id="mascaraDataHora">
 	$(document).ready(function() {
+		$("#menu-apontamentos").attr('class', 'active');
 		$('#dataApontamento').mask('99/99/9999');
 		$('#horaInicio').mask('99:99');
 		$('#horaTermino').mask('99:99');

@@ -4,6 +4,7 @@
 <script type="text/javascript" id="mascaraDataHora">
 	$(document).ready(function() {
 		//$('#qtdHorasDisponiveis').mask('99?9:99');
+		$("#menu-tarefas").attr('class', 'active');
 	});
 
 	function reformatarHorasDisponiveis() {

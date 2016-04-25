@@ -6,6 +6,9 @@
 <html lang="pt-br">
 <head>
 <script type="text/javascript">
+	$(document).ready(function() {
+		$("#menu-usuarios").attr('class', 'active');
+	});
 </script>
 </head>
 <body>

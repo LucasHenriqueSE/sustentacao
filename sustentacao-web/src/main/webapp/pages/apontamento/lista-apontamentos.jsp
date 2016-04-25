@@ -1,14 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <title>Lista de Apontamentos</title>
-<c:import url="menu.jsp"></c:import>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#apontamentos').DataTable();
+		$("#menu-apontamentos").attr('class', 'active');
 	});
 </script>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
+	<br /><br />
 		<table class="table table-hover table-bordered" id="apontamentos">
 			<thead>
 				<tr>

@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <title>Lista de Usuários</title>
-<c:import url="menu.jsp"></c:import>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#usuarios').DataTable();
+		$("#menu-usuarios").attr('class', 'active');
 	});
 </script>
 <style type="text/css">
@@ -17,6 +17,7 @@
 </style>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
+	<br /><br />
 		<table id="usuarios" class="table table-responsive">
 				<thead>
 					<tr>

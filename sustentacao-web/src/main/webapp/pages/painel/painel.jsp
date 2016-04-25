@@ -5,6 +5,5 @@
 	<title>Painel de Navegação</title>
 </head>
 <body>
-<c:import url="menu.jsp"></c:import>
 </body>
 </html>

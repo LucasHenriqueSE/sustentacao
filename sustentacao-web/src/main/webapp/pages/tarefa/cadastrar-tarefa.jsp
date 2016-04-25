@@ -7,6 +7,9 @@
 <head>
 <meta charset="utf-8">
 <script type="text/javascript">
+	$(document).ready(function() {
+		$("#menu-tarefas").attr('class', 'active');
+	});
 </script>
 <title>Cadastrar Tarefa</title>
 </head>
