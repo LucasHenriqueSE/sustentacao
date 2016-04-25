@@ -19,14 +19,14 @@ import br.com.fornax.sustentacao.web.interceptor.AutorizadorInterceptor;
 public class WebSpringConfig extends WebMvcConfigurerAdapter {
 
 	@Override
-	// Carrega as configurações default do Spring
+	// Carrega as configuraï¿½ï¿½es default do Spring
 	public void configureDefaultServletHandling(
 			DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
 	
 	@Bean
-	// Resolve as requisições de chamadas de páginas jsp, xhtml, html...
+	// Resolve as requisiï¿½ï¿½es de chamadas de pï¿½ginas jsp, xhtml, html...
 	// Utilizando tiles
 	public ViewResolver configureViewResolver(){
 		UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
@@ -35,7 +35,7 @@ public class WebSpringConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	// Inicializa a configuração do tiles para a criação de templates
+	// Inicializa a configuraï¿½ï¿½o do tiles para a criaï¿½ï¿½o de templates
 	public TilesConfigurer tilesConfigurer(){
 		TilesConfigurer tilesConfigurer = new TilesConfigurer();
 		tilesConfigurer.setDefinitions("/tiles/tiles-config.xml");
