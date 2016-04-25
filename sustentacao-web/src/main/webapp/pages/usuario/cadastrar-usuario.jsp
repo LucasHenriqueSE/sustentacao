@@ -54,12 +54,21 @@
 					</div>
 				</div>
 				<hr />
-				<div class="form-group col-xs-offset-0">
+				<div class="form-group col-xs-offset-0 hidden-md hidden-lg hidden-xl" style="margin-bottom: 70px;">
+					<a href='<c:url value="/sustentacao/painel/usuarios"/>'
+						style="background-color: #004592; color: #fff; border-color: #004592; margin-bottom: 70px;"
+						class="btn btn-default btn-return">Cancelar</a>
+					<button type="submit"
+						style="background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
+						class="btn btn-default btn-add">Salvar Usuário</button>
+				</div>
+				<br /><br />
+				<div class="form-group col-xs-offset-0 hidden-xs hidden-sm" style="margin-bottom: 70px;">
 					<a href='<c:url value="/sustentacao/painel/usuarios" />'
-						style="float: left; background-color: #004592; color: #fff; border-color: #004592"
+						style="float: left; background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
 						class="btn btn-default">Cancelar</a>
 					<button type="submit"
-						style="float: right; background-color: #004592; color: #fff; border-color: #004592"
+						style="float: right; background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
 						class="btn btn-default">Salvar Usuário</button>
 				</div>
 			</form>
