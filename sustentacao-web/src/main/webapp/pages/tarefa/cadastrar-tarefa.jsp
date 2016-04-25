@@ -44,6 +44,17 @@
 								placeholder="Descrição" rows="7"></textarea>
 						</div>
 				</div>
+				<div class="row">
+					<div class="form-group col-md-6 col-md-offset-3">
+						<label for="usuario">Responsável pela Tarefa</label> <select
+							class="form-control" id="usuario" name="usuario.id">
+							<option label="Selecione" selected="selected" value="" />
+							<c:forEach var="usuario" items="${usuarios}">
+								<option value="${usuario.id}">${usuario.nome}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
 				<div style="clear: both; margin-bottom: 70px;" class="hidden-md hidden-lg hidden-xl">
 					<button class="btn btn-default"
 						style="float: right; margin-bottom: 70px; background-color: #004592; color: #fff; border-color: #004592;"

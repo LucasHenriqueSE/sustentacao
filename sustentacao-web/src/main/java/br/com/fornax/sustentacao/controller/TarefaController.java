@@ -13,6 +13,7 @@ import br.com.fornax.sustentacao.model.Tarefa;
 import br.com.fornax.sustentacao.service.StatusService;
 import br.com.fornax.sustentacao.service.TarefaService;
 import br.com.fornax.sustentacao.service.TipoTarefaService;
+import br.com.fornax.sustentacao.service.UsuarioService;
 
 @Controller
 public class TarefaController {
@@ -28,6 +29,9 @@ public class TarefaController {
 
 	@Inject
 	private StatusService statusService;
+	
+	@Inject
+	private UsuarioService usuarioService;
 
 	@RequestMapping(LISTA_TAREFAS)
 	public ModelAndView listar() {
@@ -41,6 +45,7 @@ public class TarefaController {
 		mav = new ModelAndView("cadastrar-tarefa");
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
+		//this.mav.addObject("usuarios", usuarioService.listarUsuarios());
 
 		return mav;
 	}
