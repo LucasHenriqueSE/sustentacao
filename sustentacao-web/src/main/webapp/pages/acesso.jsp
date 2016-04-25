@@ -52,7 +52,7 @@
 								placeholder="Digite seu usuário" required autofocus>
 						</div>
 						<div class="form-group col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
-							<label for="inputPassword">Senha</label> <input type="senha"
+							<label for="inputPassword">Senha</label> <input type="password"
 								id="inputPassword" name="senha" class="form-control"
 								placeholder="Senha" required>
 						</div>

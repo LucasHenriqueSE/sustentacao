@@ -46,16 +46,16 @@
 				<label>Usuário Ativo?</label><br />
 				<c:choose>
 					<c:when test="${usuario.ativo}">
-						<label for="sim"><input id="sim" name="ativo"
-							value="${usuario.ativo}" type="radio" required checked /> Sim</label>
+						<label for="sim"><input id="sim" name="ativo" value="true"
+							type="radio" required checked /> Sim</label>
 						<label for="nao"><input id="nao" name="ativo"
-							value="${usuario.ativo}" type="radio" required /> Não</label>
+							value="false" type="radio" required /> Não</label>
 					</c:when>
 					<c:otherwise>
-						<label for="sim"><input id="sim" name="ativo"
-							value="${usuario.ativo}" type="radio" required /> Sim</label>
+						<label for="sim"><input id="sim" name="ativo" value="true"
+							type="radio" required /> Sim</label>
 						<label for="nao"><input id="nao" name="ativo"
-							value="${usuario.ativo}" type="radio" required checked /> Não</label>
+							value="false" type="radio" required checked /> Não</label>
 					</c:otherwise>
 				</c:choose>
 

@@ -57,7 +57,7 @@ public class ApontamentoEntity {
 	@JoinColumn(name = "CODIGO_TAREFA", referencedColumnName = "CODIGO_TAREFA")
 	private TarefaEntity tarefa;
 
-	@NotEmpty(message = "Informe uma descrição")
+	@NotEmpty(message = "Informe uma descricao")
 	@Column(name = "DESCRICAO", nullable = false)
 	private String descricao;
 

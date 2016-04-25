@@ -37,7 +37,7 @@ public class UsuarioEntity {
 	private String senha;
 
 	@NotEmpty
-	@Email(message = "Informe um email válido!")
+	@Email(message = "Informe um email valido!")
 	@Column(name = "EMAIL", nullable = false, unique = true)
 	private String email;
 	
