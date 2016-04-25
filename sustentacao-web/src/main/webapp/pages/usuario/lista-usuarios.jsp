@@ -21,9 +21,9 @@
 				<thead>
 					<tr>
 						<td class="text-center"><span style="font-weight: bold;">#</span></td>
-						<td class="text-center hidden-xs hidden-sm"><span
+						<td class="text-center"><span
 							style="font-weight: bold;">Usuário</span></td>
-						<td class="text-center"><span style="font-weight: bold;">E-mail</span></td>
+						<td class="text-center hidden-xs hidden-sm"><span style="font-weight: bold;">E-mail</span></td>
 						<td class="text-center hidden-xs hidden-sm"><span
 							style="font-weight: bold;">Perfil</span></td>
 					</tr>
@@ -34,9 +34,9 @@
 							<c:forEach items="${usuarios}" var="usuario">
 								<tr>
 									<td class="text-center">${usuario.id}</td>
-									<td class="text-center hidden-xs hidden-sm"><a
+									<td class="text-center"><a
 							href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.login}</a></td>
-									<td class="text-center">${usuario.email}</td>
+									<td class="text-center hidden-xs hidden-sm">${usuario.email}</td>
 									<td class="text-center hidden-xs hidden-sm">${usuario.perfil.descricao}</td>
 								</tr>
 							</c:forEach>
