@@ -29,7 +29,7 @@ public class TarefaEntity {
 	private long id;
 
 	@ManyToOne
-//	@NotEmpty(message = "Selecione um tipo de tarefa válido!")
+//	@NotEmpty(message = "Selecione um tipo de tarefa valido!")
 	@JoinColumn(name = "CODIGO_TIPO_TAREFA", referencedColumnName = "CODIGO_TIPO_TAREFA")
 	private TipoTarefaEntity tipo;
 
@@ -37,7 +37,7 @@ public class TarefaEntity {
 	@Column(name = "NUMERO_CHAMADO", unique = true)
 	private long numeroChamado;
 
-	@NotEmpty(message = "Preencha o campo descrição!")
+	@NotEmpty(message = "Preencha o campo descriï¿½ï¿½o!")
 	@Column(name = "DESCRICAO")
 	private String descricao;
 
