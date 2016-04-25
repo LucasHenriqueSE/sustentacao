@@ -32,6 +32,8 @@ public class PainelController {
 			boolean valido = verificaPerfil(g.getAuthority(), mav);
 			if (valido) {
 				break;
+			}else{
+				req.getSession().invalidate();
 			}
 		}
 		/** SETA DADOS DO USUARIO NA SESSAO */
@@ -40,10 +42,16 @@ public class PainelController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest req){
+		req.getSession().invalidate();
+		return "redirect:/";
+	}
 
 	private boolean verificaPerfil(String perfil, ModelAndView mav) {
 		boolean valido = false;
-		if (perfil.equals("ROLE_ADMINISTRADOR") || perfil.equals("ROLE_USUARIO")) {
+		if (perfil.equals("Administrador") || perfil.equals("Usuario")) {
 			this.mav.setViewName("painel");
 			valido = true;
 		}

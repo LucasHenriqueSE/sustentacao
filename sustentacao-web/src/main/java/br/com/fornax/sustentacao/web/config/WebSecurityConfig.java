@@ -27,13 +27,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(datasource).passwordEncoder(passwordEncoder)
-				.usersByUsernameQuery(
+		auth
+		.jdbcAuthentication()
+		.dataSource(datasource)
+		.passwordEncoder(passwordEncoder)
+		.usersByUsernameQuery(
 						"select email, senha, ativo as enabled from usuario where email = ? ")
-				.authoritiesByUsernameQuery(
+		.authoritiesByUsernameQuery(
 						"select u.id as usuario, p.descricao as authority from perfil p, usuario u where"
 								+ " u.perfil = p.id and u.email = ?")
-				.getUserDetailsService();
+		.getUserDetailsService();
 	}
 
 	@Override
@@ -46,11 +49,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.loginPage("/").loginProcessingUrl("/autenticar")
 		.failureUrl("/")
 		.defaultSuccessUrl("/painel/")
-		.and().logout().deleteCookies("remove")
-		.invalidateHttpSession(false)
+		.and().logout().deleteCookies("JSESSIONID")
 		.logoutUrl("/logout/").logoutSuccessUrl("/")
+		.invalidateHttpSession(false)
 		// habilitar depois, estudar os problemas com chamadas AJAX
-		.and().csrf().disable().exceptionHandling().accessDeniedPage("/403/");
+		.and().csrf().disable()
+		.exceptionHandling().accessDeniedPage("/403/");
 		// controla o numero de sesssoes por usuario, neste caso 1 sessao ativa
 		// por usuario.
 		http.sessionManagement().maximumSessions(1).expiredUrl("/logout/");

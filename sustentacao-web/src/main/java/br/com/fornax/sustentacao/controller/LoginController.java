@@ -18,6 +18,9 @@ public class LoginController {
 		 */
 		if (!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
 			return "redirect:/painel";
+		}else{
+			request.getSession().invalidate();
+			request.getSession().removeAttribute("usuario");
 		}
 		return "acesso";
 	}

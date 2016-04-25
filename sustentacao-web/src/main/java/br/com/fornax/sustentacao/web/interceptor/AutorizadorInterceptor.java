@@ -14,9 +14,11 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 	    		  || request.getSession().getAttribute("usuario") != null) {
 	        return true;
 	      }
-	      else if(request.getRequestURI().equals("/sustentacao/logout")){
+	      if(request.getRequestURI().equals("/sustentacao/logout") || request.getRequestURI().equals("/sustentacao/logout/")){
 	    	  request.getSession().invalidate();
-	    	  request.getSession().removeAttribute("usuario");
+	    	  if(request.getSession().getAttribute("usuario") != null){
+	    		  request.getSession().removeAttribute("usuario");
+	    	  }
 	      }
 	      	response.sendRedirect("/sustentacao/painel");
 	      return false;
