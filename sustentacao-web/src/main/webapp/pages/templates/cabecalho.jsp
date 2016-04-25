@@ -47,27 +47,33 @@
 	color: #fff;
 }
 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	color: #fff;	
+}
+
 #menu>.active>a {
 	color: #000;
 	background-color: #fff;
 }
 
 .paginate_button.current:hover {
-	background: #4DC1FF !important;
+	background: #004592 !important;
+	color: #fff;
 }
 
 .paginate_button.current {
-	background: #4DC1FF !important;
+	background: #004592 !important;
+	color: #fff;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff),
 		color-stop(100%, #dcdcdc));
-	color: #000 !important;
+	color: #fff !important;
 }
 
 .dropdown-menu {
-	background-color: #4DC1FF !important;
+	background-color: #004592 !important;
 	color: #fff;
 }
 
@@ -77,7 +83,7 @@
 }
 
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-	background-color: #4DC1FF !important;
+	background-color: #004592 !important;
 	color: #fff;
 }
 
@@ -111,15 +117,25 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navbar-ex-collapse"
-				style="margin-top: 10px">
+			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+				<!-- MENU - INICIO -->
+				<ul id="menu" class="nav navbar-nav navbar-left">
+					<li id="menu-apontamentos"><a
+						href='<c:url value="/painel/apontamentos" />'>Apontamentos</a></li>
+					<li id="menu-tarefas"><a
+						href='<c:url value="/painel/tarefas" />'>Tarefas</a></li>
+					<li id="menu-usuarios"><a
+						href='<c:url value="/painel/usuarios" />'>Usuários</a>
+					</li>
+				</ul>
+				<!-- MENU - FIM -->
 				<div class="hidden-xs hidden-sm"
-					style="float: right; margin-left: 150px">
-					Usuario Logado <a style="background-color: #fff; color: #004592;"
+					style="float: right; margin-left: 150px; margin-top: 10px;">
+					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
-				<div class="hidden-md hidden-lg">
-					Usuario Logado <a style="background-color: #fff; color: #004592;"
+				<div class="hidden-md hidden-lg" style="margin-top: 10px;">
+					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 			</div>

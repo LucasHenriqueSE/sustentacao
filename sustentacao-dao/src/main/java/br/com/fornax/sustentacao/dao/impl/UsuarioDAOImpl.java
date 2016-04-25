@@ -32,7 +32,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public UsuarioEntity buscarUsuarioPorLogin(String username) {
-		Query query = em.createQuery("select u from UsuarioEntity u where u.login = :username");
+		Query query = em.createQuery("select u from UsuarioEntity u where u.email = :username");
 		query.setParameter("username", username);
 		if (!query.getResultList().isEmpty()) {
 			return (UsuarioEntity) query.getSingleResult();

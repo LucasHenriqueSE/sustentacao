@@ -47,9 +47,9 @@
 				<div class="row" style="padding-top: 20px">
 					
 						<div class="form-group col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
-							<label for="usuario">Usuário</label> <input
-								type="text" id="usuario" class="form-control" name="login"
-								placeholder="Digite seu usuário" required autofocus>
+							<label for="inputEmail">Usuário</label> <input
+								type="email" id="inputEmail" class="form-control" name="email"
+								placeholder="Digite seu E-mail" required autofocus>
 						</div>
 						<div class="form-group col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
 							<label for="inputPassword">Senha</label> <input type="password"

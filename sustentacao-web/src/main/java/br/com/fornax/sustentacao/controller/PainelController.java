@@ -43,7 +43,7 @@ public class PainelController {
 
 	private boolean verificaPerfil(String perfil, ModelAndView mav) {
 		boolean valido = false;
-		if (perfil.equals("Administrador") || perfil.equals("Usuario")) {
+		if (perfil.equals("ROLE_ADMINISTRADOR") || perfil.equals("ROLE_USUARIO")) {
 			this.mav.setViewName("painel");
 			valido = true;
 		}

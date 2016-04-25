@@ -1,6 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>Editar Usuário</title>
-<c:import url="menu.jsp"></c:import>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#menu-usuarios").attr('class', 'active');
+	});
+</script>
 <div class="container form-usuario">
 	<form class="container" action="/sustentacao/painel/usuario/editar"
 		method="POST">

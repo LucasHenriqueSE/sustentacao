@@ -29,22 +29,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(datasource).passwordEncoder(passwordEncoder)
 				.usersByUsernameQuery(
-						"select login as usuario,senha as senha, ativo as enabled from usuario where login = ? ")
+						"select email, senha, ativo as enabled from usuario where email = ? ")
 				.authoritiesByUsernameQuery(
 						"select u.id as usuario, p.descricao as authority from perfil p, usuario u where"
-								+ " u.id = p.id and u.login = ?")
+								+ " u.perfil = p.id and u.email = ?")
 				.getUserDetailsService();
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/painel/**").authenticated().antMatchers("/").access("permitAll")
-				.antMatchers("/403/").access("permitAll").and().formLogin().usernameParameter("login")
-				.passwordParameter("senha").loginPage("/").loginProcessingUrl("/autenticar").failureUrl("/")
-				.defaultSuccessUrl("/painel/").and().logout().deleteCookies("remove").invalidateHttpSession(false)
-				.logoutUrl("/logout/").logoutSuccessUrl("/")
-				// habilitar depois, estudar os problemas com chamadas AJAX
-				.and().csrf().disable().exceptionHandling().accessDeniedPage("/403/");
+		http.authorizeRequests()
+		.antMatchers("/painel/**").authenticated()
+		.antMatchers("/").access("permitAll")
+		.antMatchers("/403/").access("permitAll")
+		.and().formLogin().usernameParameter("email").passwordParameter("senha")
+		.loginPage("/").loginProcessingUrl("/autenticar")
+		.failureUrl("/")
+		.defaultSuccessUrl("/painel/")
+		.and().logout().deleteCookies("remove")
+		.invalidateHttpSession(false)
+		.logoutUrl("/logout/").logoutSuccessUrl("/")
+		// habilitar depois, estudar os problemas com chamadas AJAX
+		.and().csrf().disable().exceptionHandling().accessDeniedPage("/403/");
 		// controla o numero de sesssoes por usuario, neste caso 1 sessao ativa
 		// por usuario.
 		http.sessionManagement().maximumSessions(1).expiredUrl("/logout/");

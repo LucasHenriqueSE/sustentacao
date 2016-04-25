@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#menu-apontamentos").attr('class', 'active');
 		$('#dataApontamento').mask('99/99/9999');
 		$('#horaInicio').mask('99:99');
 		$('#horaTermino').mask('99:99');
