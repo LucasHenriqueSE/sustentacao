@@ -31,6 +31,16 @@
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
 	color: #fff;	
 }
+
+<style type="text/css">
+<!--
+
+-->
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	color: #fff;	
+}
+
 </style>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">

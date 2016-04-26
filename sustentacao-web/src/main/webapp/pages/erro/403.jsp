@@ -145,8 +145,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center text-success">Erro 403 - Você não tem
-						permissão para acessar esse conteúdo!</h1>
+					<h1 class="text-center text-success">Erro 403 - Você não
+						possui acesso para acssar esse conteúdo!</h1>
 				</div>
 			</div>
 		</div>
@@ -173,6 +173,26 @@
 					</p>
 				</div>
 			</div>
+	<div
+		class="navbar navbar-default navbar-fixed-bottom hidden-xs hidden-sm"
+		style="background-color: #004592; color: #fff; padding: 5px; z-index: 999;">
+		<div class="container text-center" style="margin-top: 10px">
+			<p>
+				Sistema Sustentação | Desenvolvido por <b><a target="_blank"
+					style="color: #fff; text-decoration: none"
+					href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
+			</p>
+		</div>
+	</div>
+	<div
+		class="navbar navbar-default navbar-fixed-bottom hidden-md hidden-lg"
+		style="background-color: #004592; color: #fff; padding: 5px; z-index: 999;">
+		<div class="container text-center" style="margin-top: 10px">
+			<p>
+				Sistema Sustentação | Desenvolvido por <b><a target="_blank"
+					style="color: #fff; text-decoration: none"
+					href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
+			</p>
 		</div>
 	</footer>
 </body>
