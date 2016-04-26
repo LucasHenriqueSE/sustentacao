@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" %>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -12,16 +12,10 @@
 <meta name="author" content="">
 
 <script type="text/javascript"
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script type="text/javascript"
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src='<c:url value="/bootstrap/js/jquery.mask.min.js" />'></script>
-<link
-	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link href="/gestao-projetos/bootstrap/css/index.css" rel="stylesheet"
-	type="text/css">
+	src='<c:url value="/resources/js/jquery-2.2.0.min.js"></c:url>'></script>
+<link rel="stylesheet"
+	href='<c:url value="/resources/css/bootstrap.min.css"></c:url>' />
+
 <style type="text/css">
 #menu li a {
 	color: #fff;
@@ -33,7 +27,6 @@
 }
 </style>
 
-
 <title>Sistema Gestão de Projetos</title>
 </head>
 <body>
@@ -42,8 +35,8 @@
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand hidden-md hidden-lg" style="color: #fff;"
-					href='<c:url value="/"></c:url>'><span>Projeto Semear</span></a> <a
-					class="navbar-brand hidden-xs hidden-sm"
+					href='<c:url value="/"></c:url>'><span>Apontamento de
+						Horas</span></a> <a class="navbar-brand hidden-xs hidden-sm"
 					style="color: #ffffff; height: 80px;"
 					href="<c:url value="/"></c:url>"> <img
 					src="/gestao-projetos/img/logo.jpg"
@@ -58,8 +51,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center text-success">Erro 403 - Você não
-						possui acesso para acssar esse conteúdo!</h1>
+					<h1 class="text-center text-success">Erro 403 - Você não tem
+						permissão para acessar esse conteúdo!</h1>
 				</div>
 			</div>
 		</div>
@@ -70,7 +63,7 @@
 			style="background-color: #4DC1FF; color: #fff; padding: 5px; margin-top: 175px">
 			<div class="text-center" style="margin-top: 10px">
 				<p>
-					Gestão de Projetos | Desenvolvido por <b><a target="_blank"
+					Apontamento de Horas | Desenvolvido por <b><a target="_blank"
 						style="color: #fff; text-decoration: none"
 						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
 				</p>
@@ -81,7 +74,7 @@
 			style="background-color: #4DC1FF; color: #fff; padding: 5px;">
 			<div class="text-center" style="margin-top: 10px">
 				<p>
-					Gestão de Projetos | Desenvolvido por <b><a target="_blank"
+					Apontamento de Horas | Desenvolvido por <b><a target="_blank"
 						style="color: #fff; text-decoration: none"
 						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
 				</p>

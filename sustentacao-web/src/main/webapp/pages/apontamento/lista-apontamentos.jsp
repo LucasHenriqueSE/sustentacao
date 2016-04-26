@@ -3,13 +3,31 @@
 <title>Lista de Apontamentos</title>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#apontamentos').DataTable();
+		$('#apontamentos').DataTable({
+			"iDisplayLength" : 5,
+			"bPaginate" : true,
+			"bLengthChange" : false,
+			"bFilter" : true,
+			"bInfo" : false,
+			"bAutoWidth" : true,
+			"language" : {
+				"emptyTable" : "Nenhuma informação cadastrada",
+				"search" : "Pesquisar:",
+				"paginate" : {
+					"first" : "Primeira",
+					"last" : "Última",
+					"next" : "Próximo",
+					"previous" : "Anterior"
+				}
+			}
+		});
 		$("#menu-apontamentos").attr('class', 'active');
 	});
 </script>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
-	<br /><br />
+		<br />
+		<br />
 		<table class="table table-hover table-bordered" id="apontamentos">
 			<thead>
 				<tr>
