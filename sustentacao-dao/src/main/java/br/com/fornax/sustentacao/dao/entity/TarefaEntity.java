@@ -44,6 +44,10 @@ public class TarefaEntity {
 	@ManyToOne
 	@JoinColumn(name = "CODIGO_STATUS", referencedColumnName = "CODIGO_STATUS")
 	private StatusEntity status;
+	
+	@ManyToOne
+	@JoinColumn(name = "USUARIO", referencedColumnName = "ID")
+	private UsuarioEntity usuario;
 
 	@Column(name = "QTD_HORAS_DISPONIVEIS")
 	private String qtdHorasDisponiveis;
@@ -55,6 +59,14 @@ public class TarefaEntity {
 
 	@OneToMany(mappedBy = "tarefa", fetch = FetchType.EAGER)
 	private List<ApontamentoEntity> apontamentos;
+	
+	public UsuarioEntity getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioEntity usuario) {
+		this.usuario = usuario;
+	}
 
 	public long getId() {
 		return id;

@@ -45,7 +45,7 @@ public class TarefaController {
 		mav = new ModelAndView("cadastrar-tarefa");
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
-		//this.mav.addObject("usuarios", usuarioService.listarUsuarios());
+		this.mav.addObject("usuarios", usuarioService.listarUsuarios());
 
 		return mav;
 	}
@@ -65,6 +65,7 @@ public class TarefaController {
 		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(idTarefa));
 		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
 		this.mav.addObject("status", statusService.listarStatus());
+		this.mav.addObject("usuarios", usuarioService.listarUsuarios());
 
 		return mav;
 	}
