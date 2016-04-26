@@ -33,10 +33,6 @@ public class UsuarioController {
 			this.mav.setViewName("lista-usuarios");
 			this.mav.addObject("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
 			this.mav.addObject("usuarios", usuarioService.listarUsuarios());
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if(user.getAuthorities().toString().contains("Administrador")){
-			mav.setViewName("lista-usuarios");
-			mav.addObject("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
 		}
 		return mav;
 	}
