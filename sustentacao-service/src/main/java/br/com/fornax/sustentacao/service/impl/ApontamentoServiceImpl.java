@@ -36,6 +36,13 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 
 	@Override
 	public void cadastrarApontamento(Apontamento apontamento) {
+		
+//		if(apontamento != null){
+//			
+//			apontamentoDAO.inserir(parse.parseToEntity(apontamento));
+//		}
+		
+		
 		List<Apontamento> lista = apontamentosDoDia(apontamento);
 
 		if (lista.isEmpty()) {

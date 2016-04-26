@@ -36,7 +36,7 @@
 								<tr>
 									<td class="text-center">${usuario.id}</td>
 									<td class="text-center"><a
-							href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.login}</a></td>
+							href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.nome}</a></td>
 									<td class="text-center hidden-xs hidden-sm">${usuario.email}</td>
 									<td class="text-center hidden-xs hidden-sm">${usuario.perfil.descricao}</td>
 								</tr>
