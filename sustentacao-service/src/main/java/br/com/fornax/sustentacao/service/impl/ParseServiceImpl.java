@@ -29,7 +29,6 @@ public class ParseServiceImpl implements ParseService {
 			entity.setEmail(model.getEmail());
 			entity.setSenha(model.getSenha());
 			entity.setPerfil(parseToEntity(model.getPerfil()));
-			entity.setLogin(model.getLogin());
 			entity.setAtivo(model.getAtivo());
 		}
 		return entity;
@@ -45,7 +44,6 @@ public class ParseServiceImpl implements ParseService {
 			model.setEmail(entity.getEmail());
 			model.setSenha(entity.getSenha());
 			model.setPerfil(parseToModel(entity.getPerfil()));
-			model.setLogin(entity.getLogin());
 			model.setAtivo(entity.getAtivo());
 		}
 		return model;
@@ -85,6 +83,7 @@ public class ParseServiceImpl implements ParseService {
 			entity.setStatus(parseToEntity(model.getStatus()));
 			entity.setQtdHorasDisponiveis(model.getQtdHorasDisponiveis());
 			entity.setDataEdicao(model.getDataEdicao());
+			entity.setUsuario(parseToEntity(model.getUsuario()));
 		}
 		return entity;
 	}
@@ -101,6 +100,7 @@ public class ParseServiceImpl implements ParseService {
 			model.setStatus(parseToModel(entity.getStatus()));
 			model.setQtdHorasDisponiveis(entity.getQtdHorasDisponiveis());
 			model.setDataEdicao(entity.getDataEdicao());
+			model.setUsuario(parseToModel(entity.getUsuario()));
 		}
 		return model;
 	}

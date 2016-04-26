@@ -42,7 +42,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public boolean editar(Usuario usuario) {
-		usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+		if(!usuario.getSenha().contains("//") && !usuario.getSenha().contains("$") && !usuario.getSenha().contains(".")){
+			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+		}
 		usuarioDao.editar(parse.parseToEntity(usuario));
 		return true;
 	}

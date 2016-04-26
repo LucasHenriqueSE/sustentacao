@@ -91,23 +91,27 @@
 	
 }
 </style>
+<script type="text/javascript">
+
+function abrirLoading(textoDinamico){
+	$.isLoading({
+		text : textoDinamico
+	});
+}
+function fecharLoading(){
+	 $.isLoading( "hide" );
+}
+
+</script>
 <title>Sistema - Sustentação</title>
 </head>
 <body>
-<!-- 	<nav class="navbar-inverse navbar-static-top"> -->
-<!-- 		<div class="panel-heading fx-titulo-painel"> -->
-<!-- 			<a id="logout" href="/sustentacao/logout/">Logout</a> -->
-<!-- 			<h1 class="panel-title">APONTAMENTO DE HORAS</h1> -->
-<!-- 		</div> -->
-<!-- 	</nav> -->
-	<nav class="navbar navbar-default navbar-static-top"
+	<div class="navbar navbar-default navbar-static-top"
 		style="background-color: #004592; color: #fff;">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-					aria-expanded="false">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-ex-collapse">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
@@ -141,6 +145,6 @@
 			</div>
 		</div>
 		<!-- /.container-fluid -->
-	</nav>
+	</div>
 </body>
 </html>

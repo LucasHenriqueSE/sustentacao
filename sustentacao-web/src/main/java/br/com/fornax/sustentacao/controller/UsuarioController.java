@@ -2,6 +2,8 @@ package br.com.fornax.sustentacao.controller;
 
 import javax.inject.Inject;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,12 @@ public class UsuarioController {
 	
 	@RequestMapping("painel/usuarios")
 	public ModelAndView listar(){
-		mav = new ModelAndView("lista-usuarios");
+		mav = new ModelAndView("403");
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if(user.getAuthorities().toString().contains("ROLE_ADMINISTRADOR")){
+			mav.setViewName("lista-usuarios");
+			mav.addObject("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
+		}
 		this.mav.addObject("usuarios", usuarioService.listarUsuarios());
 		
 		return mav;

@@ -1,12 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script
-	src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script>
 <script type="text/javascript" id="mascaraDataHora">
 	$(document).ready(function() {
 		$("#menu-apontamentos").attr('class', 'active');
-		$('#dataApontamento').mask('99/99/9999');
-		$('#horaInicio').mask('99:99');
-		$('#horaTermino').mask('99:99');
+		//$('#dataApontamento').mask('99/99/9999');
+		//$('#horaInicio').mask('99:99');
+		//$('#horaTermino').mask('99:99');
 	});
 </script>
 <script type="text/javascript">
@@ -37,42 +42,61 @@
 		}
 	};
 </script>
-<title>Cadastrar Apontamento</title>
-<!-- <div class="alert alert-danger alert-dismissible" role="alert"> -->
-<!-- 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"> -->
-<!-- 		<span aria-hidden="true">&times;</span> -->
-<!-- 	</button> -->
-<!-- </div> -->
-<form class="" id="cadastroApontamento"
-	action="/sustentacao/painel/tarefa/cadastrar-apontamento" method="POST"
-	onsubmit="compararHora();">
-	<div>
-		<div>
-			<input id="idTarefa" name="tarefa.id" value="${idTarefa}"
-				type="hidden" />
+</head>
+<body>
+	<div class="section">
+		<div class="container">
+			<h4 class="title-screen">Inserir Apontamento</h4>
+			<hr />
+			<div id="alertas"></div>
+			<form action="/sustentacao/painel/tarefa/cadastrar-apontamento" method="POST" role="form" id="cadastroApontamento">
+			<div>
+			<input id="idTarefa" name="tarefa.id" value="1" type="hidden" />
 		</div>
-		<div class="input-group">
-			<label for="descricao">Descrição</label> <input class="form-control"
-				id="descricao" name="descricao" placeholder="Descrição" />
-		</div>
-		<div class="input-group">
-			<label for="dataApontamento">Data Apontamento</label> <input
-				class="form-control" id="dataApontamento" name="dataApontamento"
-				placeholder="Data Apontamento" />
-		</div>
-		<div class="input-group">
-			<label for="horaInicio">Hora Início</label> <input
-				class="form-control" name="horaInicio" id="horaInicio"
-				placeholder="Hora de Inicio" />
-		</div>
-		<div class="input-group">
-			<label for="horaTermino">Hora Término</label> <input
-				class="form-control" name="horaTermino" id="horaTermino"
-				placeholder="Hora de Término" onblur="validar();" />
+				<div class="row">
+						<div class="form-group col-md-6 col-md-offset-2">
+							<label for="descricao">Descrição</label>
+							<textarea class="form-control" id="descricao" name="descricao"
+								placeholder="Descrição" rows="3"></textarea>
+						</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-2 col-md-offset-2">
+						<label>Data Apontamento:</label> <input
+							type="date" class="form-control" id="dataApontamento"
+							placeholder="Data Apontamento" name="dataApontamento" required>
+					</div>
+					<div class="form-group col-md-2">
+						<label>Hora Início:</label> <input
+							type="time" class="form-control" id="horaInicio"
+							placeholder="" name="horaInicio" required>
+					</div>
+					<div class="form-group col-md-2">
+						<label>Hora Término:</label> <input
+							type="time" class="form-control" id="horaTermino"
+							placeholder="" name="horaTermino" required>
+					</div>
+				</div>
+				<hr />
+				<div class="form-group col-xs-offset-0 hidden-md hidden-lg hidden-xl" style="margin-bottom: 70px;">
+					<a href='<c:url value="/sustentacao/painel/tarefas"/>'
+						style="background-color: #004592; color: #fff; border-color: #004592; margin-bottom: 70px;"
+						class="btn btn-default btn-return">Cancelar</a>
+					<button type="submit"
+						style="background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
+						class="btn btn-default btn-add">Salvar Apontamento</button>
+				</div>
+				<br /><br />
+				<div class="form-group col-xs-offset-0 hidden-xs hidden-sm" style="margin-bottom: 70px;">
+					<a href='<c:url value="/sustentacao/painel/tarefas" />'
+						style="float: left; background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
+						class="btn btn-default">Cancelar</a>
+					<button type="submit"
+						style="float: right; background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
+						class="btn btn-default">Salvar Apontamento</button>
+				</div>
+			</form>
 		</div>
 	</div>
-	<br>
-	<button class="btn btn-default" type="submit">Cadastrar</button>
-	<a class="btn btn-default" href="/sustentacao/painel/tarefas"
-		type="button">Cancelar</a>
-</form>
+</body>
+</html>

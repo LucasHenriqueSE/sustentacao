@@ -16,9 +16,14 @@
 	<definition name="acesso" template="/pages/acesso.jsp">
 	</definition>
 
-	<!-- Painel Principal -->
-	<definition name="painel" extends="main">
-		<put-attribute name="conteudo" value="/pages/painel/painel.jsp" />
+	<!-- Painel Principal - Administrador -->
+	<definition name="painel-administrador" extends="main">
+		<put-attribute name="conteudo" value="/pages/painel/painel-administrador.jsp" />
+	</definition>
+	
+	<!-- Painel Principal - Usuario -->
+	<definition name="painel-usuario" extends="main">
+		<put-attribute name="conteudo" value="/pages/painel/painel-usuario.jsp" />
 	</definition>
 
 	<!-- Usuário -->

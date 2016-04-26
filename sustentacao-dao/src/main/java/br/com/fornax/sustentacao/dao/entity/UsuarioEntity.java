@@ -28,9 +28,6 @@ public class UsuarioEntity {
 	@Column(name = "NOME", nullable = false)
 	private String nome;
 
-	@Column(name = "LOGIN", nullable = true)
-	private String login;
-
 	@NotEmpty(message = "Informe uma senha!")
 	@Column(name = "SENHA", nullable = false)
 	private String senha;
@@ -46,10 +43,10 @@ public class UsuarioEntity {
 	@ManyToOne
 	@JoinColumn(name = "PERFIL", referencedColumnName = "ID")
 	private PerfilEntity perfil;
-
+	
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<ApontamentoEntity> apontamentos;
-
+	
 	public long getId() {
 		return id;
 	}
@@ -64,14 +61,6 @@ public class UsuarioEntity {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public String getSenha() {

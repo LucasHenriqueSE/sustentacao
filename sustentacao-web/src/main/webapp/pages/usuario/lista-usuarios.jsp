@@ -51,6 +51,30 @@
 				<c:choose>
 					<c:when test="${not empty usuarios}">
 						<c:forEach items="${usuarios}" var="usuario">
+				<thead>
+					<tr>
+						<td class="text-center"><span style="font-weight: bold;">#</span></td>
+						<td class="text-center"><span
+							style="font-weight: bold;">Usuário</span></td>
+						<td class="text-center hidden-xs hidden-sm"><span style="font-weight: bold;">E-mail</span></td>
+						<td class="text-center hidden-xs hidden-sm"><span
+							style="font-weight: bold;">Perfil</span></td>
+					</tr>
+				</thead>
+				<tbody>
+					<c:choose>
+						<c:when test="${not empty usuarios}">
+							<c:forEach items="${usuarios}" var="usuario">
+								<tr>
+									<td class="text-center">${usuario.id}</td>
+									<td class="text-center"><a
+							href="/sustentacao/painel/usuario/${usuario.id}/editar-usuario">${usuario.nome}</a></td>
+									<td class="text-center hidden-xs hidden-sm">${usuario.email}</td>
+									<td class="text-center hidden-xs hidden-sm">${usuario.perfil.descricao}</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
 							<tr>
 								<td class="text-center">${usuario.id}</td>
 								<td class="text-center"><a

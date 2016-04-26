@@ -12,6 +12,7 @@ public class Tarefa {
 	private String descricao;
 	private Status status;
 	private String qtdHorasDisponiveis;
+	private Usuario usuario;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataEdicao;
@@ -80,6 +81,14 @@ public class Tarefa {
 
 	public void setApontamentos(List<Apontamento> apontamentos) {
 		this.apontamentos = apontamentos;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	
