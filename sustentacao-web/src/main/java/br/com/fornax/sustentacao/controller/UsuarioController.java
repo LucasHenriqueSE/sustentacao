@@ -15,53 +15,60 @@ import br.com.fornax.sustentacao.service.UsuarioService;
 
 @Controller
 public class UsuarioController {
+	private User user;
+
 	private ModelAndView mav;
-	
+
 	@Inject
 	private UsuarioService usuarioService;
-	
+
 	@Inject
 	private PerfilService perfilService;
-	
+
 	@RequestMapping("painel/usuarios")
-	public ModelAndView listar(){
+	public ModelAndView listar() {
 		mav = new ModelAndView("403");
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if(user.getAuthorities().toString().contains("ROLE_ADMINISTRADOR")){
-			mav.setViewName("lista-usuarios");
-			mav.addObject("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
+		user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (user.getAuthorities().toString().contains("Administrador")) {
+			this.mav.setViewName("lista-usuarios");
+			this.mav.addObject("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
+			this.mav.addObject("usuarios", usuarioService.listarUsuarios());
 		}
-		this.mav.addObject("usuarios", usuarioService.listarUsuarios());
-		
 		return mav;
 	}
-	
+
 	@RequestMapping("painel/usuario/cadastrar-usuario")
 	public ModelAndView viewCadastrar() {
-		mav = new ModelAndView("usuario");
-		this.mav.addObject("usuarios", usuarioService.listarUsuarios());
-		this.mav.addObject("perfil", perfilService.listarPerfis());
-		
+		mav = new ModelAndView("403");
+		user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (user.getAuthorities().toString().contains("Administrador")) {
+			this.mav.setViewName("usuario");
+			this.mav.addObject("usuarios", usuarioService.listarUsuarios());
+			this.mav.addObject("perfil", perfilService.listarPerfis());
+		}
 		return mav;
 	}
-	
+
 	@RequestMapping("painel/usuario/cadastrar")
-	public String cadastrar(Usuario usuario){
+	public String cadastrar(Usuario usuario) {
 		usuarioService.cadastrar(usuario);
 		return "redirect:/painel/usuarios";
 	}
-	
+
 	@RequestMapping("painel/usuario/{idUsuario}/editar-usuario")
-	public ModelAndView viewEditar(@PathVariable("idUsuario") long idUsuario){
-		mav = new ModelAndView("editar-usuario");
-		this.mav.addObject("usuario", usuarioService.buscarUsuarioPorId(idUsuario));
-		this.mav.addObject("perfil", perfilService.listarPerfis());
-		
+	public ModelAndView viewEditar(@PathVariable("idUsuario") long idUsuario) {
+		mav = new ModelAndView("403");
+		user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (user.getAuthorities().toString().contains("Administrador")) {
+			this.mav.setViewName("editar-usuario");
+			this.mav.addObject("usuario", usuarioService.buscarUsuarioPorId(idUsuario));
+			this.mav.addObject("perfil", perfilService.listarPerfis());
+		}
 		return mav;
 	}
-	
+
 	@RequestMapping("painel/usuario/editar")
-	public String editar(Usuario usuario){
+	public String editar(Usuario usuario) {
 		usuarioService.editar(usuario);
 		return "redirect:/painel/usuarios";
 	}

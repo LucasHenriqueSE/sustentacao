@@ -2,6 +2,7 @@
 <title>Lista de Apontamentos</title>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#menu-apontamentos").attr('class', 'active');
 		$('#apontamentos').DataTable({
 			"iDisplayLength" : 5,
 			"bPaginate" : true,
@@ -20,8 +21,6 @@
 				}
 			}
 		});
-		$("#menu-apontamentos").attr('class', 'active');
-		$('#apontamentos').DataTable();
 	});
 </script>
 <style type="text/css">
@@ -35,23 +34,6 @@
 </style>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
-		<br />
-		<br />
-		<table class="table table-hover table-bordered" id="apontamentos">
-			<thead>
-				<tr>
-					<td>Data de Cadastro</td>
-					<td>Tarefa</td>
-					<td>Descrição</td>
-					<td>Data Apontamento</td>
-					<td>Hora Início</td>
-					<td>Hora Término</td>
-					<td>Data de Edição</td>
-					<td>Editar</td>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="listaApontamento" items="${apontamentos}">
 	<br /><br />
 		<table id="apontamentos" class="table table-responsive">
 				<thead>

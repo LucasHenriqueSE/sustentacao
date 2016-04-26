@@ -47,8 +47,10 @@
 	color: #fff;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
-	color: #fff;	
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+	.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover
+	{
+	color: #fff;
 }
 
 #menu>.active>a {
@@ -92,16 +94,14 @@
 }
 </style>
 <script type="text/javascript">
-
-function abrirLoading(textoDinamico){
-	$.isLoading({
-		text : textoDinamico
-	});
-}
-function fecharLoading(){
-	 $.isLoading( "hide" );
-}
-
+	function abrirLoading(textoDinamico) {
+		$.isLoading({
+			text : textoDinamico
+		});
+	}
+	function fecharLoading() {
+		$.isLoading("hide");
+	}
 </script>
 <title>Sistema - Sustentação</title>
 </head>
@@ -128,18 +128,21 @@ function fecharLoading(){
 						href='<c:url value="/painel/apontamentos" />'>Apontamentos</a></li>
 					<li id="menu-tarefas"><a
 						href='<c:url value="/painel/tarefas" />'>Tarefas</a></li>
-					<li id="menu-usuarios"><a
-						href='<c:url value="/painel/usuarios" />'>Usuários</a>
-					</li>
+					<c:if test="${usuario.perfil.descricao == 'Administrador' }">
+						<li id="menu-usuarios"><a
+							href='<c:url value="/painel/usuarios" />'>Usuários</a></li>
+					</c:if>
 				</ul>
 				<!-- MENU - FIM -->
 				<div class="hidden-xs hidden-sm"
 					style="float: right; margin-left: 150px; margin-top: 10px;">
-					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
+					<c:out value="${usuario.nome}" />
+					<a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 				<div class="hidden-md hidden-lg" style="margin-top: 10px;">
-					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
+					<c:out value="${usuario.nome}" />
+					<a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 			</div>
