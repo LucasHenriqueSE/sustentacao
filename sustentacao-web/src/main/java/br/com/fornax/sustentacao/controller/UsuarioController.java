@@ -27,7 +27,7 @@ public class UsuarioController {
 	public ModelAndView listar(){
 		mav = new ModelAndView("403");
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if(user.getAuthorities().toString().contains("ROLE_ADMINISTRADOR")){
+		if(user.getAuthorities().toString().contains("Administrador")){
 			mav.setViewName("lista-usuarios");
 			mav.addObject("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
 		}
