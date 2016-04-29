@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Apontamento {
 	private long id;
+
 	private Usuario usuario;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -14,7 +15,6 @@ public class Apontamento {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataEdicao;
 
-
 	@DateTimeFormat(pattern = "HH:mm")
 	private Calendar horaInicio;
 
@@ -22,10 +22,13 @@ public class Apontamento {
 	private Calendar horaTermino;
 
 	private Tarefa tarefa;
+
 	private String descricao;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataApontamento;
+
+	private Boolean enviadoParaAprovacao;
 
 	public long getId() {
 		return id;
@@ -98,6 +101,12 @@ public class Apontamento {
 	public void setDataApontamento(Calendar dataApontamento) {
 		this.dataApontamento = dataApontamento;
 	}
-	
-	
+
+	public Boolean getEnviadoParaAprovacao() {
+		return enviadoParaAprovacao;
+	}
+
+	public void setEnviadoParaAprovacao(Boolean enviadoParaAprovacao) {
+		this.enviadoParaAprovacao = enviadoParaAprovacao;
+	}
 }

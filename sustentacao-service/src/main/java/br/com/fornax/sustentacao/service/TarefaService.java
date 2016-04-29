@@ -11,9 +11,11 @@ public interface TarefaService {
 
 	public boolean excluirTarefa(Tarefa tarefa);
 
-	public List<Tarefa> listarTarefa();
+	public List<Tarefa> listarTarefas();
 
 	public Tarefa buscarTarefaPorId(long idTarefa);
+
+	public List<Tarefa> listarTarefasDoUsuario(String username);
 
 //	public List<Tarefa> buscarTarefaPorTipo(long idTipoTarefa);
 }

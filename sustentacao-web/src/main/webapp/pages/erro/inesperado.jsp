@@ -47,8 +47,10 @@
 	color: #fff;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
-	color: #fff;	
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+	.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover
+	{
+	color: #fff;
 }
 
 #menu>.active>a {
@@ -94,15 +96,15 @@
 <title>Sistema - Sustentação</title>
 </head>
 <body>
-<!-- 	<nav class="navbar-inverse navbar-static-top"> -->
-<!-- 		<div class="panel-heading fx-titulo-painel"> -->
-<!-- 			<a id="logout" href="/sustentacao/logout/">Logout</a> -->
-<!-- 			<h1 class="panel-title">APONTAMENTO DE HORAS</h1> -->
-<!-- 		</div> -->
-<!-- 	</nav> -->
+	<!-- 	<nav class="navbar-inverse navbar-static-top"> -->
+	<!-- 		<div class="panel-heading fx-titulo-painel"> -->
+	<!-- 			<a id="logout" href="/sustentacao/logout/">Logout</a> -->
+	<!-- 			<h1 class="panel-title">APONTAMENTO DE HORAS</h1> -->
+	<!-- 		</div> -->
+	<!-- 	</nav> -->
 	<nav class="navbar navbar-default navbar-static-top"
 		style="background-color: #004592; color: #fff;">
-		<div class="container-fluid">
+		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -124,18 +126,21 @@
 						href='<c:url value="/painel/apontamentos" />'>Apontamentos</a></li>
 					<li id="menu-tarefas"><a
 						href='<c:url value="/painel/tarefas" />'>Tarefas</a></li>
-					<li id="menu-usuarios"><a
-						href='<c:url value="/painel/usuarios" />'>Usuários</a>
-					</li>
+					<c:if test="${usuario.perfil.descricao == 'Administrador' }">
+						<li id="menu-usuarios"><a
+							href='<c:url value="/painel/usuarios" />'>Usuários</a></li>
+					</c:if>
 				</ul>
 				<!-- MENU - FIM -->
 				<div class="hidden-xs hidden-sm"
 					style="float: right; margin-left: 150px; margin-top: 10px;">
-					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
+					<c:out value="${usuario.nome}" />
+					<a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 				<div class="hidden-md hidden-lg" style="margin-top: 10px;">
-					<c:out value="${usuario.nome}" /> <a style="background-color: #fff; color: #004592;"
+					<c:out value="${usuario.nome}" />
+					<a style="background-color: #fff; color: #004592;"
 						href='<c:url value="/logout/"></c:url>' class="btn btn-default">Logout</a>
 				</div>
 			</div>
@@ -146,34 +151,35 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center text-success">Erro Inesperado - Occoreu um erro inesperado!</h1>
+					<h1 class="text-center text-success">Erro Inesperado - Occoreu
+						um erro inesperado!</h1>
 				</div>
 			</div>
 		</div>
 	</div>
 	<footer>
-	<div
-		class="navbar navbar-default navbar-fixed-bottom hidden-xs hidden-sm"
-		style="background-color: #004592; color: #fff; padding: 5px; z-index: 999;">
-		<div class="container text-center" style="margin-top: 10px">
-			<p>
-				Sistema Sustentação | Desenvolvido por <b><a target="_blank"
-					style="color: #fff; text-decoration: none"
-					href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
-			</p>
+		<div
+			class="navbar navbar-default navbar-fixed-bottom hidden-xs hidden-sm"
+			style="background-color: #004592; color: #fff; padding: 5px; z-index: 999;">
+			<div class="container text-center" style="margin-top: 10px">
+				<p>
+					Sistema Sustentação | Desenvolvido por <b><a target="_blank"
+						style="color: #fff; text-decoration: none"
+						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
+				</p>
+			</div>
 		</div>
-	</div>
-	<div
-		class="navbar navbar-default navbar-fixed-bottom hidden-md hidden-lg"
-		style="background-color: #004592; color: #fff; padding: 5px; z-index: 999;">
-		<div class="container text-center" style="margin-top: 10px">
-			<p>
-				Sistema Sustentação | Desenvolvido por <b><a target="_blank"
-					style="color: #fff; text-decoration: none"
-					href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
-			</p>
+		<div
+			class="navbar navbar-default navbar-fixed-bottom hidden-md hidden-lg"
+			style="background-color: #004592; color: #fff; padding: 5px; z-index: 999;">
+			<div class="container text-center" style="margin-top: 10px">
+				<p>
+					Sistema Sustentação | Desenvolvido por <b><a target="_blank"
+						style="color: #fff; text-decoration: none"
+						href="http://www.fornax.com.br">FORNAX TECNOLOGIA</a></b> | 2016
+				</p>
+			</div>
 		</div>
-	</div>
-</footer>
+	</footer>
 </body>
 </html>

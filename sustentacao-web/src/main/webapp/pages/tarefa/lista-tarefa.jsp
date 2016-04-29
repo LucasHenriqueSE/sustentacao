@@ -26,8 +26,7 @@
 </script>
 <form class="container" method="GET">
 	<div class="table-responsive text-center">
-		<br />
-		<br />
+		<br /> <br />
 		<table id="tarefas" class="table table-responsive">
 			<thead>
 				<tr>
@@ -41,8 +40,10 @@
 					<td class="text-center hidden-xs hidden-sm"><span
 						style="font-weight: bold;">Horas Disponíveis</span></td>
 					<td class="text-center"><span style="font-weight: bold;">Apontar</span></td>
-					<td class="text-center hidden-xs hidden-sm"><span
-						style="font-weight: bold;">Editar</span></td>
+					<c:if test="${usuario.perfil.descricao == 'Administrador' }">
+						<td class="text-center hidden-xs hidden-sm"><span
+							style="font-weight: bold;">Editar</span></td>
+					</c:if>
 				</tr>
 			</thead>
 			<tbody>
@@ -66,8 +67,10 @@
 											href="/sustentacao/painel/tarefas"></a></td>
 									</c:otherwise>
 								</c:choose>
-								<td><a class="glyphicon glyphicon-edit" title="Editar"
-									href="/sustentacao/painel/tarefa/${tarefa.id}/editar-tarefa"></a></td>
+								<c:if test="${usuario.perfil.descricao == 'Administrador'}">
+									<td><a class="glyphicon glyphicon-edit" title="Editar"
+										href="/sustentacao/painel/tarefa/${tarefa.id}/editar-tarefa"></a></td>
+								</c:if>
 							</tr>
 						</c:forEach>
 					</c:when>
@@ -79,11 +82,12 @@
 				</c:choose>
 			</tbody>
 		</table>
-		<div class="text-center btn-cadastrar">
-			<br />
-			<br /> <br> <a class="btn btn-default btn-md"
-				style="background-color: #004592; color: #fff; border-color: #004592; margin-top: 10px;"
-				href="tarefa/cadastrar-tarefa" type="button">Cadastrar Tarefa</a>
-		</div>
+		<c:if test="${usuario.perfil.descricao == 'Administrador' }">
+			<div class="text-center btn-cadastrar">
+				<br /> <br /> <br> <a class="btn btn-default btn-md"
+					style="background-color: #004592; color: #fff; border-color: #004592; margin-top: 10px;"
+					href="tarefa/cadastrar-tarefa" type="button">Cadastrar Tarefa</a>
+			</div>
+		</c:if>
 	</div>
 </form>

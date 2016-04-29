@@ -2,6 +2,8 @@ package br.com.fornax.sustentacao.controller;
 
 import javax.inject.Inject;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -19,6 +21,8 @@ import br.com.fornax.sustentacao.service.UsuarioService;
 public class TarefaController {
 	private static final String LISTA_TAREFAS = "/painel/tarefas";
 
+	private User user;
+
 	private ModelAndView mav;
 
 	@Inject
@@ -29,14 +33,20 @@ public class TarefaController {
 
 	@Inject
 	private StatusService statusService;
-	
+
 	@Inject
 	private UsuarioService usuarioService;
 
 	@RequestMapping(LISTA_TAREFAS)
 	public ModelAndView listar() {
 		mav = new ModelAndView("listar-tarefas");
-		this.mav.addObject("tarefas", tarefaService.listarTarefa());
+		user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (user.getAuthorities().toString().contains("Administrador")) {
+			this.mav.addObject("tarefas", tarefaService.listarTarefas());
+		} else {
+			this.mav.addObject("tarefas", tarefaService.listarTarefasDoUsuario(user.getUsername()));
+		}
+		this.mav.addObject("usuario", usuarioService.buscarUsuarioPorLogin(user.getUsername()));
 		return mav;
 	}
 
@@ -61,11 +71,15 @@ public class TarefaController {
 
 	@RequestMapping("/painel/tarefa/{idTarefa}/editar-tarefa")
 	public ModelAndView viewEditarTarefa(@PathVariable("idTarefa") long idTarefa, Tarefa tarefa) {
-		mav = new ModelAndView("editar-tarefa");
-		this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(idTarefa));
-		this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
-		this.mav.addObject("status", statusService.listarStatus());
-		this.mav.addObject("usuarios", usuarioService.listarUsuarios());
+		mav = new ModelAndView("403");
+		if (user.getUsername().equals(tarefa.getUsuario().getEmail())
+				|| user.getAuthorities().toString().contains("Administrador")) {
+			this.mav.setViewName("editar-tarefa");
+			this.mav.addObject("tarefa", tarefaService.buscarTarefaPorId(idTarefa));
+			this.mav.addObject("tipo", tipoTarefaService.listarTipoTarefa());
+			this.mav.addObject("status", statusService.listarStatus());
+			this.mav.addObject("usuarios", usuarioService.listarUsuarios());
+		}
 
 		return mav;
 	}

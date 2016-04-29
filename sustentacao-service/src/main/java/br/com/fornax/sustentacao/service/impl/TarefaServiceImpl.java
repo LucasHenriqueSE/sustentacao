@@ -60,7 +60,7 @@ public class TarefaServiceImpl implements TarefaService {
 	}
 
 	@Override
-	public List<Tarefa> listarTarefa() {
+	public List<Tarefa> listarTarefas() {
 		List<TarefaEntity> lista = tarefaDao.listarTudo();
 		List<Tarefa> tarefas = new ArrayList<Tarefa>();
 		for (TarefaEntity tarefa : lista) {
@@ -72,6 +72,16 @@ public class TarefaServiceImpl implements TarefaService {
 	@Override
 	public Tarefa buscarTarefaPorId(long idTarefa) {
 		return (Tarefa) parse.parseToModel(tarefaDao.buscarPorId(idTarefa));
+	}
+
+	@Override
+	public List<Tarefa> listarTarefasDoUsuario(String username) {
+		List<TarefaEntity> lista = tarefaDao.listarTarefasDoUsuario(username);
+		List<Tarefa> tarefas = new ArrayList<Tarefa>();
+		for(TarefaEntity tarefa : lista){
+			tarefas.add(parse.parseToModel(tarefa));
+		}
+		return tarefas;
 	}
 
 //	@Override

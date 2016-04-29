@@ -30,19 +30,12 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 
 	@Inject
 	private TarefaService tarefaService;
-
+	
 	@Inject
 	ParseService parse;
 
 	@Override
 	public void cadastrarApontamento(Apontamento apontamento) {
-		
-//		if(apontamento != null){
-//			
-//			apontamentoDAO.inserir(parse.parseToEntity(apontamento));
-//		}
-		
-		
 		List<Apontamento> lista = apontamentosDoDia(apontamento);
 
 		if (lista.isEmpty()) {
@@ -53,13 +46,35 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 			apontamento.setDataCadastro(Calendar.getInstance());
 			tarefaService.editarTarefa(tarefa);
 			apontamentoDAO.inserir(parse.parseToEntity(apontamento));
-			
 		}
 	}
 
 	@Override
 	public boolean editarApontamento(Apontamento apontamento) {
 		List<Apontamento> lista = apontamentosDoDia(apontamento);
+		Apontamento apontamentoCadastrado = parse.parseToModel(apontamentoDAO.buscarPorId(apontamento.getId()));
+
+		Tarefa tarefa = tarefaService.buscarTarefaPorId(apontamento.getTarefa().getId());
+
+		String horasTrabalhadas = calcularHorasTrabalhadas(apontamento.getHoraTermino(), apontamento.getHoraInicio());
+
+		String horasTrabalhadasAnteriormente = calcularHorasTrabalhadas(apontamentoCadastrado.getHoraTermino(),
+				apontamentoCadastrado.getHoraInicio());
+
+		if (Double.valueOf(horasTrabalhadas.replace(":", ".")) < Double
+				.valueOf(horasTrabalhadasAnteriormente.replace(":", "."))) {
+			String tempoRetirado = calcularHoras(horasTrabalhadas, horasTrabalhadasAnteriormente);
+			String horasDisponiveis = incrementarHoras(tarefa.getQtdHorasDisponiveis(), tempoRetirado);
+			tarefa.setQtdHorasDisponiveis(horasDisponiveis);
+		}
+
+		if (Double.valueOf(horasTrabalhadas.replace(":", ".")) > Double
+				.valueOf(horasTrabalhadasAnteriormente.replace(":", "."))) {
+
+			String tempoAdicionado = calcularHoras(horasTrabalhadas, horasTrabalhadasAnteriormente);
+			String horasDisponiveis = calcularHoras(tarefa.getQtdHorasDisponiveis(), tempoAdicionado);
+			tarefa.setQtdHorasDisponiveis(horasDisponiveis);
+		}
 		apontamento.setDataEdicao(Calendar.getInstance());
 		if (!lista.isEmpty() && lista.size() == 1) {
 			if (lista.get(0).getId() == apontamento.getId()) {
@@ -68,6 +83,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 		} else if (lista.isEmpty()) {
 			apontamentoDAO.editar(parse.parseToEntity(apontamento));
 		}
+		tarefaService.editarTarefa(tarefa);
 		return false;
 	}
 
@@ -108,7 +124,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 		} else {
 			retorno = Integer.valueOf(Double.valueOf(qtdHoras).intValue()).toString();
 		}
-		if (total == 0) {
+		if (total <= 0.9) {
 			return retorno + ":" + Double.valueOf(total).toString().substring(2) + "0";
 		}
 
@@ -210,12 +226,38 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 		return horas + ":" + minutos;
 	}
 
+	private String incrementarHoras(String hora1, String hora2) {
+		Double horas = Double.valueOf(hora1.replace(":", ".")) + Double.valueOf(hora2.replace(":", "."));
+		if (horas.toString().length() > 4) {
+			return horas.toString().replace(".", ":");
+		} else {
+			return horas.toString().replace(".", ":") + 0;
+		}
+	}
+
 	private List<Apontamento> apontamentosDoDia(Apontamento apontamento) {
 		List<ApontamentoEntity> lista = apontamentoDAO.listarApontamentoDoDia(apontamento.getDataApontamento(),
 				apontamento.getHoraInicio(), apontamento.getHoraTermino());
 		List<Apontamento> apontamentos = new ArrayList<Apontamento>();
 		for (ApontamentoEntity a : lista) {
 			apontamentos.add(parse.parseToModel(a));
+		}
+		return apontamentos;
+	}
+
+	@Override
+	public void enviarApontamento(long idApontamento) {
+		ApontamentoEntity apontamento = apontamentoDAO.buscarPorId(idApontamento);
+		apontamento.setEnviadoParaAprovacao(true);
+		apontamentoDAO.editar(apontamento);
+	}
+
+	@Override
+	public List<Apontamento> listarApontamentosDoUsuario(String username) {
+		List<ApontamentoEntity> lista = apontamentoDAO.listarApontamentosDoUsuario(username);
+		List<Apontamento> apontamentos = new ArrayList<Apontamento>();
+		for(ApontamentoEntity apontamento : lista){
+			apontamentos.add(parse.parseToModel(apontamento));
 		}
 		return apontamentos;
 	}

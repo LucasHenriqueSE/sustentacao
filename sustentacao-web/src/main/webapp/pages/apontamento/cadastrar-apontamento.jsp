@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<script src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script>
+<script
+	src="<c:url value="/resources/js/jquery.maskedinput.js"></c:url>"></script>
 <script type="text/javascript" id="mascaraDataHora">
 	$(document).ready(function() {
 		$("#menu-apontamentos").attr('class', 'active');
@@ -46,39 +47,40 @@
 <body>
 	<div class="section">
 		<div class="container">
-			<h4 class="title-screen">Inserir Apontamento</h4>
+			<h4 class="title-screen">Apontar Horas</h4>
 			<hr />
 			<div id="alertas"></div>
-			<form action="/sustentacao/painel/tarefa/cadastrar-apontamento" method="POST" role="form" id="cadastroApontamento">
-			<div>
-			<input id="idTarefa" name="tarefa.id" value="1" type="hidden" />
-		</div>
+			<form action="/sustentacao/painel/tarefa/cadastrar-apontamento"
+				method="POST" role="form" id="cadastroApontamento">
+				<div>
+					<input id="idTarefa" name="tarefa.id" value="${idTarefa}" type="hidden" />
+				</div>
 				<div class="row">
-						<div class="form-group col-md-6 col-md-offset-2">
-							<label for="descricao">Descrição</label>
-							<textarea class="form-control" id="descricao" name="descricao"
-								placeholder="Descrição" rows="3"></textarea>
-						</div>
+					<div class="form-group col-md-6 col-md-offset-2">
+						<label for="descricao">Descrição</label>
+						<textarea class="form-control" id="descricao" name="descricao"
+							placeholder="Descrição" rows="3"></textarea>
+					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-2 col-md-offset-2">
-						<label>Data Apontamento:</label> <input
-							type="date" class="form-control" id="dataApontamento"
-							placeholder="Data Apontamento" name="dataApontamento" required>
+						<label>Data Apontamento:</label> <input type="text"
+							class="form-control" id="dataApontamento" name="dataApontamento"
+							required>
 					</div>
 					<div class="form-group col-md-2">
-						<label>Hora Início:</label> <input
-							type="time" class="form-control" id="horaInicio"
-							placeholder="" name="horaInicio" required>
+						<label>Hora Início:</label> <input type="time"
+							class="form-control" id="horaInicio" name="horaInicio" required>
 					</div>
 					<div class="form-group col-md-2">
-						<label>Hora Término:</label> <input
-							type="time" class="form-control" id="horaTermino"
-							placeholder="" name="horaTermino" required>
+						<label>Hora Término:</label> <input type="time"
+							class="form-control" id="horaTermino" name="horaTermino" required>
 					</div>
 				</div>
 				<hr />
-				<div class="form-group col-xs-offset-0 hidden-md hidden-lg hidden-xl" style="margin-bottom: 70px;">
+				<div
+					class="form-group col-xs-offset-0 hidden-md hidden-lg hidden-xl"
+					style="margin-bottom: 70px;">
 					<a href='<c:url value="/sustentacao/painel/tarefas"/>'
 						style="background-color: #004592; color: #fff; border-color: #004592; margin-bottom: 70px;"
 						class="btn btn-default btn-return">Cancelar</a>
@@ -86,9 +88,10 @@
 						style="background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
 						class="btn btn-default btn-add">Salvar Apontamento</button>
 				</div>
-				<br /><br />
-				<div class="form-group col-xs-offset-0 hidden-xs hidden-sm" style="margin-bottom: 70px;">
-					<a href='<c:url value="/sustentacao/painel/tarefas" />'
+				<br /> <br />
+				<div class="form-group col-xs-offset-0 hidden-xs hidden-sm"
+					style="margin-bottom: 70px;">
+					<a href='<c:url value="/painel/tarefas" />'
 						style="float: left; background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
 						class="btn btn-default">Cancelar</a>
 					<button type="submit"

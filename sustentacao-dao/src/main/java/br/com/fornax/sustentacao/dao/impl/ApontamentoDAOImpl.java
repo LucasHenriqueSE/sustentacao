@@ -63,4 +63,12 @@ public class ApontamentoDAOImpl implements ApontamentoDAO {
 		query.setParameter("idApontamento", idApontamento);
 		return (ApontamentoEntity) query.getSingleResult();
 	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ApontamentoEntity> listarApontamentosDoUsuario(String username) {
+		Query query = em.createQuery("select a from ApontamentoEntity a where a.usuario.email = :username");
+		query.setParameter("username", username);
+		return query.getResultList();
+	}
 }

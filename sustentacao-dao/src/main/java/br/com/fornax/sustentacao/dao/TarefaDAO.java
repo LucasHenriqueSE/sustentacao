@@ -15,5 +15,7 @@ public interface TarefaDAO {
 
 	public TarefaEntity buscarPorId(long idTarefa);
 
+	public List<TarefaEntity> listarTarefasDoUsuario(String username);
+
 //	public List<TarefaEntity> buscarTarefaPorTipo(long idTipoTarefa);
 }

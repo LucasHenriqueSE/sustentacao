@@ -18,4 +18,6 @@ public interface ApontamentoDAO {
 
 	public List<ApontamentoEntity> listarApontamentoDoDia(Calendar dataDeApontamento, Calendar horaInicio,
 			Calendar horaTermino);
+
+	public List<ApontamentoEntity> listarApontamentosDoUsuario(String username);
 }

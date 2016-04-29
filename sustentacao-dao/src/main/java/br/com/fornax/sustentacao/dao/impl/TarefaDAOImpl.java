@@ -49,6 +49,14 @@ public class TarefaDAOImpl implements TarefaDAO {
 		return (TarefaEntity) query.getSingleResult();
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<TarefaEntity> listarTarefasDoUsuario(String username) {
+		Query query = em.createQuery("select t from TarefaEntity t where t.usuario.email = :username");
+		query.setParameter("username", username);
+		return query.getResultList();
+	}
+
 //	@Override
 //	@SuppressWarnings("unchecked")
 //	public List<TarefaEntity> buscarTarefaPorTipo(long idTipoTarefa) {

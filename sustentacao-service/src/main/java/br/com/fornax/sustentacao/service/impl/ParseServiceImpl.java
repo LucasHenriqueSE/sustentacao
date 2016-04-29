@@ -163,6 +163,7 @@ public class ParseServiceImpl implements ParseService {
 			entity.setHoraTermino(model.getHoraTermino());
 			entity.setDataCadastro(model.getDataCadastro());
 			entity.setDataEdicao(model.getDataEdicao());
+			entity.setEnviadoParaAprovacao(false);
 		}
 		return entity;
 	}
@@ -181,6 +182,7 @@ public class ParseServiceImpl implements ParseService {
 			model.setHoraTermino(entity.getHoraTermino());
 			model.setDataCadastro(entity.getDataCadastro());
 			model.setDataEdicao(entity.getDataEdicao());
+			model.setEnviadoParaAprovacao(entity.getEnviadoParaAprovacao());
 		}
 		return model;
 	}

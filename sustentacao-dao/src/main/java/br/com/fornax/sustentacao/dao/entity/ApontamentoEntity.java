@@ -27,7 +27,7 @@ public class ApontamentoEntity {
 	private long id;
 
 	@ManyToOne
-	@JoinColumn(name = "USUARIO", referencedColumnName = "ID", unique = true)
+	@JoinColumn(name = "USUARIO", referencedColumnName = "ID")
 	private UsuarioEntity usuario;
 
 	@Column(name = "DATA_CADASTRO")
@@ -66,6 +66,9 @@ public class ApontamentoEntity {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataApontamento;
+
+	@Column(name="ENVIADO_APROVACAO")
+	private Boolean enviadoParaAprovacao;
 
 	// public String formataHora(Calendar hora) {
 	// Date date = hora.getTime();
@@ -145,5 +148,13 @@ public class ApontamentoEntity {
 
 	public void setDataApontamento(Calendar dataApontamento) {
 		this.dataApontamento = dataApontamento;
+	}
+
+	public Boolean getEnviadoParaAprovacao() {
+		return enviadoParaAprovacao;
+	}
+
+	public void setEnviadoParaAprovacao(Boolean enviadoParaAprovacao) {
+		this.enviadoParaAprovacao = enviadoParaAprovacao;
 	}
 }

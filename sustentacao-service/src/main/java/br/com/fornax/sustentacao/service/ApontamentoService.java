@@ -18,4 +18,8 @@ public interface ApontamentoService {
 	public boolean validarHoraInicioFim(String horaInicio, String horaFim, long idTarefa);
 
 	public void cadastrarApontamento(Apontamento apontamento);
+
+	public void enviarApontamento(long idApontamento);
+
+	public List<Apontamento> listarApontamentosDoUsuario(String username);
 }

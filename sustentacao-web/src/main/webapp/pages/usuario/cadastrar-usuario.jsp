@@ -17,7 +17,8 @@
 			<h4 class="title-screen">Cadastro de Usuario</h4>
 			<hr />
 			<div id="alertas"></div>
-			<form action="/sustentacao/painel/usuario/cadastrar" method="POST" role="form">
+			<form action="/sustentacao/painel/usuario/cadastrar" method="POST"
+				role="form">
 				<div class="row">
 					<div class="form-group col-md-offset-2 col-md-4">
 						<label for="nome">Nome Completo:</label> <input type="text"
@@ -25,9 +26,9 @@
 							placeholder="Digite o nome" required autofocus>
 					</div>
 					<div class="form-group col-md-4">
-						<label>Usuario:</label> <input
-							type="email" class="form-control" id="usuario"
-							placeholder="Digite o nome do usuario" name="email" required>
+						<label>Usuario:</label> <input type="email" class="form-control"
+							id="usuario" placeholder="Digite o nome do usuario" name="email"
+							required>
 					</div>
 					<div class="form-group col-md-offset-2 col-md-4">
 						<label>Senha:</label> <input type="password" class="form-control"
@@ -47,14 +48,15 @@
 						class="form-group col-md-offset-2 col-md-4">
 						<div class="radio">
 							<label>Realiza login no sistema?</label> <label><input
-								type="radio" name="ativo" value="true" required>Sim</label>
-							<label><input type="radio" name="ativo"
-								value="false" required>Não</label>
+								type="radio" name="ativo" value="true" required>Sim</label> <label><input
+								type="radio" name="ativo" value="false" required>Não</label>
 						</div>
 					</div>
 				</div>
 				<hr />
-				<div class="form-group col-xs-offset-0 hidden-md hidden-lg hidden-xl" style="margin-bottom: 70px;">
+				<div
+					class="form-group col-xs-offset-0 hidden-md hidden-lg hidden-xl"
+					style="margin-bottom: 70px;">
 					<a href='<c:url value="/sustentacao/painel/usuarios"/>'
 						style="background-color: #004592; color: #fff; border-color: #004592; margin-bottom: 70px;"
 						class="btn btn-default btn-return">Cancelar</a>
@@ -62,8 +64,10 @@
 						style="background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
 						class="btn btn-default btn-add">Salvar Usuário</button>
 				</div>
-				<br /><br />
-				<div class="form-group col-xs-offset-0 hidden-xs hidden-sm" style="margin-bottom: 70px;">
+				<br />
+				<br />
+				<div class="form-group col-xs-offset-0 hidden-xs hidden-sm"
+					style="margin-bottom: 70px;">
 					<a href='<c:url value="/sustentacao/painel/usuarios" />'
 						style="float: left; background-color: #004592; color: #fff; border-color: #004592 margin-bottom: 70px;"
 						class="btn btn-default">Cancelar</a>
