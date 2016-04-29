@@ -47,7 +47,8 @@ public class ApontamentoController {
 	public ModelAndView viewCadastrar(@PathVariable("idTarefa") long idTarefa) {
 		Tarefa tarefa = tarefaService.buscarTarefaPorId(idTarefa);
 		mav = new ModelAndView("403");
-		if (user.getUsername().equals(tarefa.getUsuario().getEmail())) {
+		if (user.getUsername().equals(tarefa.getUsuario().getEmail())
+				|| user.getAuthorities().toString().contains("Administrador")) {
 			this.mav.setViewName("cadastrar-apontamento");
 		}
 		return mav;

@@ -53,7 +53,8 @@
 			<form action="/sustentacao/painel/tarefa/cadastrar-apontamento"
 				method="POST" role="form" id="cadastroApontamento">
 				<div>
-					<input id="idTarefa" name="tarefa.id" value="${idTarefa}" type="hidden" />
+					<input id="idTarefa" name="tarefa.id" value="${idTarefa}"
+						type="hidden" />
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6 col-md-offset-2">
