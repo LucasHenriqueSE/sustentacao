@@ -65,7 +65,7 @@ public class ApontamentoController {
 	public ModelAndView viewEditar(@PathVariable("idApontamento") long idApontamento, Apontamento apontamento) {
 		apontamento = apontamentoService.buscarApontamentoPorId(idApontamento);
 		mav = new ModelAndView("403");
-		if (user.getUsername().equals(apontamento.getUsuario().getEmail())
+		if (user.getUsername().equals(apontamento.getTarefa().getUsuario().getEmail())
 				|| user.getAuthorities().toString().contains("Administrador")) {
 			if (!apontamento.getEnviadoParaAprovacao()) {
 				this.mav.setViewName("editar-apontamento");

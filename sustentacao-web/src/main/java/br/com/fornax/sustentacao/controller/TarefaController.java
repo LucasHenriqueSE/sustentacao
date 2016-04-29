@@ -72,6 +72,7 @@ public class TarefaController {
 	@RequestMapping("/painel/tarefa/{idTarefa}/editar-tarefa")
 	public ModelAndView viewEditarTarefa(@PathVariable("idTarefa") long idTarefa, Tarefa tarefa) {
 		mav = new ModelAndView("403");
+		tarefa = tarefaService.buscarTarefaPorId(idTarefa);
 		if (user.getUsername().equals(tarefa.getUsuario().getEmail())
 				|| user.getAuthorities().toString().contains("Administrador")) {
 			this.mav.setViewName("editar-tarefa");
