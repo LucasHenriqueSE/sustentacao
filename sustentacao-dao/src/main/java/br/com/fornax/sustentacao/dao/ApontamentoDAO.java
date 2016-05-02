@@ -17,7 +17,7 @@ public interface ApontamentoDAO {
 	public ApontamentoEntity buscarPorId(long idApontamento);
 
 	public List<ApontamentoEntity> listarApontamentoDoDia(Calendar dataDeApontamento, Calendar horaInicio,
-			Calendar horaTermino);
+			Calendar horaTermino, long idUsuario);
 
 	public List<ApontamentoEntity> listarApontamentosDoUsuario(String username);
 }

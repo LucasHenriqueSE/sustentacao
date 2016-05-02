@@ -19,83 +19,97 @@
 		$('#qtdHorasDisponiveis').val(qtd);
 	}
 </script>
-<form class="container" action="/sustentacao/painel/tarefa/editar"
-	method="POST">
-	<!-- <div class="alert alert-danger alert-dismissible" role="alert"> -->
-	<!--   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-	<!-- </div> -->
-	<div>
-		<br> <br>
-		<div>
-			<input name="id" value="${idTarefa}" type="hidden">
-		</div>
-		<div>
-			<input id="dataEdicao" name="dataEdicao"
-				value='<fmt:formatDate value="${tarefa.dataEdicao.time}"/>'
-				type="hidden">
-		</div>
-		<div class="input-group">
-			<label for="tipoTarefa">Tipo de Tarefa </label> <select
-				class="form-control" id="tipoTarefa" name="tipo.id">
-				<c:forEach var="tipos" items="${tipo}">
+<div class="section">
+	<div class="container">
+		<h4 class="title-screen">Editar Tarefa</h4>
+		<hr>
+		<form action="/sustentacao/painel/tarefa/editar" method="POST">
+			<div>
+				<input name="id" value="${idTarefa}" type="hidden">
+			</div>
+			<div>
+				<input name="usuario.id" value="${tarefa.usuario.id}" type="hidden">
+			</div>
+			<div>
+				<input name="dataEdicao"
+					value='<fmt:formatDate value="${tarefa.dataEdicao.time}"/>'
+					type="hidden">
+			</div>
+			<div class="col-md-offset-3">
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="tipoTarefa">Tipo de Tarefa </label> <select
+							class="form-control" id="tipoTarefa" name="tipo.id" required
+							autofocus>
+							<c:forEach var="tipos" items="${tipo}">
+								<c:choose>
+									<c:when test="${tarefa.tipo.id == tipos.id}">
+										<option value="${tipos.id}" label="${tipos.nome}" selected />
+									</c:when>
+									<c:otherwise>
+										<option value="${tipos.id}" label="${tipos.nome}" />
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="statusChamado">Status</label> <select
+							class="form-control" id="statusChamado" name="status.id" required>
+							<c:forEach var="listaStatus" items="${status}">
+								<c:choose>
+									<c:when test="${tarefa.status.id == listaStatus.id}">
+										<option value="${listaStatus.id}" label="${listaStatus.nome}"
+											selected></option>
+									</c:when>
+									<c:otherwise>
+										<option value="${listaStatus.id}" label="${listaStatus.nome}"></option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
+					</div>
 					<c:choose>
-						<c:when test="${tarefa.tipo.id == tipos.id}">
-							<option value="${tipos.id}" label="${tipos.nome}" selected />
+						<c:when test="${tarefa.tipo.id == 3 || tarefa.tipo.id == 4}">
+							<div class="form-group col-md-2">
+								<label for="qtdHorasDisponiveis">Horas Disponíveis</label> <input
+									class="form-control" id="qtdHorasDisponiveis"
+									onfocus="removemascara();"
+									onblur="reformatarHorasDisponiveis();"
+									name="qtdHorasDisponiveis"
+									value="${tarefa.qtdHorasDisponiveis}" />
+							</div>
 						</c:when>
 						<c:otherwise>
-							<option value="${tipos.id}" label="${tipos.nome}" />
+							<div class="form-group">
+								<input class="form-control" id="qtdHorasDisponiveis"
+									onfocus="removemascara();"
+									onblur="reformatarHorasDisponiveis();"
+									name="qtdHorasDisponiveis"
+									value="${tarefa.qtdHorasDisponiveis}" type="hidden" />
+							</div>
 						</c:otherwise>
 					</c:choose>
-				</c:forEach>
-
-			</select>
-		</div>
-		<div class="input-group">
-			<label for="numeroChamado">Número do Chamado</label> <input
-				class="form-control" id="numeroChamado" name="numeroChamado"
-				value="${tarefa.numeroChamado}" />
-		</div>
-		<div class="input-group">
-			<label for="descricao">Descrição</label> <input class="form-control"
-				id="descricao" name="descricao" value="${tarefa.descricao}" />
-		</div>
-		<c:choose>
-			<c:when test="${tarefa.tipo.id == 3 || tarefa.tipo.id == 4}">
-				<div class="input-group">
-					<label for="qtdHorasDisponiveis">Horas Disponíveis</label> <input
-						class="form-control" id="qtdHorasDisponiveis"
-						onfocus="removemascara();" onblur="reformatarHorasDisponiveis();"
-						name="qtdHorasDisponiveis" value="${tarefa.qtdHorasDisponiveis}" />
 				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="input-group">
-					<input class="form-control" id="qtdHorasDisponiveis"
-						onfocus="removemascara();" onblur="reformatarHorasDisponiveis();"
-						name="qtdHorasDisponiveis" value="${tarefa.qtdHorasDisponiveis}"
-						type="hidden" />
+				<div class="row">
+					<div class="form-group col-md-7">
+						<label for="numeroChamado">Número do Chamado</label> <input
+							class="form-control" id="numeroChamado" name="numeroChamado"
+							value="${tarefa.numeroChamado}" required />
+					</div>
 				</div>
-			</c:otherwise>
-		</c:choose>
-		<div class="input-group">
-			<label for="statusChamado">Status</label> <select
-				class="form-control" id="statusChamado" name="status.id">
-				<c:forEach var="listaStatus" items="${status}">
-					<c:choose>
-						<c:when test="${tarefa.status.id == listaStatus.id}">
-							<option value="${listaStatus.id}" label="${listaStatus.nome}"
-								selected></option>
-						</c:when>
-						<c:otherwise>
-							<option value="${listaStatus.id}" label="${listaStatus.nome}"></option>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-			</select>
-		</div>
+				<div class="row">
+					<div class="form-group col-md-7">
+						<label for="descricao">Descrição</label>
+						<textarea class="form-control" id="descricao" name="descricao"
+							rows="2" required>${tarefa.descricao}</textarea>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<button class="btn btn-add" type="submit">Salvar Tarefa</button>
+			<a class="btn btn-return" href="/sustentacao/painel/tarefas"
+				type="button">Cancelar</a>
+		</form>
 	</div>
-	<br>
-	<button class="btn btn-default" type="submit">Salvar</button>
-	<a class="btn btn-default" href="/sustentacao/painel/tarefas"
-		type="button">Cancelar</a>
-</form>
+</div>

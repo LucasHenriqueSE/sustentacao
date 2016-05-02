@@ -30,16 +30,16 @@ public class ApontamentoDAOImpl implements ApontamentoDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<ApontamentoEntity> listarApontamentoDoDia(Calendar dataApontamento, Calendar horaInicio,
-			Calendar horaTermino) {
+			Calendar horaTermino, long idUsuario) {
 		Query apontamentos = em
 				.createQuery("select a from ApontamentoEntity a where a.dataApontamento = :dataApontamento "
 						+ "and (a.horaInicio between :horaInicio and :horaTermino "
-						+ "or a.horaTermino between :horaInicio and :horaTermino)");
+						+ "or a.horaTermino between :horaInicio and :horaTermino) and a.usuario.id = :idUsuario");
 		apontamentos.setParameter("dataApontamento", dataApontamento);
 		apontamentos.setParameter("horaInicio", horaInicio);
 		apontamentos.setParameter("horaTermino", horaTermino);
+		apontamentos.setParameter("idUsuario", idUsuario);
 		return apontamentos.getResultList();
-
 	}
 
 	@Override

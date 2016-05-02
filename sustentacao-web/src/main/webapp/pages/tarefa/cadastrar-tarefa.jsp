@@ -16,7 +16,7 @@
 <body>
 	<div class="section">
 		<div class="container">
-			<h4 class="title-screen">Cadastro de Tarefas</h4>
+			<h4 class="title-screen">Cadastrar Tarefa</h4>
 			<hr />
 			<div id="alertas"></div>
 			<form action="/sustentacao/painel/tarefa/cadastrar" method="POST"
@@ -24,7 +24,8 @@
 				<div class="row">
 					<div class="form-group col-md-2 col-md-offset-3">
 						<label for="tipoTarefa">Tipo de Tarefa</label> <select
-							class="form-control" id="tipoTarefa" name="tipo.id">
+							class="form-control" id="tipoTarefa" name="tipo.id" required
+							autofocus>
 							<option label="Selecione" selected="selected" value="" />
 							<c:forEach var="listaTipo" items="${tipo}">
 								<option value="${listaTipo.id}">${listaTipo.nome}</option>
@@ -34,20 +35,20 @@
 					<div class="form-group col-md-4">
 						<label for="numeroChamado">Número do Chamado</label> <input
 							class="form-control" id="numeroChamado" name="numeroChamado"
-							placeholder="Número do Chamado" />
+							placeholder="Número do Chamado" required />
 					</div>
 				</div>
 				<div class="row">
-						<div class="form-group col-md-6 col-md-offset-3">
-							<label for="descricao">Descrição</label>
-							<textarea class="form-control" id="descricao" name="descricao"
-								placeholder="Descrição" rows="7"></textarea>
-						</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<label for="descricao">Descrição</label>
+						<textarea class="form-control" id="descricao" name="descricao"
+							placeholder="Descrição" rows="7" required></textarea>
+					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6 col-md-offset-3">
 						<label for="usuario">Responsável pela Tarefa</label> <select
-							class="form-control" id="usuario" name="usuario.id">
+							class="form-control" id="usuario" name="usuario.id" required>
 							<option label="Selecione" selected="selected" value="" />
 							<c:forEach var="usuario" items="${usuarios}">
 								<option value="${usuario.id}">${usuario.nome}</option>
@@ -55,22 +56,18 @@
 						</select>
 					</div>
 				</div>
-				<div style="clear: both; margin-bottom: 70px;" class="hidden-md hidden-lg hidden-xl">
-					<button class="btn btn-default"
-						style="float: right; margin-bottom: 70px; background-color: #004592; color: #fff; border-color: #004592;"
-						type="submit">Salvar</button>
-					<a class="btn btn-default"
-						style="float: left; background-color: #004592; margin-bottom: 70px; color: #fff; border-color: #004592;"
-						href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
+				<div style="clear: both; margin-bottom: 70px;"
+					class="hidden-md hidden-lg hidden-xl">
+					<button class="btn btn-add" type="submit">Salvar Tarefa</button>
+					<a class="btn btn-return" href="/sustentacao/painel/tarefas"
+						type="button">Cancelar</a>
 				</div>
-
-				<div style="clear: both; margin-bottom: 70px;" class="hidden-xs hidden-sm">
-					<button class="btn btn-default"
-						style="float: right; background-color: #004592; color: #fff; border-color: #004592;"
-						type="submit">Salvar</button>
-					<a class="btn btn-default"
-						style="float: left; background-color: #004592; color: #fff; border-color: #004592;"
-						href="/sustentacao/painel/tarefas" type="button">Cancelar</a>
+				<hr>
+				<div style="clear: both; margin-bottom: 70px;"
+					class="hidden-xs hidden-sm">
+					<button class="btn btn-add" type="submit">Salvar Tarefa</button>
+					<a class="btn btn-return" href="/sustentacao/painel/tarefas"
+						type="button">Cancelar</a>
 				</div>
 			</form>
 		</div>

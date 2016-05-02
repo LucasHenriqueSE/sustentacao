@@ -53,6 +53,10 @@
 						value="${apontamento.tarefa.id}" type="hidden">
 				</div>
 				<div>
+					<input id="idUsuario" name="usuario.id"
+						value="${apontamento.usuario.id}" type="hidden">
+				</div>
+				<div>
 					<input id="dataEdicao" name="dataEdicao"
 						value='<fmt:formatDate value="${apontamento.dataEdicao.time}"/>'
 						type="hidden" />
@@ -63,35 +67,38 @@
 						type="hidden" />
 				</div>
 				<div class="row">
-					<div class="form-group col-md-6 col-md-offset-2">
+					<div class="form-group col-md-6 col-md-offset-3">
 						<label for="descricao">Descrição</label>
 						<textarea class="form-control" id="descricao" name="descricao"
-							rows="3">${apontamento.descricao}</textarea>
+							rows="3" required autofocus>${apontamento.descricao}</textarea>
 					</div>
 				</div>
 				<div class="row">
-					<div class="form-group col-md-2 col-md-offset-2">
+					<div class="form-group col-md-2 col-md-offset-3">
 						<label for="dataApontamento">Data Apontamento</label> <input
 							class="form-control" id="dataApontamento" name="dataApontamento"
-							value='<fmt:formatDate value="${apontamento.dataApontamento.time}"/>' />
+							value='<fmt:formatDate value="${apontamento.dataApontamento.time}"/>'
+							required />
 					</div>
 					<div class="form-group col-md-2">
 						<label for="horaInicio">Hora Início</label> <input
 							class="form-control" name="horaInicio" id="horaInicio"
-							value='<fmt:formatDate value="${apontamento.horaInicio.time}" pattern="HH:mm"/>' />
+							value='<fmt:formatDate value="${apontamento.horaInicio.time}" pattern="HH:mm"/>'
+							pattern="([01][0-9]|2[0-3]):[0-5][0-9]" required />
 					</div>
 					<div class="form-group col-md-2">
 						<label for="horaTermino">Hora Término</label> <input
 							class="form-control" name="horaTermino" id="horaTermino"
 							value='<fmt:formatDate value="${apontamento.horaTermino.time}" pattern="HH:mm"/>'
-							onblur="validar();" />
+							pattern="([01][0-9]|2[0-3]):[0-5][0-9]" onblur="validar();"
+							required />
 					</div>
 				</div>
 			</div>
 			<hr />
-			<button class="btn btn-default btn-add" type="submit">Cadastrar</button>
-			<a class="btn btn-default btn-return"
-				href="/sustentacao/painel/apontamentos" type="button">Cancelar</a>
+			<button class="btn btn-add" type="submit">Salvar Apontamento</button>
+			<a class="btn btn-return" href="/sustentacao/painel/apontamentos"
+				type="button">Cancelar</a>
 		</form>
 	</div>
 </div>

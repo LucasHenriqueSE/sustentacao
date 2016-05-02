@@ -30,13 +30,14 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css"
 	href="/sustentacao/bootstrap/css/jquery-ui.min.css" />
+
 <link href="/sustentacao/bootstrap/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
+
 <link href="/sustentacao/bootstrap/font-awesome.css" rel="stylesheet"
 	type="text/css">
+
 <link href="/sustentacao/bootstrap/css/index.css" rel="stylesheet"
-	type="text/css">
-<link href="/sustentacao/bootstrap/css/style.css" rel="stylesheet"
 	type="text/css">
 
 <link href="/sustentacao/bootstrap/css/jquery.dataTables.min.css"
@@ -93,6 +94,8 @@
 	
 }
 </style>
+<link href="/sustentacao/bootstrap/css/style.css" rel="stylesheet"
+	type="text/css">
 <script type="text/javascript">
 	function abrirLoading(textoDinamico) {
 		$.isLoading({

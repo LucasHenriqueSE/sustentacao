@@ -237,7 +237,7 @@ public class ApontamentoServiceImpl implements ApontamentoService {
 
 	private List<Apontamento> apontamentosDoDia(Apontamento apontamento) {
 		List<ApontamentoEntity> lista = apontamentoDAO.listarApontamentoDoDia(apontamento.getDataApontamento(),
-				apontamento.getHoraInicio(), apontamento.getHoraTermino());
+				apontamento.getHoraInicio(), apontamento.getHoraTermino(), apontamento.getUsuario().getId());
 		List<Apontamento> apontamentos = new ArrayList<Apontamento>();
 		for (ApontamentoEntity a : lista) {
 			apontamentos.add(parse.parseToModel(a));

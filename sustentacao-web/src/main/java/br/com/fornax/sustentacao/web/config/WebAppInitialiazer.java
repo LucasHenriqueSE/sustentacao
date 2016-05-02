@@ -14,15 +14,15 @@ public class WebAppInitialiazer implements WebApplicationInitializer {
 	@SuppressWarnings("resource")
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
-		// Le as configurações do Spring que foram feitas via classe e anotações
+		// Le as configuracoes do Spring que foram feitas via classe e anotacoes
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(WebSpringConfig.class);
 
-		// Le as anotações contidas na classe do Spring
+		// Le as anotacoes contidas na classe do Spring
 		AnnotationConfigWebApplicationContext dispatcherContext = new AnnotationConfigWebApplicationContext();
 		dispatcherContext.register(WebSpringConfig.class);
 
-		// Faz com que o sistema entenda as requisições a partir da "/"
+		// Faz com que o sistema entenda as requisicoes a partir da "/"
 		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher",
 				new DispatcherServlet(dispatcherContext));
 		dispatcher.setLoadOnStartup(1);

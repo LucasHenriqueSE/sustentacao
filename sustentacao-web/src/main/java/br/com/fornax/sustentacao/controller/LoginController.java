@@ -13,8 +13,8 @@ public class LoginController {
 	public String login(HttpServletRequest request) {
 
 		/**
-		 * VERIFICA SE EXISTE SESSÃO PARA O USUARIO, CASO EXISTA REDIRECIONA
-		 * PARA O PAINEL, SENÃO VAI PARA TELA DE LOGIN
+		 * VERIFICA SE EXISTE SESSAO PARA O USUARIO, CASO EXISTA REDIRECIONA
+		 * PARA O PAINEL, SENAO VAI PARA TELA DE LOGIN
 		 */
 		if (!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
 			return "redirect:/painel";
